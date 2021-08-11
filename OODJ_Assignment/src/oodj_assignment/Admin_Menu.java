@@ -60,6 +60,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
         pnlAddOrder = new javax.swing.JPanel();
         pnlEditCustomer = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -105,20 +106,12 @@ public class Admin_Menu extends javax.swing.JFrame {
         menuAddOrder = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuEditCustomer = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
         menuEditProduct = new javax.swing.JMenuItem();
-        menuEditOrder = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        menuViewCustomer = new javax.swing.JMenuItem();
-        menuViewProduct = new javax.swing.JMenuItem();
-        menuViewOrder = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        menuDeleteCustomer = new javax.swing.JMenuItem();
-        menuDeleteProduct = new javax.swing.JMenuItem();
-        menuDeleteOrder = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        menuSearchCustomer = new javax.swing.JMenuItem();
-        menuSearchProduct = new javax.swing.JMenuItem();
-        menuSearchOrder = new javax.swing.JMenuItem();
+        menuEditOrder = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        menuEditProfile = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuHome = new javax.swing.JMenuItem();
 
@@ -318,14 +311,13 @@ public class Admin_Menu extends javax.swing.JFrame {
         jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jRadioButton2.setText("Equipments");
 
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton1.setText("Add Product");
+
         javax.swing.GroupLayout pnlAddProductLayout = new javax.swing.GroupLayout(pnlAddProduct);
         pnlAddProduct.setLayout(pnlAddProductLayout);
         pnlAddProductLayout.setHorizontalGroup(
             pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(195, 195, 195))
             .addGroup(pnlAddProductLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -343,6 +335,15 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addComponent(jRadioButton2))
                     .addComponent(jTextField7))
                 .addContainerGap(230, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(195, 195, 195))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97))))
         );
         pnlAddProductLayout.setVerticalGroup(
             pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,7 +370,9 @@ public class Admin_Menu extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
         );
 
         mainAdminMain.add(pnlAddProduct, "pnlAddProduct");
@@ -391,7 +394,7 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         pnlEditCustomer.setBackground(new java.awt.Color(247, 183, 49));
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Edit Customer");
 
@@ -450,6 +453,11 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtCusPassword.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtCusPassword.setForeground(new java.awt.Color(0, 0, 0));
         txtCusPassword.setText("jTextField9");
+        txtCusPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCusPasswordActionPerformed(evt);
+            }
+        });
 
         btnEdit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnEdit.setText("Edit");
@@ -462,44 +470,42 @@ public class Admin_Menu extends javax.swing.JFrame {
         pnlEditCustomerLayout.setHorizontalGroup(
             pnlEditCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditCustomerLayout.createSequentialGroup()
-                .addContainerGap(331, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addGap(268, 268, 268))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(186, 186, 186)
+                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditCustomerLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlEditCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlEditCustomerLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(186, 186, 186)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
-                    .addGroup(pnlEditCustomerLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlEditCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlEditCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtCusEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCusName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCusUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCusPassword2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(txtCusPassword, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addGap(90, 90, 90))
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlEditCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCusPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCusPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCusUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCusName, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 140, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditCustomerLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(183, 183, 183))
         );
         pnlEditCustomerLayout.setVerticalGroup(
             pnlEditCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEditCustomerLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel14)
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addGroup(pnlEditCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlEditCustomerLayout.createSequentialGroup()
@@ -667,6 +673,8 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         mainAdminMain.add(pnlEditProduct, "pnlEditProduct");
 
+        pnlEditOrder.setBackground(new java.awt.Color(153, 255, 153));
+
         javax.swing.GroupLayout pnlEditOrderLayout = new javax.swing.GroupLayout(pnlEditOrder);
         pnlEditOrder.setLayout(pnlEditOrderLayout);
         pnlEditOrderLayout.setHorizontalGroup(
@@ -678,7 +686,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             .addGap(0, 516, Short.MAX_VALUE)
         );
 
-        mainAdminMain.add(pnlEditOrder, "card8");
+        mainAdminMain.add(pnlEditOrder, "pnlEditOrder");
 
         jMenu1.setText("Add");
 
@@ -708,9 +716,9 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Customer");
 
-        menuEditCustomer.setText("Edit Customer");
+        menuEditCustomer.setText("Customer Menu");
         menuEditCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuEditCustomerActionPerformed(evt);
@@ -718,57 +726,38 @@ public class Admin_Menu extends javax.swing.JFrame {
         });
         jMenu2.add(menuEditCustomer);
 
-        menuEditProduct.setText("Edit Product");
+        jMenuBar1.add(jMenu2);
+
+        jMenu8.setText("Product");
+
+        menuEditProduct.setText("Product Menu");
         menuEditProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuEditProductActionPerformed(evt);
             }
         });
-        jMenu2.add(menuEditProduct);
+        jMenu8.add(menuEditProduct);
 
-        menuEditOrder.setText("Edit Order");
-        jMenu2.add(menuEditOrder);
+        jMenuBar1.add(jMenu8);
 
-        jMenuBar1.add(jMenu2);
+        jMenu3.setText("Order");
 
-        jMenu3.setText("View");
-
-        menuViewCustomer.setText("View Customer");
-        jMenu3.add(menuViewCustomer);
-
-        menuViewProduct.setText("View Product");
-        jMenu3.add(menuViewProduct);
-
-        menuViewOrder.setText("View Order");
-        jMenu3.add(menuViewOrder);
+        menuEditOrder.setText("Order Menu");
+        menuEditOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditOrderActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuEditOrder);
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Delete");
+        jMenu7.setText("Profile");
 
-        menuDeleteCustomer.setText("Delete Customer");
-        jMenu4.add(menuDeleteCustomer);
+        menuEditProfile.setText("Profile Menu");
+        jMenu7.add(menuEditProfile);
 
-        menuDeleteProduct.setText("Delete Product");
-        jMenu4.add(menuDeleteProduct);
-
-        menuDeleteOrder.setText("Delete Order");
-        jMenu4.add(menuDeleteOrder);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Search");
-
-        menuSearchCustomer.setText("Search Customer");
-        jMenu5.add(menuSearchCustomer);
-
-        menuSearchProduct.setText("Search Product");
-        jMenu5.add(menuSearchProduct);
-
-        menuSearchOrder.setText("Search Order");
-        jMenu5.add(menuSearchOrder);
-
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(jMenu7);
 
         jMenu6.setText("Home");
 
@@ -825,10 +814,21 @@ public class Admin_Menu extends javax.swing.JFrame {
         card.show(mainAdminMain, "pnlEditCustomer");
     }//GEN-LAST:event_menuEditCustomerActionPerformed
 
+    private void txtCusPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCusPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCusPasswordActionPerformed
+
     private void menuEditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditProductActionPerformed
+        // TODO add your handling code here:
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlEditProduct");
     }//GEN-LAST:event_menuEditProductActionPerformed
+
+    private void menuEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditOrderActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)mainAdminMain.getLayout();
+        card.show(mainAdminMain, "pnlEditOrder");
+    }//GEN-LAST:event_menuEditOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -875,6 +875,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnMinus;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReset2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -904,9 +905,9 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
@@ -931,19 +932,11 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuAddCustomer;
     private javax.swing.JMenuItem menuAddOrder;
     private javax.swing.JMenuItem menuAddProduct;
-    private javax.swing.JMenuItem menuDeleteCustomer;
-    private javax.swing.JMenuItem menuDeleteOrder;
-    private javax.swing.JMenuItem menuDeleteProduct;
     private javax.swing.JMenuItem menuEditCustomer;
     private javax.swing.JMenuItem menuEditOrder;
     private javax.swing.JMenuItem menuEditProduct;
+    private javax.swing.JMenuItem menuEditProfile;
     private javax.swing.JMenuItem menuHome;
-    private javax.swing.JMenuItem menuSearchCustomer;
-    private javax.swing.JMenuItem menuSearchOrder;
-    private javax.swing.JMenuItem menuSearchProduct;
-    private javax.swing.JMenuItem menuViewCustomer;
-    private javax.swing.JMenuItem menuViewOrder;
-    private javax.swing.JMenuItem menuViewProduct;
     private javax.swing.JPanel pnlAddCustomer;
     private javax.swing.JPanel pnlAddOrder;
     private javax.swing.JPanel pnlAddProduct;

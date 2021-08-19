@@ -29,15 +29,22 @@ public class Cus_Menu extends javax.swing.JFrame {
 
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jPanel6 = new javax.swing.JPanel();
         pnlCusMenu = new javax.swing.JPanel();
         pnlCusMain = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         pnlSearchProduct = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        cBtnSearchProduct = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
         pnlBrowseProduct = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane4 = new javax.swing.JScrollPane();
         jList4 = new javax.swing.JList<>();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
         pnlAddProduct = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -58,7 +65,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
         jLabel14 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        cbtnAddOrder = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -79,6 +86,21 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        pnlEditOrder = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel34 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        pnlViewOrder = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jList5 = new javax.swing.JList<>();
+        jButton5 = new javax.swing.JButton();
+        pnlSearchOrder = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         cmenuShop = new javax.swing.JMenu();
         cmenuBrowseProduct = new javax.swing.JMenuItem();
@@ -86,7 +108,6 @@ public class Cus_Menu extends javax.swing.JFrame {
         cmenuOrder = new javax.swing.JMenu();
         cmenuAddOrder = new javax.swing.JMenuItem();
         cmenuEditOrder = new javax.swing.JMenuItem();
-        cmenuDeleteOrder = new javax.swing.JMenuItem();
         cmenuViewOrder = new javax.swing.JMenuItem();
         cmenuSearchOrder = new javax.swing.JMenuItem();
         cmenuProfile = new javax.swing.JMenu();
@@ -97,6 +118,17 @@ public class Cus_Menu extends javax.swing.JFrame {
         jMenu3.setText("jMenu3");
 
         jMenuItem1.setText("jMenuItem1");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,7 +153,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlCusMainLayout.setHorizontalGroup(
             pnlCusMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCusMainLayout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(107, Short.MAX_VALUE)
                 .addGroup(pnlCusMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCusMainLayout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -142,25 +174,57 @@ public class Cus_Menu extends javax.swing.JFrame {
 
         pnlCusMenu.add(pnlCusMain, "pnlCusMain");
 
-        pnlSearchProduct.setBackground(new java.awt.Color(204, 204, 204));
+        pnlSearchProduct.setBackground(new java.awt.Color(102, 153, 255));
         pnlSearchProduct.setForeground(new java.awt.Color(204, 204, 204));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setText("Enter product name or ID:");
+
+        cBtnSearchProduct.setText("Search");
+
+        jLabel32.setBackground(new java.awt.Color(153, 204, 255));
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(204, 0, 51));
+        jLabel32.setText("No Matches Found!");
 
         javax.swing.GroupLayout pnlSearchProductLayout = new javax.swing.GroupLayout(pnlSearchProduct);
         pnlSearchProduct.setLayout(pnlSearchProductLayout);
         pnlSearchProductLayout.setHorizontalGroup(
             pnlSearchProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(pnlSearchProductLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlSearchProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1)
+                    .addGroup(pnlSearchProductLayout.createSequentialGroup()
+                        .addComponent(jLabel22)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnlSearchProductLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                        .addComponent(cBtnSearchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         pnlSearchProductLayout.setVerticalGroup(
             pnlSearchProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 413, Short.MAX_VALUE)
+            .addGroup(pnlSearchProductLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlSearchProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addGroup(pnlSearchProductLayout.createSequentialGroup()
+                        .addComponent(cBtnSearchProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                        .addGap(2, 2, 2)))
+                .addGap(307, 307, 307))
         );
 
         pnlCusMenu.add(pnlSearchProduct, "pnlSearchProduct");
 
         pnlBrowseProduct.setBackground(new java.awt.Color(102, 153, 255));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jList4.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -169,25 +233,43 @@ public class Cus_Menu extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jList4);
 
+        jButton2.setText("Coffee");
+
+        jButton3.setText("Equipments");
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel31.setText("Shop:");
+
         javax.swing.GroupLayout pnlBrowseProductLayout = new javax.swing.GroupLayout(pnlBrowseProduct);
         pnlBrowseProduct.setLayout(pnlBrowseProductLayout);
         pnlBrowseProductLayout.setHorizontalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBrowseProductLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, 331, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBrowseProductLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnlBrowseProductLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         pnlBrowseProductLayout.setVerticalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBrowseProductLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         pnlCusMenu.add(pnlBrowseProduct, "pnlBrowseProduct");
@@ -245,7 +327,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
                                 .addComponent(jButton1))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,7 +369,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -307,7 +389,7 @@ public class Cus_Menu extends javax.swing.JFrame {
 
         pnlCusMenu.add(pnlAddProduct, "pnlAddProduct");
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 102));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 153));
 
         jList1.setBackground(new java.awt.Color(255, 204, 0));
         jList1.setForeground(new java.awt.Color(0, 0, 0));
@@ -318,7 +400,9 @@ public class Cus_Menu extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jList2.setForeground(new java.awt.Color(51, 204, 0));
+        jList2.setBackground(new java.awt.Color(153, 153, 153));
+        jList2.setFont(new java.awt.Font("Segoe UI", 3, 13)); // NOI18N
+        jList2.setForeground(new java.awt.Color(0, 153, 0));
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -331,8 +415,8 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Product List:");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton2.setText("Confirm Order");
+        cbtnAddOrder.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cbtnAddOrder.setText("Confirm Order");
 
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Order ID:");
@@ -379,7 +463,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,13 +471,13 @@ public class Cus_Menu extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel16)
                                         .addGap(14, 14, 14)))))
-                        .addContainerGap(8, Short.MAX_VALUE))
+                        .addContainerGap(25, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(cbtnAddOrder)
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -418,8 +502,8 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(cbtnAddOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -513,7 +597,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -535,12 +619,12 @@ public class Cus_Menu extends javax.swing.JFrame {
                     .addComponent(jLabel25)
                     .addComponent(jLabel28))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel29))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel27))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel30)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlViewProfileLayout = new javax.swing.GroupLayout(pnlViewProfile);
@@ -554,7 +638,157 @@ public class Cus_Menu extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnlCusMenu.add(pnlViewProfile, "card7");
+        pnlCusMenu.add(pnlViewProfile, "pnlViewProfile");
+
+        pnlEditOrder.setBackground(new java.awt.Color(255, 204, 153));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Product Name", "Amount"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(jTable1);
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel34.setText("Items currently in cart:");
+
+        jButton4.setText("Delete Product");
+
+        javax.swing.GroupLayout pnlEditOrderLayout = new javax.swing.GroupLayout(pnlEditOrder);
+        pnlEditOrder.setLayout(pnlEditOrderLayout);
+        pnlEditOrderLayout.setHorizontalGroup(
+            pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditOrderLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        pnlEditOrderLayout.setVerticalGroup(
+            pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditOrderLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+
+        pnlCusMenu.add(pnlEditOrder, "pnlEditOrder");
+
+        pnlViewOrder.setBackground(new java.awt.Color(255, 204, 153));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel33.setText("Order List");
+
+        jList5.setBackground(new java.awt.Color(204, 204, 204));
+        jList5.setForeground(new java.awt.Color(0, 0, 0));
+        jList5.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane5.setViewportView(jList5);
+
+        jButton5.setText("Delete Order");
+
+        javax.swing.GroupLayout pnlViewOrderLayout = new javax.swing.GroupLayout(pnlViewOrder);
+        pnlViewOrder.setLayout(pnlViewOrderLayout);
+        pnlViewOrderLayout.setHorizontalGroup(
+            pnlViewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlViewOrderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlViewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlViewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlViewOrderLayout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel33)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        pnlViewOrderLayout.setVerticalGroup(
+            pnlViewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlViewOrderLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        pnlCusMenu.add(pnlViewOrder, "pnlViewOrder");
+
+        pnlSearchOrder.setBackground(new java.awt.Color(255, 204, 153));
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel35.setText("Enter order ID:");
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel36.setText("No Matches Found!");
+
+        jButton6.setText("Search");
+
+        javax.swing.GroupLayout pnlSearchOrderLayout = new javax.swing.GroupLayout(pnlSearchOrder);
+        pnlSearchOrder.setLayout(pnlSearchOrderLayout);
+        pnlSearchOrderLayout.setHorizontalGroup(
+            pnlSearchOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchOrderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlSearchOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField2)
+                    .addGroup(pnlSearchOrderLayout.createSequentialGroup()
+                        .addComponent(jLabel35)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnlSearchOrderLayout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        pnlSearchOrderLayout.setVerticalGroup(
+            pnlSearchOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSearchOrderLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlSearchOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(235, 235, 235))
+        );
+
+        pnlCusMenu.add(pnlSearchOrder, "pnlSearchOrder");
 
         cmenuShop.setText("Shop");
 
@@ -587,15 +821,27 @@ public class Cus_Menu extends javax.swing.JFrame {
         cmenuOrder.add(cmenuAddOrder);
 
         cmenuEditOrder.setText("Edit Order");
+        cmenuEditOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmenuEditOrderActionPerformed(evt);
+            }
+        });
         cmenuOrder.add(cmenuEditOrder);
 
-        cmenuDeleteOrder.setText("Delete Order");
-        cmenuOrder.add(cmenuDeleteOrder);
-
         cmenuViewOrder.setText("View Order");
+        cmenuViewOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmenuViewOrderActionPerformed(evt);
+            }
+        });
         cmenuOrder.add(cmenuViewOrder);
 
         cmenuSearchOrder.setText("Search Order");
+        cmenuSearchOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmenuSearchOrderActionPerformed(evt);
+            }
+        });
         cmenuOrder.add(cmenuSearchOrder);
 
         jMenuBar1.add(cmenuOrder);
@@ -603,6 +849,11 @@ public class Cus_Menu extends javax.swing.JFrame {
         cmenuProfile.setText("Account");
 
         cmenuViewProfile.setText("View Profile");
+        cmenuViewProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmenuViewProfileActionPerformed(evt);
+            }
+        });
         cmenuProfile.add(cmenuViewProfile);
 
         jMenuBar1.add(cmenuProfile);
@@ -670,6 +921,30 @@ public class Cus_Menu extends javax.swing.JFrame {
     card.show(pnlCusMenu, "pnlCusMain");
     }//GEN-LAST:event_cmenuReturnHomeActionPerformed
 
+    private void cmenuEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuEditOrderActionPerformed
+    CardLayout card = (CardLayout)pnlCusMenu.getLayout();
+    card.show(pnlCusMenu, "pnlEditOrder");
+    }//GEN-LAST:event_cmenuEditOrderActionPerformed
+
+    private void cmenuViewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuViewProfileActionPerformed
+    CardLayout card = (CardLayout)pnlCusMenu.getLayout();
+    card.show(pnlCusMenu, "pnlViewProfile");
+    }//GEN-LAST:event_cmenuViewProfileActionPerformed
+
+    private void cmenuViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuViewOrderActionPerformed
+    CardLayout card = (CardLayout)pnlCusMenu.getLayout();
+    card.show(pnlCusMenu, "pnlViewOrder");                                        
+    }//GEN-LAST:event_cmenuViewOrderActionPerformed
+
+    private void cmenuSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuSearchOrderActionPerformed
+    CardLayout card = (CardLayout)pnlCusMenu.getLayout();
+    card.show(pnlCusMenu, "pnlSearchOrder"); 
+    }//GEN-LAST:event_cmenuSearchOrderActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -706,9 +981,10 @@ public class Cus_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cBtnSearchProduct;
+    private javax.swing.JButton cbtnAddOrder;
     private javax.swing.JMenuItem cmenuAddOrder;
     private javax.swing.JMenuItem cmenuBrowseProduct;
-    private javax.swing.JMenuItem cmenuDeleteOrder;
     private javax.swing.JMenuItem cmenuEditOrder;
     private javax.swing.JMenu cmenuHome;
     private javax.swing.JMenu cmenuOrder;
@@ -721,7 +997,10 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem cmenuViewProfile;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -736,6 +1015,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -745,6 +1025,12 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -755,22 +1041,32 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jList3;
     private javax.swing.JList<String> jList4;
+    private javax.swing.JList<String> jList5;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel pnlAddOrder;
     private javax.swing.JPanel pnlAddProduct;
     private javax.swing.JPanel pnlBrowseProduct;
     private javax.swing.JPanel pnlCusMain;
     private javax.swing.JPanel pnlCusMenu;
+    private javax.swing.JPanel pnlEditOrder;
+    private javax.swing.JPanel pnlSearchOrder;
     private javax.swing.JPanel pnlSearchProduct;
+    private javax.swing.JPanel pnlViewOrder;
     private javax.swing.JPanel pnlViewProfile;
     // End of variables declaration//GEN-END:variables
 }

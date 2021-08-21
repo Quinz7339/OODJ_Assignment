@@ -700,7 +700,12 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         mainAdminMain.add(pnlEditOrder, "pnlEditOrder");
 
+        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(264, 48));
+
         jMenu1.setText("Add");
+        jMenu1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenu1.setPreferredSize(new java.awt.Dimension(90, 0));
 
         menuAddCustomer.setText("Add Customer");
         menuAddCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -729,6 +734,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Customer");
+        jMenu2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenu2.setPreferredSize(new java.awt.Dimension(90, 0));
 
         menuEditCustomer.setText("Customer Menu");
         menuEditCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -741,6 +748,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu8.setText("Product");
+        jMenu8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenu8.setPreferredSize(new java.awt.Dimension(90, 0));
 
         menuEditProduct.setText("Product Menu");
         menuEditProduct.addActionListener(new java.awt.event.ActionListener() {
@@ -753,6 +762,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu8);
 
         jMenu3.setText("Order");
+        jMenu3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenu3.setPreferredSize(new java.awt.Dimension(90, 0));
 
         menuEditOrder.setText("Order Menu");
         menuEditOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -765,6 +776,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu7.setText("Profile");
+        jMenu7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenu7.setPreferredSize(new java.awt.Dimension(90, 0));
 
         menuEditProfile.setText("Profile Menu");
         jMenu7.add(menuEditProfile);
@@ -772,6 +785,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu7);
 
         jMenu6.setText("Home");
+        jMenu6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenu6.setPreferredSize(new java.awt.Dimension(90, 0));
 
         menuHome.setText("Return to Home");
         menuHome.addActionListener(new java.awt.event.ActionListener() {

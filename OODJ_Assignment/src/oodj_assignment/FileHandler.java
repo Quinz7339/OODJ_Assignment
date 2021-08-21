@@ -9,6 +9,11 @@ package oodj_assignment;
  *
  * @author phili
  */
-public class FileHandler {
+public class FileHandler 
+{
+    public void AddUser()
+    {
+        
+    }
     
 }

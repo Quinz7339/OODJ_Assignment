@@ -17,7 +17,7 @@ public class FileHandler
     
     public void addCustomer(String username, String password, String name, String email, String phoneNo, String address)
     {
-        File FAddUser = new File("../Users.txt");
+        File FAddUser = new File("src\\oodj_assignment\\textFile\\Users.txt");
         try
         {
             FileWriter fw = new FileWriter(FAddUser,true);
@@ -27,8 +27,8 @@ public class FileHandler
             
             User addUsr = new User(username,password,name,email,phoneNo,address);
             
-            bw.write(addUsr.toString());
-            bw.close();
+            pw.write(addUsr.toString());
+            pw.close();
             JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
         }
         catch(IOException Ex)

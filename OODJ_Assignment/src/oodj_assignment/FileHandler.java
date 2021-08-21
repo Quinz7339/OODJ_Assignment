@@ -5,6 +5,7 @@
  */
 package oodj_assignment;
 import java.io.*;
+import javax.swing.*;
 
 /**
  *
@@ -12,20 +13,32 @@ import java.io.*;
  */
 public class FileHandler 
 {
-    public void AddUser()
+    JFrame errorMessage;
+    
+    public void addCustomer(String username, String password, String name, String email, String phoneNo, String address)
     {
-        File FAddUser = new File("Users.txt");
+        File FAddUser = new File("../Users.txt");
         try
         {
             FileWriter fw = new FileWriter(FAddUser,true);
             BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter (bw);
+            PrintWriter pw = new PrintWriter(bw);
             
+            
+            User addUsr = new User(username,password,name,email,phoneNo,address);
+            
+            bw.write(addUsr.toString());
+            bw.close();
+            JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
         }
         catch(IOException Ex)
         {
-            
+            errorMessage = new JFrame();
+            JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
         }
+        
+
     }
+    
     
 }

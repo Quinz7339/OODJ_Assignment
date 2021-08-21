@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package oodj_assignment;
+import java.io.*;
 
 /**
  *
@@ -13,7 +14,18 @@ public class FileHandler
 {
     public void AddUser()
     {
-        
+        File FAddUser = new File("Users.txt");
+        try
+        {
+            FileWriter fw = new FileWriter(FAddUser,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter (bw);
+            
+        }
+        catch(IOException Ex)
+        {
+            
+        }
     }
     
 }

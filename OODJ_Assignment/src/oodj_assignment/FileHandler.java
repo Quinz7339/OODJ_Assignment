@@ -38,6 +38,11 @@ public class FileHandler
             JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
         }
     }
+    public void addProduct()
+    {
+        
+    }
+    
     public void editCustomer()
     {
 

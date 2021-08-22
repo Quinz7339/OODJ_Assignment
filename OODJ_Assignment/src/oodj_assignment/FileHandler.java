@@ -27,7 +27,7 @@ public class FileHandler
             
             User addUsr = new User(username,password,name,email,phoneNo,address);
             
-            pw.write(addUsr.toString());
+            pw.println(addUsr.toString());
             pw.close();
             JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
         }

@@ -191,22 +191,16 @@ public class Admin_Menu extends javax.swing.JFrame
         btnClearnField.setText("Reset");
 
         txtAddCusUsrname.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddCusUsrname.setText("jTextField1");
 
         txtAddCusName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddCusName.setText("jTextField1");
 
         txtAddCusEmail.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddCusEmail.setText("jTextField1");
 
         txtAddCusPwd.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddCusPwd.setText("jTextField1");
 
         txtAddCusPhone.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddCusPhone.setText("jTextField1");
 
         txtAddCusAddress.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddCusAddress.setText("jTextField1");
 
         btnAddCus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnAddCus.setText("Add");
@@ -217,7 +211,6 @@ public class Admin_Menu extends javax.swing.JFrame
         });
 
         txtAddCusConfirmPw.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddCusConfirmPw.setText("jTextField1");
 
         jLabel27.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(44, 62, 80));

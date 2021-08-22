@@ -9,6 +9,7 @@ package oodj_assignment;
  *
  * @author phili
  */
-public class OrderItem {
+public class OrderItem 
+{
     
 }

@@ -1384,9 +1384,9 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jRadioButton5" min="-2" pref="104" max="-2" attributes="0"/>
                               <EmptySpace pref="238" max="32767" attributes="0"/>
-                              <Component id="jButton4" min="-2" pref="125" max="-2" attributes="0"/>
+                              <Component id="btnSearchEnter" min="-2" pref="125" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jTextField9" alignment="1" max="32767" attributes="0"/>
+                          <Component id="txtSearchBar" alignment="1" max="32767" attributes="0"/>
                           <Component id="jScrollPane6" max="32767" attributes="0"/>
                           <Component id="jLabel27" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
                       </Group>
@@ -1400,11 +1400,11 @@
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField9" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="txtSearchBar" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSearchEnter" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButton5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -1427,7 +1427,7 @@
                 <Property name="text" type="java.lang.String" value="Enter ID to search:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField9">
+            <Component class="javax.swing.JTextField" name="txtSearchBar">
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton3">
               <Properties>
@@ -1462,7 +1462,7 @@
                 <Property name="text" type="java.lang.String" value="Order"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="btnSearchEnter">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Enter"/>
               </Properties>

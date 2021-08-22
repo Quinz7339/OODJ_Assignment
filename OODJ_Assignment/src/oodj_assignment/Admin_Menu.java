@@ -105,11 +105,11 @@ public class Admin_Menu extends javax.swing.JFrame {
         pnlEditOrder = new javax.swing.JPanel();
         pnlSearch = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtSearchBar = new javax.swing.JTextField();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
-        jButton4 = new javax.swing.JButton();
+        btnSearchEnter = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -733,7 +733,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         jRadioButton5.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButton5.setText("Order");
 
-        jButton4.setText("Enter");
+        btnSearchEnter.setText("Enter");
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -756,8 +756,8 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField9)
+                        .addComponent(btnSearchEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSearchBar)
                     .addComponent(jScrollPane6)
                     .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
@@ -768,11 +768,11 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton3)
-                    .addComponent(jButton4)
+                    .addComponent(btnSearchEnter)
                     .addComponent(jRadioButton4)
                     .addComponent(jRadioButton5))
                 .addGap(27, 27, 27)
@@ -1005,11 +1005,11 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnMinus;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReset2;
+    private javax.swing.JButton btnSearchEnter;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1067,7 +1067,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblCurrentQuan;
     private javax.swing.JList<String> lstCustNames;
     private javax.swing.JList<String> lstProductNames;
@@ -1097,5 +1096,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JTextArea txtEditProdDesc;
     private javax.swing.JTextField txtProdName;
     private javax.swing.JTextField txtProdQuan;
+    private javax.swing.JTextField txtSearchBar;
     // End of variables declaration//GEN-END:variables
 }

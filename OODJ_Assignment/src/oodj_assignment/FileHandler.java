@@ -40,7 +40,24 @@ public class FileHandler
     }
     public void addProduct()
     {
-        
+        File FAddProduct = new File("src\\oodj_assignemnt\\textFile\\Products.txt");
+        try
+        {
+            FileWriter fw = new FileWriter(FAddProduct,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            
+            
+            
+            pw.println();
+            pw.close();
+            JOptionPane.showMessageDialog(errorMessage, " New Product added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(IOException Ex)
+        {
+            errorMessage = new JFrame();
+            JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
+        }
     }
     
     public void editCustomer()

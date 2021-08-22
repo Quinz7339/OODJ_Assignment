@@ -18,7 +18,7 @@ public class User
     private String phoneNumber;
     private String address;
     
-    public void User (String usr, String pw, String Name, String Email, String phoneNo, String Address)
+    public User (String usr, String pw, String Name, String Email, String phoneNo, String Address)
     {
         this.username=usr;
         this.password=pw;
@@ -26,8 +26,13 @@ public class User
         this.emailAddress=Email;
         this.phoneNumber=phoneNo;
         this.address=Address;
-        
     }
+    
+    public String toString()
+    {
+       return username + "," + password + "," + name + "," + emailAddress + "," + phoneNumber + "," + address;
+    }
+    
     public void Login()
     {
         FileHandler fh = new FileHandler();

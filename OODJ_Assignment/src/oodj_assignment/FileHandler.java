@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package oodj_assignment;
+import java.util.*;
 import java.io.*;
 import javax.swing.*;
 
@@ -36,8 +37,23 @@ public class FileHandler
             errorMessage = new JFrame();
             JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
         }
-        
+    }
+    public void editCustomer()
+    {
 
+        try 
+        {
+            File FEditUser = new File("src\\oodj_assignment\\textFile\\Users.txt");
+            Scanner scanInfo = new Scanner(FEditUser);
+            
+            
+        }
+        catch(IOException Ex)
+        {
+            
+        }
+        
+        
     }
     
     

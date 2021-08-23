@@ -43,13 +43,15 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnClearnField = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        btnClearnField2 = new javax.swing.JButton();
+        txtAddCusUsrname = new javax.swing.JTextField();
+        txtAddCusName = new javax.swing.JTextField();
+        txtAddCusConfirmPw = new javax.swing.JTextField();
+        txtAddCusPwd = new javax.swing.JTextField();
+        txtAddCusPhone = new javax.swing.JTextField();
+        txtAddCusAddress = new javax.swing.JTextField();
+        btnAddCus = new javax.swing.JButton();
+        txtAddCusEmail = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
         pnlAddProduct = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -189,7 +191,7 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel5.setText("Customer password: ");
+        jLabel5.setText("Confirm Password:");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(44, 62, 80));
@@ -202,20 +204,31 @@ public class Admin_Menu extends javax.swing.JFrame {
         btnClearnField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnClearnField.setText("Reset");
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAddCusUsrname.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAddCusName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAddCusConfirmPw.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jTextField4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAddCusPwd.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jTextField5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAddCusPhone.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jTextField6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAddCusAddress.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        btnClearnField2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        btnClearnField2.setText("Add");
+        btnAddCus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnAddCus.setText("Add");
+        btnAddCus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCusActionPerformed(evt);
+            }
+        });
+
+        txtAddCusEmail.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel28.setText("Customer password: ");
 
         javax.swing.GroupLayout pnlAddCustomerLayout = new javax.swing.GroupLayout(pnlAddCustomer);
         pnlAddCustomer.setLayout(pnlAddCustomerLayout);
@@ -228,25 +241,28 @@ public class Admin_Menu extends javax.swing.JFrame {
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
                         .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
                             .addGroup(pnlAddCustomerLayout.createSequentialGroup()
+                                .addComponent(btnClearnField)
+                                .addGap(109, 109, 109))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel28)
+                            .addGroup(pnlAddCustomerLayout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(7, 7, 7))
-                            .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnClearnField)
-                                .addComponent(jLabel7)))
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtAddCusName, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAddCusUsrname, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAddCusPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAddCusPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAddCusAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAddCusConfirmPw, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAddCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(btnClearnField2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddCus, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
         pnlAddCustomerLayout.setVerticalGroup(
@@ -257,31 +273,36 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAddCusName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAddCusUsrname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAddCusPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
+                    .addComponent(txtAddCusConfirmPw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAddCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtAddCusPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClearnField2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnClearnField))
+                    .addGroup(pnlAddCustomerLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAddCus, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnClearnField)))
+                    .addComponent(txtAddCusAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -960,6 +981,21 @@ public class Admin_Menu extends javax.swing.JFrame {
         card.show(mainAdminMain, "pnlSearch");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void btnAddCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCusActionPerformed
+        // TODO add your handling code here:
+        FileHandler fh = new FileHandler();
+        String name =  txtAddCusName.getText();
+        String usr =  txtAddCusUsrname.getText();
+        String pwd =  txtAddCusPwd.getText();
+        String cpwd =  txtAddCusConfirmPw.getText();
+        String email =  txtAddCusEmail.getText();
+        String phone =  txtAddCusPhone.getText();
+        String address =  txtAddCusAddress.getText();
+
+
+        fh.addCustomer(usr,pwd,cpwd,name,email,phone,address);
+    }//GEN-LAST:event_btnAddCusActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -998,8 +1034,8 @@ public class Admin_Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAddCus;
     private javax.swing.JButton btnClearnField;
-    private javax.swing.JButton btnClearnField2;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnMinus;
@@ -1030,6 +1066,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1059,12 +1096,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lblCurrentQuan;
@@ -1087,6 +1118,13 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel pnlEditProduct;
     private javax.swing.JPanel pnlSearch;
     private javax.swing.JPanel pnlViewCustomer;
+    private javax.swing.JTextField txtAddCusAddress;
+    private javax.swing.JTextField txtAddCusConfirmPw;
+    private javax.swing.JTextField txtAddCusEmail;
+    private javax.swing.JTextField txtAddCusName;
+    private javax.swing.JTextField txtAddCusPhone;
+    private javax.swing.JTextField txtAddCusPwd;
+    private javax.swing.JTextField txtAddCusUsrname;
     private javax.swing.JTextArea txtCusAddress;
     private javax.swing.JTextField txtCusEmail;
     private javax.swing.JTextField txtCusName;

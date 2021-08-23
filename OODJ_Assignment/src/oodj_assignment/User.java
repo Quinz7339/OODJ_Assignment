@@ -30,7 +30,7 @@ public class User
     
     public String toString()
     {
-       return username + "," + password + "," + name + "," + emailAddress + "," + phoneNumber + "," + address;
+       return username + "," + password + "," + name + "," + emailAddress + "," + phoneNumber + "," + address + "\n";
     }
     
     public void Login()

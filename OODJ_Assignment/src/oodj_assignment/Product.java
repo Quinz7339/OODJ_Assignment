@@ -9,7 +9,7 @@ package oodj_assignment;
  *
  * @author phili
  */
-public interface Product 
+public class Product 
 {
     
 }

@@ -11,5 +11,7 @@ package oodj_assignment;
  */
 public class OrderItem 
 {
-    
+    private String orderID;
+    private String productID;
+    private double itemSum;
 }

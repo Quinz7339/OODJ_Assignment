@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package oodj_assignment;
+import java.util.*;
 import java.io.*;
 import javax.swing.*;
 
@@ -15,29 +16,74 @@ public class FileHandler
 {
     JFrame errorMessage;
     
-    public void addCustomer(String username, String password, String name, String email, String phoneNo, String address)
+    public void addCustomer(String username, String password,String cfmPwd, String name, String email, String phoneNo, String address)
     {
-        File FAddUser = new File("src\\oodj_assignment\\textFile\\Users.txt");
+        if (password.equals(cfmPwd)){
+            File FAddUser = new File("src\\oodj_assignment\\textFile\\Users.txt");
+            try
+            {
+                FileWriter fw = new FileWriter(FAddUser,true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter pw = new PrintWriter(bw);
+
+
+                User addUsr = new User(username,password,name,email,phoneNo,address);
+
+                pw.println(addUsr.toString());
+                pw.close();
+                JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
+            }
+            catch(IOException Ex)
+            {
+                JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(errorMessage, " Password input is not the same. Please try again","Error",JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    public void addProduct()
+    {
+        File FAddProduct = new File("src\\oodj_assignemnt\\textFile\\Products.txt");
         try
         {
-            FileWriter fw = new FileWriter(FAddUser,true);
+            FileWriter fw = new FileWriter(FAddProduct,true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
             
             
-            User addUsr = new User(username,password,name,email,phoneNo,address);
             
-            pw.println(addUsr.toString());
+            pw.println();
             pw.close();
-            JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(errorMessage, " New Product added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
         }
         catch(IOException Ex)
         {
             errorMessage = new JFrame();
             JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
         }
+    }
+    
+    public void editCustomer()
+    {
+        try 
+        {
+            File FEditUser = new File("src\\oodj_assignment\\textFile\\Users.txt");
+            Scanner scanInfo = new Scanner(FEditUser);
+            while(scanInfo.hasNextLine())
+            {
+                
+            }
+            
+            
+        }
+        catch(IOException Ex)
+        {
+            
+        }
         
-
+        
     }
     
     

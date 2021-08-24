@@ -12,6 +12,7 @@ import javax.swing.*;
  * @author phili
  */
 public class Admin_Menu extends javax.swing.JFrame {
+    JFrame errorMessage;
 
     /**
      * Creates new form Main_Menu
@@ -1542,9 +1543,14 @@ public class Admin_Menu extends javax.swing.JFrame {
         String email =  txtAddCusEmail.getText();
         String phone =  txtAddCusPhone.getText();
         String address =  txtAddCusAddress.getText();
-
-
-        fh.addCustomer(usr,pwd,cpwd,name,email,phone,address);
+        if(cpwd.equals(pwd))
+        {
+            fh.addCustomer(usr,pwd,name,email,phone,address);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Differnt password entered.",JOptionPane.WARNING_MESSAGE);
+        } 
         
     }//GEN-LAST:event_btnAddCusActionPerformed
 

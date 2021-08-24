@@ -1710,7 +1710,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         String address =  txtAddCusAddress.getText();
         if(cpwd.equals(pwd))
         {
-            fh.addCustomer(usr,pwd,name,email,phone,address);
+            Admin.addUser(usr, pwd, name, email, phone, address);
         }
         else
         {

@@ -12,6 +12,7 @@ package oodj_assignment;
 public class User 
 {
     private String username;
+    private String UID;
     private String password;
     private String name;
     private String emailAddress;
@@ -30,7 +31,7 @@ public class User
     
     public String toString()
     {
-       return username + "," + password + "," + name + "," + emailAddress + "," + phoneNumber + "," + address + "\n";
+       return  UID + ","+username + "," + password + "," + name + "," + emailAddress + "," + phoneNumber + "," + address + "\n";
     }
     
     public void Login()

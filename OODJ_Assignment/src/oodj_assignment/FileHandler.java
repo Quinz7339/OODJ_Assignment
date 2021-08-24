@@ -16,38 +16,46 @@ public class FileHandler
 {
     JFrame errorMessage;
     
-    public void addCustomer(String username, String password,String cfmPwd, String name, String email, String phoneNo, String address)
+    public void addCustomer(String username, String password, String name, String email, String phoneNo, String address)
     {
-        if (password.equals(cfmPwd)){
-            File FAddUser = new File("src\\oodj_assignment\\textFile\\Users.txt");
-            try
-            {
-                FileWriter fw = new FileWriter(FAddUser,true);
-                BufferedWriter bw = new BufferedWriter(fw);
-                PrintWriter pw = new PrintWriter(bw);
-
-
-                User addUsr = new User(username,password,name,email,phoneNo,address);
-
-                pw.println(addUsr.toString());
-                pw.close();
-                JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
-            }
-            catch(IOException Ex)
-            {
-                JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
-            }
-        }
-        else
+        File FAddUser = new File("src\\oodj_assignment\\textFile\\Users.txt");
+        try
         {
-            JOptionPane.showMessageDialog(errorMessage, " Password input is not the same. Please try again","Error",JOptionPane.WARNING_MESSAGE);
+            //insert reading component to get previous customerID
+            //add UID
+            File getPrevUID = new File("src\\oodj_assignment\\textFile\\Products.txt");
+            Scanner scanInfo = new Scanner(getPrevUID);
+            while(scanInfo.hasNextLine())
+            {
+                
+            }
+            
+            
+            FileWriter fw = new FileWriter(FAddUser,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+
+
+            User addUsr = new User(username,password,name,email,phoneNo,address);
+
+            pw.println(addUsr.toString());
+            pw.close();
+            JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
         }
+        catch(IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
+        }
+
     }
     public void addProduct()
     {
         File FAddProduct = new File("src\\oodj_assignemnt\\textFile\\Products.txt");
         try
         {
+            //insert reading component to get previous PID
+            //add PID
+            
             FileWriter fw = new FileWriter(FAddProduct,true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);

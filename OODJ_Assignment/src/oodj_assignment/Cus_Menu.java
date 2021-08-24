@@ -158,23 +158,23 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlCusMainLayout.setHorizontalGroup(
             pnlCusMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCusMainLayout.createSequentialGroup()
-                .addContainerGap(173, Short.MAX_VALUE)
                 .addGroup(pnlCusMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCusMainLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(60, 60, 60))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCusMainLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92))))
+                    .addGroup(pnlCusMainLayout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jLabel3))
+                    .addGroup(pnlCusMainLayout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel1)))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         pnlCusMainLayout.setVerticalGroup(
             pnlCusMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCusMainLayout.createSequentialGroup()
+            .addGroup(pnlCusMainLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pnlCusMenu.add(pnlCusMain, "pnlCusMain");

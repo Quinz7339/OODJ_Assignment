@@ -1700,7 +1700,6 @@ public class Admin_Menu extends javax.swing.JFrame {
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         // TODO add your handling code here:
-        FileHandler fh = new FileHandler();
         String name =  txtAddCusName.getText();
         String usr =  txtAddCusUsrname.getText();
         String pwd =  txtAddCusPwd.getText();

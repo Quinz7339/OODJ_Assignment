@@ -18,4 +18,9 @@ public class Customer
     protected String emailAddress;
     protected String phoneNumber;
     protected String address;
+    
+    public void addUser()
+    {
+        
+    }
 }

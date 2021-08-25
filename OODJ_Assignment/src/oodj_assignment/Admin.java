@@ -26,7 +26,8 @@ public class Admin extends Customer
             ArrayList <Integer> userIDList = new ArrayList<Integer>();
             ArrayList <String> usernameList = new ArrayList<String>();
             String line;
-
+            Boolean flag = false;
+            
             while ((line = br.readLine()) != null)
             {
                 
@@ -40,13 +41,27 @@ public class Admin extends Customer
                 }
             }
             br.close();
-            String newUID = userType + String.valueOf(userIDList.size() + 1);
             
-            PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt"),true));
+            for (int i = 0; i < usernameList.size(); i++)
+            {
+                if (username.equals(usernameList.get(i)))
+                {
+                    JOptionPane.showMessageDialog(errorMessage, "Username has been taken! Please try again.","Error",JOptionPane.WARNING_MESSAGE);
+                    flag = true;
+                }
+            }
+                
+            if (flag == false)
+            {
+                String newUID = userType + String.valueOf(userIDList.size() + 1);
+            
+                PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt"),true));
 
-            pw.println(String.format("%s,%s,%s,%s,%s,%s,%s",newUID,username,password,name,email,phoneNo,address));
-            pw.close();
-            JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
+                pw.println(String.format("%s,%s,%s,%s,%s,%s,%s",newUID,username,password,name,email,phoneNo,address));
+                pw.close();
+                JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
+            }
+
         }
         catch(IOException Ex)
         {

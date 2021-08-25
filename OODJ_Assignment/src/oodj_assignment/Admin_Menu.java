@@ -1699,7 +1699,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
-        // TODO add your handling code here:
+        // Get user input from text fields
         String name =  txtAddCusName.getText();
         String usr =  txtAddCusUsrname.getText();
         String pwd =  txtAddCusPwd.getText();

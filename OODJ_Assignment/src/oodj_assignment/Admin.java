@@ -15,6 +15,13 @@ import javax.swing.*;
 public class Admin extends Customer 
 {
     static JFrame errorMessage;
+    
+    //Override Customer constructor
+    public Admin(String username, String password, String name, String email, String phoneNo, String address, String userType)
+    {
+        super(username,password, name, email, phoneNo,  address, userType);
+    }
+    
     public static void addUser(String username, String password, String name, String email, String phoneNo, String address, String userType)
     {
         try
@@ -26,18 +33,18 @@ public class Admin extends Customer
             ArrayList <Integer> userIDList = new ArrayList<Integer>();
             ArrayList <String> usernameList = new ArrayList<String>();
             String line;
-            Boolean flag = false;
+            Boolean flag = false; //boolean variable to determine whether inputted username exist in the textfile
             
             while ((line = br.readLine()) != null)
             {
                 
-                String [] user = line.split(",",7); //splits user detail by commas
+                String [] user = line.split(","); //splits user detail by commas, 7 --> split into 7 elements
                 usernameList.add(user[1]);
 
                 if (user[0].contains(userType))
                 {
-                    int userID = Integer.parseInt(user[0].substring(3));
-                    userIDList.add(userID);
+                    int userID = Integer.parseInt(user[0].substring(3));    //removes the prefix of the User ID (ADM, CUS)
+                    userIDList.add(userID);                                 //adss the number portion 
                 }
             }
             br.close();
@@ -65,9 +72,53 @@ public class Admin extends Customer
         }
         catch(IOException Ex)
         {
-            JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again. Possible error:[Invalid tamepering of file]","Error",JOptionPane.WARNING_MESSAGE);
         }
     }
+    
+    //method to show list of customers to pnlViewCustomer
+    public void viewCustomer() throws IOException
+    {
+        try
+        {
+            
+            //ArrayList to store Customer objects
+            ArrayList<Customer> cusList = new ArrayList<Customer>();
+            Scanner scanner = new Scanner (new File("src\\oodj_assignment\\textFile\\Users.txt"));
+            while (scanner.hasNextLine())
+            {
+                String line = scanner.nextLine();
+                String [] user = line.split(",");
+                if (user[0].contains("ADM"))
+                {
+                    continue;
+                }
+                Customer cus = new Customer (user[0],user[1],user[2],user[3],user[4],user[5],user[6]);
+                cusList.add(cus); //adding each customer object into an arrayList
+            }
+ 
+        }
+        catch(IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "File is corrupted or manually tampered. Kindly revert the changes.","Error",JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
+    }
+    public void editCustomer(Customer cust)
+    {
+        
+    }
+    public void deleteCustomer()
+    {
+    
+    }
+    
+    public void addProduct()
+    {
+        
+    }
+    
     public String toString()
     {
          return  String.format("%s,%s,%s,%s,%s,%s,%s\n",UID,username,password,name, emailAddress,phoneNumber,address);

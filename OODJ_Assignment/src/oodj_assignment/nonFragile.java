@@ -9,9 +9,10 @@ package oodj_assignment;
  *
  * @author phili
  */
-public class nonFragile 
+public class nonFragile extends Product
 {
     private String origin;
     private double altitude;
     private String tasteNotes;
 }
+

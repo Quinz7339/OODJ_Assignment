@@ -15,5 +15,11 @@ public class Product
     private String productName;
     private double productPrice;
     private double weight;
+    
+    public Product(String productID,String productName, double productPrice, double weight)
+    {
+    
+    }
 }
+
 

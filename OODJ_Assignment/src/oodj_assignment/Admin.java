@@ -22,14 +22,15 @@ public class Admin extends Customer
             //compare username with all the username in the text file
             //insert reading component to get previous customerID
             //add UID
-            Scanner scanner = new Scanner(new File("src\\oodj_assignment\\textFile\\Users.txt")); 
+            BufferedReader br = new BufferedReader(new FileReader("src\\oodj_assignment\\textFile\\Users.txt"));
             ArrayList <Integer> userIDList = new ArrayList<Integer>();
             ArrayList <String> usernameList = new ArrayList<String>();
-            
-            while(scanner.hasNextLine())
+            String line;
+
+            while ((line = br.readLine()) != null)
             {
-                String line = scanner.nextLine(); //single user detail entry (not splitted)
-                String [] user = line.split(","); //splits user detail by commas
+                
+                String [] user = line.split(",",7); //splits user detail by commas
                 usernameList.add(user[1]);
 
                 if (user[0].contains(userType))
@@ -38,12 +39,12 @@ public class Admin extends Customer
                     userIDList.add(userID);
                 }
             }
-            scanner.close();
+            br.close();
             String newUID = userType + String.valueOf(userIDList.size() + 1);
             
-            PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt")));
+            PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt"),true));
 
-            pw.println(String.format("%s,%s,%s,%s,%s,%s,%s\n",newUID,username,password,name,email,phoneNo,address));
+            pw.println(String.format("%s,%s,%s,%s,%s,%s,%s",newUID,username,password,name,email,phoneNo,address));
             pw.close();
             JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
         }

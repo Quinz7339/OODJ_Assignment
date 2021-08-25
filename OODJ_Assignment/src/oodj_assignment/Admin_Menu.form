@@ -372,21 +372,17 @@
                                   <Component id="txtAddCusAddress" min="-2" pref="247" max="-2" attributes="0"/>
                                   <Component id="txtAddCusConfirmPw" alignment="0" min="-2" pref="247" max="-2" attributes="0"/>
                                   <Component id="txtAddCusEmail" alignment="0" min="-2" pref="247" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnClearnField" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace pref="42" max="32767" attributes="0"/>
+                              <EmptySpace pref="67" max="32767" attributes="0"/>
                               <Component id="btnAddUser" min="-2" pref="141" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
@@ -481,7 +477,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="50" green="3e" red="2c" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Customer username: "/>
+                <Property name="text" type="java.lang.String" value="Username: "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -492,7 +488,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="50" green="3e" red="2c" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Customer name: "/>
+                <Property name="text" type="java.lang.String" value="Name: "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -615,7 +611,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="50" green="3e" red="2c" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Customer password: "/>
+                <Property name="text" type="java.lang.String" value="Password: "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbUsrAdm">

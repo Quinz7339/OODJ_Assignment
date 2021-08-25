@@ -250,11 +250,11 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel2.setText("Customer username: ");
+        jLabel2.setText("Username: ");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel3.setText("Customer name: ");
+        jLabel3.setText("Name: ");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(44, 62, 80));
@@ -299,7 +299,7 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel28.setText("Customer password: ");
+        jLabel28.setText("Password: ");
 
         buttonGroup2.add(rbUsrAdm);
         rbUsrAdm.setForeground(new java.awt.Color(0, 0, 0));
@@ -334,17 +334,14 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addComponent(txtAddCusPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAddCusAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAddCusConfirmPw, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtAddCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)))
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnClearnField))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddCustomerLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(44, 44, 44)))
+                        .addComponent(btnClearnField)))
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()

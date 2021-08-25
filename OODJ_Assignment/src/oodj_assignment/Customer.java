@@ -19,7 +19,7 @@ public class Customer
     protected String phoneNumber;
     protected String address;
     
-    public void addUser()
+    public static void addUser()
     {
         
     }

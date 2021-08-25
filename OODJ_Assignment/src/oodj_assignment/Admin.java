@@ -15,25 +15,35 @@ import javax.swing.*;
 public class Admin extends Customer 
 {
     static JFrame errorMessage;
-    public static void addUser(String username, String password, String name, String email, String phoneNo, String address)
+    public static void addUser(String username, String password, String name, String email, String phoneNo, String address, String userType)
     {
-        File FAddUser = new File("src\\oodj_assignment\\textFile\\Users.txt");
         try
         {
+            //compare username with all the username in the text file
             //insert reading component to get previous customerID
             //add UID
-            File getPrevUID = new File("src\\oodj_assignment\\textFile\\Products.txt");
-            Scanner scanInfo = new Scanner(getPrevUID);
-            while(scanInfo.hasNextLine())
-            {
-                
-            }
+            Scanner scanner = new Scanner(new File("src\\oodj_assignment\\textFile\\Users.txt")); 
+            ArrayList <Integer> userIDList = new ArrayList<Integer>();
+            ArrayList <String> usernameList = new ArrayList<String>();
             
-            FileWriter fw = new FileWriter(FAddUser,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter(bw);
+            while(scanner.hasNextLine())
+            {
+                String line = scanner.nextLine(); //single user detail entry (not splitted)
+                String [] user = line.split(","); //splits user detail by commas
+                usernameList.add(user[1]);
 
-            pw.println(username + "," +password + "," + name + "," + email + "," + phoneNo + "," + address);
+                if (user[0].contains(userType))
+                {
+                    int userID = Integer.parseInt(user[0].substring(3));
+                    userIDList.add(userID);
+                }
+            }
+            scanner.close();
+            String newUID = userType + String.valueOf(userIDList.size() + 1);
+            
+            PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt")));
+
+            pw.println(String.format("%s,%s,%s,%s,%s,%s,%s\n",newUID,username,password,name,email,phoneNo,address));
             pw.close();
             JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -44,6 +54,6 @@ public class Admin extends Customer
     }
     public String toString()
     {
-         return  UID + ","+username + "," + password + "," + name + "," + emailAddress + "," + phoneNumber + "," + address + "\n";
+         return  String.format("%s,%s,%s,%s,%s,%s,%s\n",UID,username,password,name, emailAddress,phoneNumber,address);
     }
 }

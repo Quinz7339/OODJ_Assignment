@@ -54,8 +54,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         btnAddUser = new javax.swing.JButton();
         txtAddCusEmail = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        rbUsrAdm = new javax.swing.JRadioButton();
+        rbUsrCus = new javax.swing.JRadioButton();
         pnlAddProduct = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -302,13 +302,13 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel28.setForeground(new java.awt.Color(44, 62, 80));
         jLabel28.setText("Customer password: ");
 
-        buttonGroup2.add(jRadioButton6);
-        jRadioButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton6.setText("Admin");
+        buttonGroup2.add(rbUsrAdm);
+        rbUsrAdm.setForeground(new java.awt.Color(0, 0, 0));
+        rbUsrAdm.setText("Admin");
 
-        buttonGroup2.add(jRadioButton7);
-        jRadioButton7.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton7.setText("Customer");
+        buttonGroup2.add(rbUsrCus);
+        rbUsrCus.setForeground(new java.awt.Color(0, 0, 0));
+        rbUsrCus.setText("Customer");
 
         javax.swing.GroupLayout pnlAddCustomerLayout = new javax.swing.GroupLayout(pnlAddCustomer);
         pnlAddCustomer.setLayout(pnlAddCustomerLayout);
@@ -351,8 +351,8 @@ public class Admin_Menu extends javax.swing.JFrame {
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rbUsrCus, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbUsrAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlAddCustomerLayout.setVerticalGroup(
@@ -371,9 +371,9 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(txtAddCusUsrname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
-                        .addComponent(jRadioButton7)
+                        .addComponent(rbUsrCus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton6)))
+                        .addComponent(rbUsrAdm)))
                 .addGap(14, 14, 14)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAddCusPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1707,15 +1707,33 @@ public class Admin_Menu extends javax.swing.JFrame {
         String email =  txtAddCusEmail.getText();
         String phone =  txtAddCusPhone.getText();
         String address =  txtAddCusAddress.getText();
-        if(cpwd.equals(pwd))
+        String usrType = null;
+        
+        //checks if an user type is selected
+        if ((rbUsrAdm.isSelected() == false)&&(rbUsrCus.isSelected() == false))
         {
-            Admin.addUser(usr, pwd, name, email, phone, address);
+            JOptionPane.showMessageDialog(errorMessage, "Please choose a user type to add.","No user type is selected.",JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
-            JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Differnt password entered.",JOptionPane.WARNING_MESSAGE);
-        } 
-        
+            if (rbUsrAdm.isSelected())
+            {
+                usrType = "ADM";
+            }
+            else if (rbUsrCus.isSelected())
+            {
+                usrType = "CUS";
+            }
+
+            if(cpwd.equals(pwd)) //if passwords entered are same, calls the addUser static method
+            {
+                Admin.addUser(usr, pwd, name, email, phone, address, usrType);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Differnt password entered.",JOptionPane.WARNING_MESSAGE);
+            } 
+        }
     }//GEN-LAST:event_btnAddUserActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -1880,8 +1898,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1926,6 +1942,8 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel pnlViewCustomer;
     private javax.swing.JPanel pnlViewOrderHist;
     private javax.swing.JPanel pnlViewProfile;
+    private javax.swing.JRadioButton rbUsrAdm;
+    private javax.swing.JRadioButton rbUsrCus;
     private javax.swing.JTextField txtAddCusAddress;
     private javax.swing.JTextField txtAddCusConfirmPw;
     private javax.swing.JTextField txtAddCusEmail;

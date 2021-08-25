@@ -81,7 +81,6 @@ public class Customer
         }
         return "null";
     }
-    public static void addUser()
 
     public Customer (String uid, String usr, String pw, String Name, String Email, String phoneNo, String Address)
     {

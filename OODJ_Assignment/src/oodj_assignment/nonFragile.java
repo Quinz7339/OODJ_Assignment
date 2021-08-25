@@ -9,11 +9,9 @@ package oodj_assignment;
  *
  * @author phili
  */
-public class Product 
+public class nonFragile 
 {
-    private String productID;
-    private String productName;
-    private double productPrice;
-    private double weight;
+    private String origin;
+    private double altitude;
+    private String tasteNotes;
 }
-

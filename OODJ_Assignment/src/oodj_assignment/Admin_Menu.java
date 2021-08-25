@@ -68,7 +68,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        btnAddProduct = new javax.swing.JButton();
         pnlViewCustomer = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -435,8 +435,13 @@ public class Admin_Menu extends javax.swing.JFrame {
         jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jRadioButton2.setText("Equipments");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setText("Add Product");
+        btnAddProduct.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnAddProduct.setText("Add Product");
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlAddProductLayout = new javax.swing.GroupLayout(pnlAddProduct);
         pnlAddProduct.setLayout(pnlAddProductLayout);
@@ -452,21 +457,21 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlAddProductLayout.createSequentialGroup()
                         .addComponent(jRadioButton1)
                         .addGap(18, 18, 18)
                         .addComponent(jRadioButton2))
-                    .addComponent(jTextField7))
+                    .addComponent(jTextField7)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(212, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(262, Short.MAX_VALUE)
                 .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(195, 195, 195))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97))))
         );
         pnlAddProductLayout.setVerticalGroup(
@@ -495,7 +500,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
         );
 
@@ -558,11 +563,6 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         txtCusPassword.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtCusPassword.setForeground(new java.awt.Color(0, 0, 0));
-        txtCusPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCusPasswordActionPerformed(evt);
-            }
-        });
 
         btnEdit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnEdit.setText("Edit");
@@ -1675,11 +1675,9 @@ public class Admin_Menu extends javax.swing.JFrame {
     private void menuViewCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuViewCustomerActionPerformed
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlViewCustomer");
+        
+        
     }//GEN-LAST:event_menuViewCustomerActionPerformed
-
-    private void txtCusPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCusPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCusPasswordActionPerformed
 
     private void menuEditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditProductActionPerformed
         // TODO add your handling code here:
@@ -1714,7 +1712,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(errorMessage, "Please choose a user type to add.","No user type is selected.",JOptionPane.INFORMATION_MESSAGE);
         }
-        else
+        else //a user type is selected, a userType is set
         {
             if (rbUsrAdm.isSelected())
             {
@@ -1750,6 +1748,10 @@ public class Admin_Menu extends javax.swing.JFrame {
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlViewProfile");
     }//GEN-LAST:event_menuEditProfileActionPerformed
+
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddProductActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1789,6 +1791,7 @@ public class Admin_Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnClearnField;
     private javax.swing.JButton btnConfirm;
@@ -1799,7 +1802,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchEnter;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;

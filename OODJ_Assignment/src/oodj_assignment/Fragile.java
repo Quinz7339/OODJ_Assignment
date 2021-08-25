@@ -9,11 +9,7 @@ package oodj_assignment;
  *
  * @author phili
  */
-public class Product 
+public class Fragile 
 {
-    private String productID;
-    private String productName;
-    private double productPrice;
-    private double weight;
+    private String brand;
 }
-

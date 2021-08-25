@@ -1,5 +1,2 @@
-CUS1,123,123,123,123,123,123
-CUS2,123,123,123,123,123,123
-ADM1,123,123,123,123,123,123
-ADM2,123,123,123,123,123,123
-CUS3,123,123,123,123,123,123
+CUS1,philip12,philipgood,philip,philip@mumgay,0123456789,jhabdfgiadbgjidgb
+ADM1,ctk12,ctkgood,ctk,ctk@mumgay,71234924,fdhsdfhsedfhAWG

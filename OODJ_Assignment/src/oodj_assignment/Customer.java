@@ -11,15 +11,38 @@ package oodj_assignment;
  */
 public class Customer 
 {
-    protected String username;
     protected String UID;
+    protected String username;
     protected String password;
     protected String name;
     protected String emailAddress;
     protected String phoneNumber;
     protected String address;
     
-    public static void addUser()
+    public Customer (String uid, String usr, String pw, String Name, String Email, String phoneNo, String Address)
+    {
+        this.UID=uid;
+        this.username=usr;
+        this.password=pw;
+        this.name=Name;
+        this.emailAddress=Email;
+        this.phoneNumber=phoneNo;
+        this.address=Address;
+    }
+    
+    public  void addUser()
+    {
+        
+    }
+    public void login()
+    {
+        
+    }
+    public void browseProd()
+    {
+        
+    }
+    public void viewProd()
     {
         
     }

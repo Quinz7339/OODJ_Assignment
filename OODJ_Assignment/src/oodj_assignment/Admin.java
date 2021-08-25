@@ -81,7 +81,6 @@ public class Admin extends Customer
     {
         try
         {
-            
             //ArrayList to store Customer objects
             ArrayList<Customer> cusList = new ArrayList<Customer>();
             Scanner scanner = new Scanner (new File("src\\oodj_assignment\\textFile\\Users.txt"));
@@ -96,14 +95,11 @@ public class Admin extends Customer
                 Customer cus = new Customer (user[0],user[1],user[2],user[3],user[4],user[5],user[6]);
                 cusList.add(cus); //adding each customer object into an arrayList
             }
- 
         }
         catch(IOException Ex)
         {
             JOptionPane.showMessageDialog(errorMessage, "File is corrupted or manually tampered. Kindly revert the changes.","Error",JOptionPane.WARNING_MESSAGE);
         }
-        
-        
     }
     public void editCustomer(Customer cust)
     {

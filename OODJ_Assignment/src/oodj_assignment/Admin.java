@@ -31,7 +31,7 @@ public class Admin extends Customer
             while ((line = br.readLine()) != null)
             {
                 
-                String [] user = line.split(",",7); //splits user detail by commas
+                String [] user = line.split(","); //splits user detail by commas, 7 --> split into 7 elements
                 usernameList.add(user[1]);
 
                 if (user[0].contains(userType))

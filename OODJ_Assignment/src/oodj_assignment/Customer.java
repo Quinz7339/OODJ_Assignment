@@ -93,14 +93,6 @@ public class Customer
         this.address=Address;
     }
     
-    public  void addUser()
-    {
-        
-    }
-    public void login()
-    {
-        
-    }
     public void browseProd()
     {
         

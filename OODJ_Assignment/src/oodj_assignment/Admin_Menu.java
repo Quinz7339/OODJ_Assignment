@@ -46,7 +46,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btnClearnField = new javax.swing.JButton();
+        btnClearField = new javax.swing.JButton();
         txtAddCusUsrname = new javax.swing.JTextField();
         txtAddCusName = new javax.swing.JTextField();
         txtAddCusConfirmPw = new javax.swing.JTextField();
@@ -282,8 +282,13 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(44, 62, 80));
         jLabel7.setText("Phone number:  ");
 
-        btnClearnField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        btnClearnField.setText("Reset");
+        btnClearField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnClearField.setText("Reset");
+        btnClearField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearFieldActionPerformed(evt);
+            }
+        });
 
         txtAddCusUsrname.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
@@ -346,7 +351,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addComponent(jLabel1)))
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnClearnField)))
+                        .addComponent(btnClearField)))
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
@@ -401,7 +406,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddUser)
-                    .addComponent(btnClearnField))
+                    .addComponent(btnClearField))
                 .addGap(19, 19, 19))
         );
 
@@ -467,19 +472,19 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         lblAddProdParam2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblAddProdParam2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblAddProdParam2.setText("Altitude:");
+        lblAddProdParam2.setText("Altitude (ft):");
 
         txtAddProdParam2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jLabel67.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel67.setText("Price:");
+        jLabel67.setText("Price (RM):");
 
         txtAddProdPrice.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jLabel68.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel68.setText("Weight:");
+        jLabel68.setText("Weight (kg):");
 
         txtAddProdWeight.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
@@ -1835,6 +1840,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(errorMessage, "Please choose a product type to add.","No product type is selected.",JOptionPane.INFORMATION_MESSAGE);
         }
        
+       // try catch block to convert textfield to integer data type
        try
        {
            Integer.parseInt(txtAddProdQuantity.getText());
@@ -1844,6 +1850,8 @@ public class Admin_Menu extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(errorMessage, "Non integer value inserted for quantity. Please retry.","Wrong data type inserted",JOptionPane.INFORMATION_MESSAGE);
            txtAddProdQuantity.setText("");
        }
+       
+       // try catch block to convert textfield to double data type
        try 
        {
             Double.parseDouble(txtAddProdPrice.getText());
@@ -1856,6 +1864,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             txtAddProdPrice.setText("");
        }
        
+       //prevent execution of new product entry if empty fields are detected
        if (txtAddProdQuantity.getText().equals("") || txtAddProdPrice.getText().equals("") || txtAddProdName.getText().equals("")||txtAddProdParam1.getText().equals(""))
        {
              JOptionPane.showMessageDialog(errorMessage, "Required fields are not filled. Please retry","Unfilled required fields.",JOptionPane.INFORMATION_MESSAGE);
@@ -1899,7 +1908,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             lblAddProdParam3.setVisible(true);
             
             lblAddProdParam1.setText("Origin:");
-            lblAddProdParam2.setText("Altitude:");
+            lblAddProdParam2.setText("Altitude (ft):");
             lblAddProdParam3.setText("Testing Notes:");
             
             txtAddProdParam1.setVisible(true);
@@ -1917,11 +1926,22 @@ public class Admin_Menu extends javax.swing.JFrame {
             txtAddProdParam2.setVisible(false);
             txtAddProdParam3.setVisible(false);
             
-            lblAddProdParam1.setVisible(true);
+            txtAddProdParam1.setVisible(true);
             lblAddProdParam1.setVisible(true);
             lblAddProdParam1.setText(" Brand:");
         }
     }//GEN-LAST:event_rbEquipmentsActionPerformed
+
+    private void btnClearFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearFieldActionPerformed
+        // TODO add your handling code here:
+        txtAddCusName.setText("");
+        txtAddCusUsrname.setText("");
+        txtAddCusAddress.setText("");
+        txtAddCusConfirmPw.setText("");
+        txtAddCusEmail.setText("");
+        txtAddCusPhone.setText("");
+        
+    }//GEN-LAST:event_btnClearFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1963,7 +1983,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnAddUser;
-    private javax.swing.JButton btnClearnField;
+    private javax.swing.JButton btnClearField;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnMinus;

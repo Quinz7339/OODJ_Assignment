@@ -88,10 +88,13 @@ public class Admin extends Customer
             {
                 String line = scanner.nextLine();
                 String [] user = line.split(",");
+                
+                //if the user ID contains "ADM", excludes from adding to the arrayList to avoid autogeneration of an admin id
                 if (user[0].contains("ADM"))
                 {
                     continue;
                 }
+                
                 Customer cus = new Customer (user[0],user[1],user[2],user[3],user[4],user[5],user[6]);
                 cusList.add(cus); //adding each customer object into an arrayList
             }
@@ -110,6 +113,10 @@ public class Admin extends Customer
     
     }
     
+    //param1 - origin           (beans)     || brand(equipment)
+    //param2 - altitude         (beans)
+    //param3 - tasting notes    (beans)
+    //mode   -  beans || equipments
     public static void addProduct(String productName, int productQuan,double productPrice, double weight, String param1, double param2, String param3, String mode)
     {
         try
@@ -122,7 +129,7 @@ public class Admin extends Customer
             while ((line = br.readLine()) != null)
             {
                 
-                String [] prod = line.split(","); //splits user detail by commas
+                String [] prod = line.split(","); //splits product detail by commas
                 prodNameList.add(prod[1]);
                 int prodID = Integer.parseInt(prod[0].substring(4));    //removes the prefix of the Product ID (Prod)
                 prodIDList.add(prodID);                                 //adds the number portion of the Product Id
@@ -140,7 +147,8 @@ public class Admin extends Customer
             if (flag == false)
             {
                 PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Products.txt"),true));
-                String newProdID = "Prod" + String.valueOf(prodIDList.size() + 1);
+                
+                String newProdID = "Prod" + String.valueOf(prodIDList.size() + 1); //generating a new product ID
                 if(mode.equals("beans"))
                 {
                     Product nonFragile = new nonFragile(newProdID,productName,productQuan,productPrice,weight,param1,param2,param3);

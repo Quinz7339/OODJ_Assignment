@@ -1843,8 +1843,7 @@ public class Admin_Menu extends javax.swing.JFrame {
            double price = Double.parseDouble(txtAddProdPrice.getText());
            String prodName = txtAddProdName.getText();
            String param1 = txtAddProdParam1.getText();
-           String param2 =txtAddProdParam2.getText();
-           String param3 =txtAddProdParam3.getText();
+
 
             if(rbBeans.isSelected())
             {
@@ -1852,7 +1851,8 @@ public class Admin_Menu extends javax.swing.JFrame {
             }
             else if (rbEquipments.isSelected())
             {
-                
+                String param2 =txtAddProdParam2.getText();
+                String param3 =txtAddProdParam3.getText();
             }
        }
 

@@ -1940,7 +1940,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtAddCusConfirmPw.setText("");
         txtAddCusEmail.setText("");
         txtAddCusPhone.setText("");
-        
+        txtAddCusPwd.setText("");
     }//GEN-LAST:event_btnClearFieldActionPerformed
 
     /**

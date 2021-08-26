@@ -16,7 +16,7 @@ public class Admin extends Customer
 {
     static JFrame errorMessage;
     
-    //Override Customer constructor
+    
     public Admin(String username, String password, String name, String email, String phoneNo, String address, String userType)
     {
         super(username,password, name, email, phoneNo,  address, userType);

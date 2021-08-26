@@ -72,41 +72,53 @@ public class Admin extends Customer
         }
         catch(IOException Ex)
         {
-            JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again. Possible error:[Invalid tamepering of file]","Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.WARNING_MESSAGE);
         }
     }
     
+    @SuppressWarnings("unchecked")
     //method to show list of customers to pnlViewCustomer
-    public void viewCustomer() throws IOException
+    public static ArrayList viewCustomer() throws IOException
     {
+        ArrayList<Customer> cusList = new ArrayList<Customer>();
         try
         {
             //ArrayList to store Customer objects
-            ArrayList<Customer> cusList = new ArrayList<Customer>();
             Scanner scanner = new Scanner (new File("src\\oodj_assignment\\textFile\\Users.txt"));
             while (scanner.hasNextLine())
             {
                 String line = scanner.nextLine();
                 String [] user = line.split(",");
-                
-                //if the user ID contains "ADM", excludes from adding to the arrayList to avoid autogeneration of an admin id
-                if (user[0].contains("ADM"))
-                {
-                    continue;
-                }
-                
+
                 Customer cus = new Customer (user[0],user[1],user[2],user[3],user[4],user[5],user[6]);
                 cusList.add(cus); //adding each customer object into an arrayList
             }
+            scanner.close();
         }
         catch(IOException Ex)
         {
             JOptionPane.showMessageDialog(errorMessage, "File is corrupted or manually tampered. Kindly revert the changes.","Error",JOptionPane.WARNING_MESSAGE);
         }
+        return cusList;
     }
-    public void editCustomer(Customer cust)
+    public static void editCustomer(ArrayList<Customer> cust)
     {
-        
+        try
+        {
+            PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt"),false));
+
+            for (int i = 0; i < cust.size(); i++)
+            {
+                pw.println(cust.get(i).toString());
+            }
+
+            pw.close();
+            JOptionPane.showMessageDialog(errorMessage, " Customer data updated.","Update Successful!",JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(IOException Ex)
+        {
+            
+        }
     }
     public void deleteCustomer()
     {
@@ -171,8 +183,4 @@ public class Admin extends Customer
         }
     }
     
-    public String toString()
-    {
-         return  String.format("%s,%s,%s,%s,%s,%s,%s\n",UID,username,password,name, emailAddress,phoneNumber,address);
-    }
 }

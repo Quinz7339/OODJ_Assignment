@@ -5,6 +5,8 @@
  */
 package oodj_assignment;
 import java.awt.CardLayout;
+import java.io.*;
+import java.util.*;
 import javax.swing.*;
 
 /**
@@ -14,6 +16,7 @@ import javax.swing.*;
 public class Admin_Menu extends javax.swing.JFrame {
     JFrame errorMessage;
     ButtonGroup prod = new ButtonGroup();
+    DefaultListModel cusListModel = new DefaultListModel();
 
     /**
      * Creates new form Admin_Menu
@@ -49,8 +52,6 @@ public class Admin_Menu extends javax.swing.JFrame {
         btnClearField = new javax.swing.JButton();
         txtAddCusUsrname = new javax.swing.JTextField();
         txtAddCusName = new javax.swing.JTextField();
-        txtAddCusConfirmPw = new javax.swing.JTextField();
-        txtAddCusPwd = new javax.swing.JTextField();
         txtAddCusPhone = new javax.swing.JTextField();
         txtAddCusAddress = new javax.swing.JTextField();
         btnAddUser = new javax.swing.JButton();
@@ -58,6 +59,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         rbUsrAdm = new javax.swing.JRadioButton();
         rbUsrCus = new javax.swing.JRadioButton();
+        txtAddCusPwd = new javax.swing.JPasswordField();
+        txtAddCusConfirmPw = new javax.swing.JPasswordField();
         pnlAddProduct = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         lblAddProdParam1 = new javax.swing.JLabel();
@@ -81,7 +84,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         pnlViewCustomer = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        lstCustNames = new javax.swing.JList<>();
+        lstCusName = new javax.swing.JList<>();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -90,14 +93,15 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         txtCusName = new javax.swing.JTextField();
         txtCusUsername = new javax.swing.JTextField();
-        txtCusPassword2 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtCusAddress = new javax.swing.JTextArea();
         txtCusEmail = new javax.swing.JTextField();
-        txtCusPassword = new javax.swing.JTextField();
         btnEdit = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        txtCusPassword = new javax.swing.JPasswordField();
+        txtCusPassword2 = new javax.swing.JPasswordField();
+        btnBack = new javax.swing.JButton();
         pnlEditProduct = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -190,9 +194,9 @@ public class Admin_Menu extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuAddUser = new javax.swing.JMenuItem();
@@ -231,7 +235,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         pnlAdminMenuLayout.setHorizontalGroup(
             pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAdminMenuLayout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
+                .addContainerGap(130, Short.MAX_VALUE)
                 .addGroup(pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAdminMenuLayout.createSequentialGroup()
                         .addComponent(jLabel21)
@@ -247,7 +251,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlAdminMenu, "pnlAdminMenu");
@@ -294,10 +298,6 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         txtAddCusName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        txtAddCusConfirmPw.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-
-        txtAddCusPwd.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-
         txtAddCusPhone.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         txtAddCusAddress.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -340,21 +340,21 @@ public class Admin_Menu extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addComponent(jLabel6)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAddCusName, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddCusUsrname, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddCusPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddCusPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddCusAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddCusConfirmPw, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
+                        .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAddCusName, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(txtAddCusUsrname, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(txtAddCusPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(txtAddCusAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(txtAddCusEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtAddCusPwd)
+                            .addComponent(txtAddCusConfirmPw)))
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnClearField)))
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                         .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))
                     .addGroup(pnlAddCustomerLayout.createSequentialGroup()
@@ -384,13 +384,15 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbUsrAdm)))
                 .addGap(14, 14, 14)
-                .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddCusPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlAddCustomerLayout.createSequentialGroup()
+                        .addComponent(txtAddCusPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2))
                     .addComponent(jLabel28))
                 .addGap(18, 18, 18)
-                .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddCusConfirmPw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(txtAddCusConfirmPw, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAddCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -403,7 +405,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAddCusAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddUser)
                     .addComponent(btnClearField))
@@ -575,7 +577,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAddProdParam3)
                     .addComponent(txtAddProdParam3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -583,19 +585,26 @@ public class Admin_Menu extends javax.swing.JFrame {
         mainAdminMain.add(pnlAddProduct, "pnlAddProduct");
 
         pnlViewCustomer.setBackground(new java.awt.Color(247, 183, 49));
-        pnlViewCustomer.setPreferredSize(new java.awt.Dimension(730, 435));
+        pnlViewCustomer.setMaximumSize(new java.awt.Dimension(750, 500));
+        pnlViewCustomer.setMinimumSize(new java.awt.Dimension(750, 500));
+        pnlViewCustomer.setPreferredSize(new java.awt.Dimension(750, 500));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("View Customer");
 
-        lstCustNames.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lstCustNames.setModel(new javax.swing.AbstractListModel<String>() {
+        lstCusName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lstCusName.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(lstCustNames);
+        lstCusName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lstCusNameMouseReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(lstCusName);
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -627,21 +636,21 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtCusUsername.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtCusUsername.setForeground(new java.awt.Color(0, 0, 0));
 
-        txtCusPassword2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtCusPassword2.setForeground(new java.awt.Color(0, 0, 0));
-
         txtCusAddress.setColumns(20);
+        txtCusAddress.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtCusAddress.setRows(5);
         jScrollPane3.setViewportView(txtCusAddress);
 
         txtCusEmail.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtCusEmail.setForeground(new java.awt.Color(0, 0, 0));
 
-        txtCusPassword.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtCusPassword.setForeground(new java.awt.Color(0, 0, 0));
-
-        btnEdit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnEdit.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnReset.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnReset.setText("Reset");
@@ -650,84 +659,104 @@ public class Admin_Menu extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(204, 0, 51));
         jButton3.setText("Delete Customer");
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlViewCustomerLayout = new javax.swing.GroupLayout(pnlViewCustomer);
         pnlViewCustomer.setLayout(pnlViewCustomerLayout);
         pnlViewCustomerLayout.setHorizontalGroup(
             pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addGap(254, 254, 254))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
+            .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlViewCustomerLayout.createSequentialGroup()
-                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel19)))
-                    .addGroup(pnlViewCustomerLayout.createSequentialGroup()
-                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCusPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCusPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCusUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCusName, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(109, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
+                        .addComponent(btnBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addGap(254, 254, 254))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
+                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlViewCustomerLayout.createSequentialGroup()
+                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane2)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(pnlViewCustomerLayout.createSequentialGroup()
+                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlViewCustomerLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                    .addComponent(txtCusEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                    .addComponent(txtCusUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                    .addComponent(txtCusName, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                                    .addComponent(txtCusPassword)
+                                    .addComponent(txtCusPassword2))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))))))
         );
         pnlViewCustomerLayout.setVerticalGroup(
             pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32)
                 .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlViewCustomerLayout.createSequentialGroup()
-                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(txtCusName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(txtCusUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(txtCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(txtCusPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCusPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)))
+                            .addGroup(pnlViewCustomerLayout.createSequentialGroup()
+                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel15)
+                                    .addComponent(txtCusName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel13)
+                                    .addComponent(txtCusUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel19)
+                                    .addComponent(txtCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtCusPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18))
+                                .addGap(19, 19, 19)
+                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(txtCusPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlViewCustomerLayout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 94, Short.MAX_VALUE))
                     .addGroup(pnlViewCustomerLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEdit))))
                 .addContainerGap())
         );
 
@@ -833,7 +862,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                                 .addComponent(btnMinus)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnAdd)))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         pnlEditProductLayout.setVerticalGroup(
             pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -861,7 +890,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addComponent(txtProdQuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnMinus)
                             .addComponent(btnAdd))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
                 .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfirm)
                     .addComponent(btnReset2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -951,7 +980,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addComponent(jLabel35)
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         pnlEditOrderLayout.setVerticalGroup(
             pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -962,7 +991,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(jLabel36)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel37)
@@ -1035,7 +1064,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                     .addComponent(jRadioButton5))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlSearch, "pnlSearch");
@@ -1244,7 +1273,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                     .addComponent(jButton8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlAddOrderItem, "pnlAddOrderItem");
@@ -1272,7 +1301,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         pnlBrowseProductLayout.setHorizontalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
-                .addContainerGap(183, Short.MAX_VALUE)
+                .addContainerGap(189, Short.MAX_VALUE)
                 .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
                         .addComponent(jLabel29)
@@ -1295,7 +1324,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlBrowseProduct, "pnlBrowseProduct");
@@ -1386,7 +1415,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel31)
                             .addComponent(jLabel32))
-                        .addContainerGap(23, Short.MAX_VALUE))
+                        .addContainerGap(35, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewOrderHistLayout.createSequentialGroup()
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1406,7 +1435,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addGroup(pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1473,14 +1502,6 @@ public class Admin_Menu extends javax.swing.JFrame {
         jTextField5.setMinimumSize(new java.awt.Dimension(64, 30));
         jTextField5.setPreferredSize(new java.awt.Dimension(64, 30));
 
-        jTextField6.setMaximumSize(new java.awt.Dimension(64, 30));
-        jTextField6.setMinimumSize(new java.awt.Dimension(64, 30));
-        jTextField6.setPreferredSize(new java.awt.Dimension(64, 30));
-
-        jTextField9.setMaximumSize(new java.awt.Dimension(64, 30));
-        jTextField9.setMinimumSize(new java.awt.Dimension(64, 30));
-        jTextField9.setPreferredSize(new java.awt.Dimension(64, 30));
-
         jButton13.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jButton13.setText("Edit");
 
@@ -1517,7 +1538,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addGap(118, 118, 118)
                         .addComponent(jLabel66)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPasswordField2))
                     .addGroup(pnlViewProfileLayout.createSequentialGroup()
                         .addGap(193, 193, 193)
                         .addGroup(pnlViewProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1529,8 +1550,8 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addGroup(pnlViewProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(219, Short.MAX_VALUE))
+                            .addComponent(jPasswordField1))))
+                .addContainerGap(225, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewProfileLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton13)
@@ -1563,15 +1584,19 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGroup(pnlViewProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel64)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlViewProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel65)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlViewProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel66)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGroup(pnlViewProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel65)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlViewProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlViewProfileLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel66))
+                    .addGroup(pnlViewProfileLayout.createSequentialGroup()
+                        .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                        .addGap(2, 2, 2)))
+                .addGap(154, 154, 154)
                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -1760,8 +1785,28 @@ public class Admin_Menu extends javax.swing.JFrame {
     private void menuViewCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuViewCustomerActionPerformed
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlViewCustomer");
-        
-        
+        cusListModel.removeAllElements();
+        btnBack.setVisible(false);
+        txtCusName.setEditable(false);
+        txtCusUsername.setEditable(false);
+        txtCusEmail.setEditable(false);
+        txtCusAddress.setEditable(false);
+        txtCusPassword.setEditable(false);
+        txtCusPassword2.setEditable(false);
+        try
+        {
+            ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+            lstCusName.setModel(cusListModel);
+            
+            for (int i = 0; i < cusList.size(); i++)
+            {
+                cusListModel.addElement(cusList.get(i).getUID());
+            }
+        }
+        catch (IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuViewCustomerActionPerformed
 
     private void menuEditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditProductActionPerformed
@@ -1785,8 +1830,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         // Get user input from text fields
         String name =  txtAddCusName.getText();
         String usr =  txtAddCusUsrname.getText();
-        String pwd =  txtAddCusPwd.getText();
-        String cpwd =  txtAddCusConfirmPw.getText();
+        String pwd =  String.valueOf(txtAddCusPwd.getPassword());
+        String cpwd =  String.valueOf(txtAddCusConfirmPw.getPassword());
         String email =  txtAddCusEmail.getText();
         String phone =  txtAddCusPhone.getText();
         String address =  txtAddCusAddress.getText();
@@ -1814,7 +1859,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Differnt password entered.",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Different password entered.",JOptionPane.WARNING_MESSAGE);
             } 
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
@@ -1943,6 +1988,123 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtAddCusPwd.setText("");
     }//GEN-LAST:event_btnClearFieldActionPerformed
 
+    private void lstCusNameMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstCusNameMouseReleased
+        try
+        {
+            ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+            int i = lstCusName.getSelectedIndex();
+            txtCusName.setText(cusList.get(i).getName());
+            txtCusUsername.setText(cusList.get(i).getUsername());
+            txtCusEmail.setText(cusList.get(i).getEmailAddress());
+            txtCusAddress.setText(cusList.get(i).getAddress());
+            txtCusPassword.setText("");
+            txtCusPassword2.setText("");
+        }
+        catch (IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
+        }
+       
+        if (lstCusName.getSelectedValue().contains("ADM"))
+        {
+            btnEdit.setVisible(false);
+            btnBack.setVisible(false);
+            txtCusName.setEditable(false);
+            txtCusUsername.setEditable(false);
+            txtCusEmail.setEditable(false);
+            txtCusAddress.setEditable(false);
+            txtCusPassword.setEditable(false);
+            txtCusPassword2.setEditable(false);
+        }
+        else
+        {
+            btnEdit.setText("Edit");
+            btnEdit.setVisible(true);
+            btnBack.setVisible(false);
+            txtCusName.setEditable(false);
+            txtCusUsername.setEditable(false);
+            txtCusEmail.setEditable(false);
+            txtCusAddress.setEditable(false);
+            txtCusPassword.setEditable(false);
+            txtCusPassword2.setEditable(false);
+        }
+    }//GEN-LAST:event_lstCusNameMouseReleased
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        if (btnEdit.getText() == "Confirm")
+        {
+            btnBack.setVisible(false);
+            txtCusName.setEditable(false);
+            txtCusUsername.setEditable(false);
+            txtCusEmail.setEditable(false);
+            txtCusAddress.setEditable(false);
+            txtCusPassword.setEditable(false);
+            txtCusPassword2.setEditable(false);
+            btnEdit.setText("Edit");
+            //edit logic
+            if (Arrays.equals(txtCusPassword.getPassword(), txtCusPassword2.getPassword()) == false)
+            {
+                JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Different password entered.",JOptionPane.WARNING_MESSAGE);
+            }
+            else
+            {
+                try
+                {
+                    ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+                    int i = lstCusName.getSelectedIndex();
+                    cusList.get(i).setName(txtCusName.getText());
+                    cusList.get(i).setEmailAddress(txtCusEmail.getText());
+                    cusList.get(i).setAddress(txtCusAddress.getText());
+                    if (txtCusPassword.getPassword().length > 0)
+                    {
+                        cusList.get(i).setPassword(String.valueOf(txtCusPassword.getPassword()));
+                    }
+                    Admin.editCustomer(cusList);
+                }
+                catch (IOException Ex)
+                {
+                    JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            try
+            {
+                ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+                int i = lstCusName.getSelectedIndex();
+                txtCusName.setText(cusList.get(i).getName());
+                txtCusUsername.setText(cusList.get(i).getUsername());
+                txtCusEmail.setText(cusList.get(i).getEmailAddress());
+                txtCusAddress.setText(cusList.get(i).getAddress());
+                txtCusPassword.setText("");
+                txtCusPassword2.setText("");
+            }
+            catch(IOException Ex)
+            {
+                
+            }
+        }
+        else if (btnEdit.getText() == "Edit")
+        {
+            btnBack.setVisible(true);
+            txtCusName.setEditable(true);
+            txtCusEmail.setEditable(true);
+            txtCusAddress.setEditable(true);
+            txtCusPassword.setEditable(true);
+            txtCusPassword2.setEditable(true);
+            btnEdit.setText("Confirm");
+        }
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        btnBack.setVisible(false);
+        txtCusName.setEditable(false);
+        txtCusUsername.setEditable(false);
+        txtCusEmail.setEditable(false);
+        txtCusAddress.setEditable(false);
+        txtCusPassword.setEditable(false);
+        txtCusPassword2.setEditable(false);
+        btnEdit.setText("Edit");
+    }//GEN-LAST:event_btnBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1983,6 +2145,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnAddUser;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnClearField;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnEdit;
@@ -2085,6 +2248,8 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
@@ -2104,13 +2269,11 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblAddProdParam1;
     private javax.swing.JLabel lblAddProdParam2;
     private javax.swing.JLabel lblAddProdParam3;
     private javax.swing.JLabel lblCurrentQuan;
-    private javax.swing.JList<String> lstCustNames;
+    private javax.swing.JList<String> lstCusName;
     private javax.swing.JList<String> lstProductNames;
     private javax.swing.JPanel mainAdminMain;
     private javax.swing.JMenuItem menuAddProduct;
@@ -2136,11 +2299,11 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbUsrAdm;
     private javax.swing.JRadioButton rbUsrCus;
     private javax.swing.JTextField txtAddCusAddress;
-    private javax.swing.JTextField txtAddCusConfirmPw;
+    private javax.swing.JPasswordField txtAddCusConfirmPw;
     private javax.swing.JTextField txtAddCusEmail;
     private javax.swing.JTextField txtAddCusName;
     private javax.swing.JTextField txtAddCusPhone;
-    private javax.swing.JTextField txtAddCusPwd;
+    private javax.swing.JPasswordField txtAddCusPwd;
     private javax.swing.JTextField txtAddCusUsrname;
     private javax.swing.JTextField txtAddProdName;
     private javax.swing.JTextField txtAddProdParam1;
@@ -2152,8 +2315,8 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JTextArea txtCusAddress;
     private javax.swing.JTextField txtCusEmail;
     private javax.swing.JTextField txtCusName;
-    private javax.swing.JTextField txtCusPassword;
-    private javax.swing.JTextField txtCusPassword2;
+    private javax.swing.JPasswordField txtCusPassword;
+    private javax.swing.JPasswordField txtCusPassword2;
     private javax.swing.JTextField txtCusUsername;
     private javax.swing.JTextArea txtEditProdDesc;
     private javax.swing.JTextField txtProdName;

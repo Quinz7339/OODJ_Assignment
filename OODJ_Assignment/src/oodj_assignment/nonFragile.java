@@ -15,9 +15,9 @@ public class nonFragile extends Product
     private double altitude;
     private String tasteNotes;
     
-    public nonFragile(String productID,String productName, int productQuan,double productPrice, double weight, String param1, double param2, String param3)
+    public nonFragile(String productID,String productName, int productQuan,double productPrice,  String param1, double param2, String param3)
     {
-        super(productID,productName,productQuan, productPrice,weight);
+        super(productID,productName,productQuan, productPrice);
         this.origin = param1;
         this.altitude = param2;
         this.tasteNotes = param3;
@@ -25,7 +25,7 @@ public class nonFragile extends Product
     
     public String toString()
     {
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s",productID,productName,prodQuantity,productPrice,weight,origin,altitude,tasteNotes);
+        return String.format("%s,%s,%s,%s,%s,%s,%s",productID,productName,prodQuantity,productPrice,origin,altitude,tasteNotes);
     }
 }
 

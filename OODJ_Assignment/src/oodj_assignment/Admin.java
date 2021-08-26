@@ -110,13 +110,13 @@ public class Admin extends Customer
     
     }
     
-    public void addProduct(String product)
+    public static void addProduct(String productName, int productQuan,double productPrice, double weight, String param1, double param2, String param3, String mode)
     {
         try
         {
             BufferedReader br = new BufferedReader(new FileReader("src\\oodj_assignment\\textFile\\Users.txt"));
-            ArrayList <Integer> userIDList = new ArrayList<Integer>();
-            ArrayList <String> usernameList = new ArrayList<String>();
+            ArrayList <Integer> prodIDList = new ArrayList<Integer>();
+            ArrayList <String> prodNameList = new ArrayList<String>();
             String line;
             Boolean flag = false; //boolean variable to determine whether inputted username exist in the textfile      
         

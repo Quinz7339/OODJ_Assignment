@@ -15,14 +15,15 @@ public class Product
     protected String productName;
     protected int prodQuantity;
     protected double productPrice;
-    protected double weight;
+    protected double productWeight;
     
-    public Product(String productID,String productName,int productQuan, double productPrice, double weight)
+    public Product(String prodID,String prodName,int prodQuan, double prodPrice, double prodWeight)
     {
-        this.productID = productID;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.weight = weight;
+        this.productID = prodID;
+        this.productName = prodName;
+        this.prodQuantity = prodQuan;
+        this.productPrice = prodPrice;
+        this.productWeight = prodWeight;
     }
 }
 

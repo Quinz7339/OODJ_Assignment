@@ -76,6 +76,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtAddProdParam2 = new javax.swing.JTextField();
         jLabel67 = new javax.swing.JLabel();
         txtAddProdPrice = new javax.swing.JTextField();
+        jLabel68 = new javax.swing.JLabel();
+        txtAddProdWeight = new javax.swing.JTextField();
         pnlViewCustomer = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -468,16 +470,18 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         txtAddProdPrice.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
+        jLabel68.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel68.setText("Weight:");
+
+        txtAddProdWeight.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout pnlAddProductLayout = new javax.swing.GroupLayout(pnlAddProduct);
         pnlAddProduct.setLayout(pnlAddProductLayout);
         pnlAddProductLayout.setHorizontalGroup(
             pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
+            .addGroup(pnlAddProductLayout.createSequentialGroup()
                 .addContainerGap(68, Short.MAX_VALUE)
                 .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
-                        .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
                         .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8)
@@ -501,20 +505,25 @@ public class Admin_Menu extends javax.swing.JFrame {
                                     .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel11)
                                         .addComponent(jLabel10)
-                                        .addComponent(jLabel67))
+                                        .addComponent(jLabel67)
+                                        .addComponent(jLabel68))
                                     .addGap(28, 28, 28)
                                     .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtAddProdName, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtAddProdQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtAddProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(195, 195, 195))))
+                                        .addComponent(txtAddProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtAddProdWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(195, 195, 195))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
+                        .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))))
         );
         pnlAddProductLayout.setVerticalGroup(
             pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAddProductLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel8)
-                .addGap(51, 51, 51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtAddProdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -524,34 +533,34 @@ public class Admin_Menu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProductLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(txtAddProdQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAddProductLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64))
-                    .addGroup(pnlAddProductLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel67)
-                            .addComponent(txtAddProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(rbBeans)
-                            .addComponent(rbEquipments))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAddProdParam1)
-                            .addComponent(txtAddProdParam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAddProdParam2)
-                            .addComponent(txtAddProdParam2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAddProdParam3)
-                            .addComponent(txtAddProdParam3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(101, Short.MAX_VALUE))))
+                .addGap(17, 17, 17)
+                .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel67)
+                    .addComponent(txtAddProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel68)
+                    .addComponent(txtAddProdWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(rbBeans)
+                    .addComponent(rbEquipments))
+                .addGap(18, 18, 18)
+                .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddProdParam1)
+                    .addComponent(txtAddProdParam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddProdParam2)
+                    .addComponent(txtAddProdParam2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddProdParam3)
+                    .addComponent(txtAddProdParam3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
 
         mainAdminMain.add(pnlAddProduct, "pnlAddProduct");
@@ -1826,10 +1835,11 @@ public class Admin_Menu extends javax.swing.JFrame {
        try 
        {
             Double.parseDouble(txtAddProdPrice.getText());
+            Double.parseDouble(txtAddProdWeight.getText());
        }
        catch(NumberFormatException e)
        {
-            JOptionPane.showMessageDialog(errorMessage, "Non positive double inserted. Please retry","Wrong data type inserted",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(errorMessage, "Non positive double inserted for weight/ price. Please retry","Wrong data type inserted",JOptionPane.INFORMATION_MESSAGE);
             txtAddProdPrice.setText("");
        }
        
@@ -1839,19 +1849,24 @@ public class Admin_Menu extends javax.swing.JFrame {
        }
        else
        {
+           String prodName = txtAddProdName.getText();
            int quan = Integer.parseInt(txtAddProdQuantity.getText());
            double price = Double.parseDouble(txtAddProdPrice.getText());
-           String prodName = txtAddProdName.getText();
+           double weight = Double.parseDouble(txtAddProdWeight.getText());
            String param1 = txtAddProdParam1.getText();
 
 
             if(rbBeans.isSelected())
             {
+                //String productID,String productName, int productQuan,double productPrice, double weight, String param1, double param2, String param3
+                String mode = "beans";
+                //String productName, int productQuan,double productPrice, String param1, double param2, String param3, String mode
+                Admin.addProduct(prodName, quan, price, price, param1, price, param1, mode);
                 
-                nonFragile beans = new nonFragile();
             }
             else if (rbEquipments.isSelected())
             {
+                String mode = "equipment";
                 String param2 =txtAddProdParam2.getText();
                 String param3 =txtAddProdParam3.getText();
             }
@@ -2016,6 +2031,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JList<String> jList1;
@@ -2096,6 +2112,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField txtAddProdParam3;
     private javax.swing.JTextField txtAddProdPrice;
     private javax.swing.JTextField txtAddProdQuantity;
+    private javax.swing.JTextField txtAddProdWeight;
     private javax.swing.JTextArea txtCusAddress;
     private javax.swing.JTextField txtCusEmail;
     private javax.swing.JTextField txtCusName;

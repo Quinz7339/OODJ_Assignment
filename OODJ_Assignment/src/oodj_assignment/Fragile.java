@@ -12,8 +12,8 @@ package oodj_assignment;
 public class Fragile extends Product
 {
     private String brand;
-    public Fragile(String productID,String productName,int productQuan, double productPrice, double weight, String param1)
+    public Fragile(String productID,String productName,int productQuan, double productPrice, String param1)
     {
-        super(productID,productName,productQuan, productPrice,weight);
+        super(productID,productName,productQuan, productPrice);
     }
 }

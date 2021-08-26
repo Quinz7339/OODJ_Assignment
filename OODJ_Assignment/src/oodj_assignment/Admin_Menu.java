@@ -1871,18 +1871,19 @@ public class Admin_Menu extends javax.swing.JFrame {
 
             if(rbBeans.isSelected())
             {
-                //String productID,String productName, int productQuan,double productPrice, double weight, String param1, double param2, String param3
+               
                 String mode = "beans";
-                //String productName, int productQuan,double productPrice, double weight, String param1, double param2, String param3, String mode
-                Admin.addProduct(prodName, quan, price,weight, param1, 0,"null", mode);
+                Double param2 =Double.parseDouble(txtAddProdParam2.getText());
+                String param3 =txtAddProdParam3.getText();
+                
+                Admin.addProduct(prodName, quan, price,weight, param1, param2,param3, mode);
                 
             }
             else if (rbEquipments.isSelected())
             {
                 String mode = "equipment";
-                Double param2 =Double.parseDouble(txtAddProdParam2.getText());
-                String param3 =txtAddProdParam3.getText();
-                Admin.addProduct(prodName, quan, price,weight, param1, param2,param3, mode);
+                
+                Admin.addProduct(prodName, quan, price,weight, param1, 0,"null", mode);
             }
        }
 

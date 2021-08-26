@@ -133,7 +133,7 @@ public class Admin extends Customer
             {
                 if (productName.equals(prodNameList.get(i)))
                 {
-                    JOptionPane.showMessageDialog(errorMessage, "Duplicaed product name inputted. Please retry.","Error",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(errorMessage, "Duplicated product name inputted. Please retry.","Error",JOptionPane.WARNING_MESSAGE);
                     flag = true;
                 }
             }
@@ -144,14 +144,17 @@ public class Admin extends Customer
                 if(mode.equals("beans"))
                 {
                     Product nonFragile = new nonFragile(newProdID,productName,productQuan,productPrice,weight,param1,param2,param3);
+                    JOptionPane.showMessageDialog(errorMessage, "New product added successfully.","New product entry.",JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println(nonFragile.toString());
                     pw.println(nonFragile.toString());
                 }
                 else if (mode.equals("equipment"))
                 {
                     Product fragile = new Fragile(newProdID,productName,productQuan,productPrice,weight,param1);
+                    JOptionPane.showMessageDialog(errorMessage, "New product added successfully.","New product entry.",JOptionPane.INFORMATION_MESSAGE);
                     pw.println(fragile.toString());
                 }
-                
+                pw.close();
             }
         }
         catch(IOException e)

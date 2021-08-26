@@ -139,7 +139,7 @@ public class Admin extends Customer
             }
             if (flag == false)
             {
-                PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt"),true));
+                PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Products.txt"),true));
                 String newProdID = "Prod" + String.valueOf(prodIDList.size() + 1);
                 if(mode.equals("beans"))
                 {

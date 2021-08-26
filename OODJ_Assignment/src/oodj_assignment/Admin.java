@@ -114,16 +114,49 @@ public class Admin extends Customer
     {
         try
         {
-            BufferedReader br = new BufferedReader(new FileReader("src\\oodj_assignment\\textFile\\Users.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src\\oodj_assignment\\textFile\\Products.txt"));
             ArrayList <Integer> prodIDList = new ArrayList<Integer>();
             ArrayList <String> prodNameList = new ArrayList<String>();
             String line;
             Boolean flag = false; //boolean variable to determine whether inputted username exist in the textfile      
-        
+            while ((line = br.readLine()) != null)
+            {
+                
+                String [] prod = line.split(","); //splits user detail by commas
+                prodNameList.add(prod[1]);
+                int prodID = Integer.parseInt(prod[0].substring(4));    //removes the prefix of the Product ID (Prod)
+                prodIDList.add(prodID);                                 //adds the number portion of the Product Id
+            }
+            br.close();  
+            
+            for (int i = 0; i < prodNameList.size(); i++)
+            {
+                if (productName.equals(prodNameList.get(i)))
+                {
+                    JOptionPane.showMessageDialog(errorMessage, "Duplicaed product name inputted. Please retry.","Error",JOptionPane.WARNING_MESSAGE);
+                    flag = true;
+                }
+            }
+            if (flag == false)
+            {
+                PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt"),true));
+                String newProdID = "Prod" + String.valueOf(prodIDList.size() + 1);
+                if(mode.equals("beans"))
+                {
+                    Product nonFragile = new nonFragile(newProdID,productName,productQuan,productPrice,weight,param1,param2,param3);
+                    pw.println(nonFragile.toString());
+                }
+                else if (mode.equals("equipment"))
+                {
+                    Product fragile = new Fragile(newProdID,productName,productQuan,productPrice,weight,param1);
+                    pw.println(fragile.toString());
+                }
+                
+            }
         }
         catch(IOException e)
         {
-            
+            JOptionPane.showMessageDialog(errorMessage, "An expected error has occured. Please retry.","Error",JOptionPane.WARNING_MESSAGE);
         }
     }
     

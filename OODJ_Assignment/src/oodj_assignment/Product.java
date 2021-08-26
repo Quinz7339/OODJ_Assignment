@@ -11,14 +11,18 @@ package oodj_assignment;
  */
 public class Product 
 {
-    private String productID;
-    private String productName;
-    private double productPrice;
-    private double weight;
+    protected String productID;
+    protected String productName;
+    protected int prodQuantity;
+    protected double productPrice;
+    protected double weight;
     
-    public Product(String productID,String productName, double productPrice, double weight)
+    public Product(String productID,String productName,int productQuan, double productPrice, double weight)
     {
-    
+        this.productID = productID;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.weight = weight;
     }
 }
 

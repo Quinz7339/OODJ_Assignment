@@ -1848,6 +1848,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             if(rbBeans.isSelected())
             {
                 
+                nonFragile beans = new nonFragile();
             }
             else if (rbEquipments.isSelected())
             {

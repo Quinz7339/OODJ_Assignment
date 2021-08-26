@@ -38,13 +38,13 @@ public class Admin extends Customer
             while ((line = br.readLine()) != null)
             {
                 
-                String [] user = line.split(","); //splits user detail by commas, 7 --> split into 7 elements
+                String [] user = line.split(","); //splits user detail by commas
                 usernameList.add(user[1]);
 
                 if (user[0].contains(userType))
                 {
                     int userID = Integer.parseInt(user[0].substring(3));    //removes the prefix of the User ID (ADM, CUS)
-                    userIDList.add(userID);                                 //adss the number portion 
+                    userIDList.add(userID);                                 //adds the number portion 
                 }
             }
             br.close();
@@ -110,9 +110,21 @@ public class Admin extends Customer
     
     }
     
-    public void addProduct()
+    public void addProduct(String product)
     {
+        try
+        {
+            BufferedReader br = new BufferedReader(new FileReader("src\\oodj_assignment\\textFile\\Users.txt"));
+            ArrayList <Integer> userIDList = new ArrayList<Integer>();
+            ArrayList <String> usernameList = new ArrayList<String>();
+            String line;
+            Boolean flag = false; //boolean variable to determine whether inputted username exist in the textfile      
         
+        }
+        catch(IOException e)
+        {
+            
+        }
     }
     
     public String toString()

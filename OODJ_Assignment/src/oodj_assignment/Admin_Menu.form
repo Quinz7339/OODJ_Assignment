@@ -961,8 +961,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnDeleteCus" max="32767" attributes="0"/>
                                           <Component id="jScrollPane2" max="32767" attributes="0"/>
-                                          <Component id="jButton3" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1049,7 +1049,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jScrollPane2" min="-2" pref="229" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButton3" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="btnDeleteCus" min="-2" pref="34" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="94" max="32767" attributes="0"/>
@@ -1099,6 +1099,15 @@
                         <StringItem index="3" value="Item 4"/>
                         <StringItem index="4" value="Item 5"/>
                       </StringArray>
+                    </Property>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[148, 105]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[148, 105]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[148, 105]"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1242,8 +1251,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Reset"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResetActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="btnDeleteCus">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="1"/>
@@ -1253,6 +1265,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete Customer"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteCusActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="txtCusPassword">
             </Component>

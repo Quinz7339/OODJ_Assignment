@@ -17,7 +17,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     JFrame errorMessage;
     ButtonGroup prod = new ButtonGroup();
     DefaultListModel cusListModel = new DefaultListModel();
-
+    
     /**
      * Creates new form Admin_Menu
      */
@@ -98,7 +98,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtCusEmail = new javax.swing.JTextField();
         btnEdit = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnDeleteCus = new javax.swing.JButton();
         txtCusPassword = new javax.swing.JPasswordField();
         txtCusPassword2 = new javax.swing.JPasswordField();
         btnBack = new javax.swing.JButton();
@@ -599,6 +599,9 @@ public class Admin_Menu extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        lstCusName.setMaximumSize(new java.awt.Dimension(148, 105));
+        lstCusName.setMinimumSize(new java.awt.Dimension(148, 105));
+        lstCusName.setPreferredSize(new java.awt.Dimension(148, 105));
         lstCusName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lstCusNameMouseReleased(evt);
@@ -654,10 +657,20 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         btnReset.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(204, 0, 51));
-        jButton3.setText("Delete Customer");
+        btnDeleteCus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnDeleteCus.setForeground(new java.awt.Color(204, 0, 51));
+        btnDeleteCus.setText("Delete Customer");
+        btnDeleteCus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteCusActionPerformed(evt);
+            }
+        });
 
         btnBack.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         btnBack.setText("Back");
@@ -683,8 +696,8 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                                 .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane2)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnDeleteCus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -750,7 +763,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnDeleteCus, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 94, Short.MAX_VALUE))
                     .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1787,6 +1800,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         card.show(mainAdminMain, "pnlViewCustomer");
         cusListModel.removeAllElements();
         btnBack.setVisible(false);
+        btnDeleteCus.setVisible(false);
         txtCusName.setEditable(false);
         txtCusUsername.setEditable(false);
         txtCusEmail.setEditable(false);
@@ -2009,18 +2023,21 @@ public class Admin_Menu extends javax.swing.JFrame {
         {
             btnEdit.setVisible(false);
             btnBack.setVisible(false);
+            btnDeleteCus.setVisible(false);
             txtCusName.setEditable(false);
             txtCusUsername.setEditable(false);
             txtCusEmail.setEditable(false);
             txtCusAddress.setEditable(false);
             txtCusPassword.setEditable(false);
             txtCusPassword2.setEditable(false);
+            JOptionPane.showMessageDialog(errorMessage, "Admin Information cannot be altered by another admin.","WARNING",JOptionPane.WARNING_MESSAGE);
         }
         else
         {
             btnEdit.setText("Edit");
             btnEdit.setVisible(true);
             btnBack.setVisible(false);
+            btnDeleteCus.setVisible(true);
             txtCusName.setEditable(false);
             txtCusUsername.setEditable(false);
             txtCusEmail.setEditable(false);
@@ -2105,6 +2122,41 @@ public class Admin_Menu extends javax.swing.JFrame {
         btnEdit.setText("Edit");
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnDeleteCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCusActionPerformed
+        try
+        {
+            ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+            int i = lstCusName.getSelectedIndex();
+            
+            if(JOptionPane.showConfirmDialog(errorMessage,"Are you sure you want to delete this user?", "Delete user confirmation.",
+               JOptionPane.YES_NO_OPTION,
+               JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
+            {
+                cusList.remove(i);
+                Admin.editCustomer(cusList);
+                menuViewCustomer.doClick();
+                btnReset.doClick();
+            } 
+//            if (lstCusName.getSelectedValue().contains("ADM"))
+//            {
+//                
+//            }
+        }
+        catch (IOException Ex)
+        {
+            
+        }
+    }//GEN-LAST:event_btnDeleteCusActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        txtCusName.setText("");
+        txtCusUsername.setText("");
+        txtCusEmail.setText("");
+        txtCusAddress.setText("");
+        txtCusPassword.setText("");
+        txtCusPassword2.setText("");
+    }//GEN-LAST:event_btnResetActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2148,6 +2200,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnClearField;
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnDeleteCus;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnMinus;
     private javax.swing.JButton btnReset;
@@ -2159,7 +2212,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

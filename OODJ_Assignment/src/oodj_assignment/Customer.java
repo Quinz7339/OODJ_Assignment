@@ -113,7 +113,6 @@ public class Customer
 
             if (flagUsrname == true && flagPwd == true)
             {
-                System.out.println(userType);
                 if (userType.equals("ADM"))
                 {
                     return "adm";
@@ -128,8 +127,6 @@ public class Customer
                 {
                     JOptionPane.showMessageDialog(errorMessage, "Incorrect Username or Password! Please try again.","Error",JOptionPane.WARNING_MESSAGE);
                 }
-            
-
         }
         catch(IOException Ex)
         {

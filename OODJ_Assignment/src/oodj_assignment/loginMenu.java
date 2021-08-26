@@ -343,7 +343,7 @@ public class loginMenu extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // Get login credentials
         String username = txtLoginUsrname.getText();
-        String pwd = txtLoginPwd.getText();
+        String pwd = String.valueOf(txtLoginPwd.getPassword());
     
         String userType = Customer.login(username,pwd);
         if (userType == "adm")

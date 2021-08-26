@@ -117,10 +117,10 @@ public class Admin extends Customer
         }
         catch(IOException Ex)
         {
-            
+            JOptionPane.showMessageDialog(errorMessage, "File not found!","Error",JOptionPane.WARNING_MESSAGE);
         }
     }
-    public void deleteCustomer()
+    public static void deleteCustomer(ArrayList<Customer> cust)
     {
     
     }

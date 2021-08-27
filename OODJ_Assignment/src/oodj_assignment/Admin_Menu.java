@@ -1731,7 +1731,7 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         mainAdminMain.add(pnlViewProfile, "pnlViewProfile");
 
-        jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jMenuBar1.setMaximumSize(new java.awt.Dimension(750, 48));
         jMenuBar1.setMinimumSize(new java.awt.Dimension(750, 48));
@@ -2396,8 +2396,51 @@ public class Admin_Menu extends javax.swing.JFrame {
             txtCusPassword.setEditable(false);
             txtCusPassword2.setEditable(false);
             btnEditProd.setText("Edit");
-            //insert edit logic here
             
+            //insert edit logic here
+            try
+            {
+                Admin adm = new Admin();
+                ArrayList<Object> prodList = new ArrayList(adm.viewProduct());
+                
+                int quan = Integer.parseInt(txtAddProdQuantity.getText().trim());
+                int subtotal = quan + Integer.parseInt(lblCurrentQuan.getText());
+                for (Object prod:prodList)
+                {
+                    if (prod instanceof Fragile)
+                    {
+                        Fragile fragProd = (Fragile) prod;
+                        if(lstProductID.getSelectedValue().equals(fragProd.getProductID()))
+                        {
+                            System.out.println(fragProd.getProdQuantity() + fragProd.getProductWeight());
+                            //if(fragProd.getProdQuantity().equals(subtotal) || fragProd.getProductWeight().equals(Double.parseDouble(txtProdWeight.getText().trim())))
+                            {
+                                
+                            }
+                    
+                            lblParam2.setVisible(false);
+                            lblParam3.setVisible(false);
+                            txtProdParam2.setVisible(false);
+                            txtProdParam3.setVisible(false);
+                        } 
+                    }
+                    else
+                    {
+                        nonFragile nonFragProd = (nonFragile) prod;
+                        if (lstProductID.getSelectedValue().equals(nonFragProd.getProductID()))
+                        {
+                            lblParam2.setVisible(false);
+                            lblParam3.setVisible(false);
+                            txtProdParam2.setVisible(false);
+                            txtProdParam3.setVisible(false);
+                        }
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
+            } 
         }
         else if (btnEditProd.getText() == "Edit")
         {
@@ -2439,7 +2482,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             }
             catch (IOException ex)
             {
-                
+                JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnEditProdActionPerformed

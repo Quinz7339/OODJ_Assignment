@@ -15,6 +15,7 @@ import javax.swing.JFrame;
  */
 public class Customer 
 {
+    static JFrame errorMessage;
     protected String UID;
     protected String username;
     protected String password;
@@ -80,62 +81,17 @@ public class Customer
     }
     
     public Customer (){}
-    
-    static JFrame errorMessage;
-    public static String login(String usr, String pwd)
+    public Customer (Customer cus)
     {
-        try
-        {
-            //compare username with all the username in the text file
-            BufferedReader br = new BufferedReader(new FileReader("src\\oodj_assignment\\textFile\\Users.txt"));
-            String line;
-            Boolean flagUsrname = false;
-            Boolean flagPwd = false;
-            String userType = "";
-            
-            while ((line = br.readLine()) != null)
-            {
-                String [] user = line.split(",",7); //splits user detail by commas
-                
-                if (usr.equals(user[1]))
-                {
-                    flagUsrname = true;
-                    
-                    if (pwd.equals(user[2]))
-                    {
-                        flagPwd = true;
-
-                    }
-                    userType = user[0].substring(0,3);
-                }
-                
-            }
-            br.close();
-
-            if (flagUsrname == true && flagPwd == true)
-            {
-                if (userType.equals("ADM"))
-                {
-                    return "adm";
-                }
-                else if (userType.equals("CUS"))
-                {
-                    return "cus";
-                }
-                        
-            }
-            else
-                {
-                    JOptionPane.showMessageDialog(errorMessage, "Incorrect Username or Password! Please try again.","Error",JOptionPane.WARNING_MESSAGE);
-                }
-        }
-        catch(IOException Ex)
-        {
-            JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
-        }
-        return "null";
-    }
-
+        this.UID = cus.getUID();
+        this.username=cus.getUsername();
+        this.password=cus.getPassword();
+        this.name=cus.getName();
+        this.emailAddress=cus.getEmailAddress();
+        this.phoneNumber=cus.getPhoneNumber();
+        this.address=cus.getAddress();
+    } 
+    
     public Customer (String uid, String usr, String pw, String Name, String Email, String phoneNo, String Address)
     {
         this.UID=uid;
@@ -146,6 +102,60 @@ public class Customer
         this.phoneNumber=phoneNo;
         this.address=Address;
     }
+    
+    public Customer login(String usr, String pwd)
+    {
+        try
+        {
+            //compare username with all the username in the text file
+            BufferedReader br = new BufferedReader(new FileReader("src\\oodj_assignment\\textFile\\Users.txt"));
+            String line;
+            Boolean flagUsrname = false;
+            Boolean flagPwd = false;
+            //String userType = "";
+            
+            while ((line = br.readLine()) != null)
+            {
+                String [] user = line.split(","); //splits user detail by commas
+                Customer User = new Customer(user[0],user[1],user[2],user[3],user[4],user[5],user[6]);
+                
+                if (usr.equals(user[1]))
+                {
+                    flagUsrname = true;
+                    
+                    if (pwd.equals(user[2]))
+                    {
+                        flagPwd = true;
+                        if (flagUsrname == true && flagPwd == true)
+                        {
+                            return User;
+            //                if (userType.equals("ADM"))
+            //                {
+            //                    return "adm";
+            //                }
+            //                else if (userType.equals("CUS"))
+            //                {
+            //                    return "cus";
+            //                }
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    //userType = user[0].substring(0,3);
+                }
+                
+            }
+            br.close();
+        }
+        catch(IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, " An Error Occured. Please try again","Error",JOptionPane.WARNING_MESSAGE);
+        }
+        return null;
+    }
+
     
     public void browseProd()
     {

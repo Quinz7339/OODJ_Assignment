@@ -18,6 +18,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     ButtonGroup user = new ButtonGroup();
     ButtonGroup prod = new ButtonGroup();
     DefaultListModel cusListModel = new DefaultListModel();
+    int i;
     
     /**
      * Creates new form Admin_Menu
@@ -40,6 +41,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        choice1 = new java.awt.Choice();
         mainAdminMain = new javax.swing.JPanel();
         pnlAdminMenu = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -708,7 +710,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                                 .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnDeleteCus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jScrollPane2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                                 .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -719,21 +721,19 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlViewCustomerLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                    .addComponent(txtCusEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                    .addComponent(txtCusUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                    .addComponent(txtCusName, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                    .addComponent(txtCusPassword)
-                                    .addComponent(txtCusPassword2))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                            .addComponent(txtCusEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                            .addComponent(txtCusUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                            .addComponent(txtCusName, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                            .addComponent(txtCusPassword)
+                            .addComponent(txtCusPassword2))
+                        .addContainerGap(99, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
         pnlViewCustomerLayout.setVerticalGroup(
             pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -775,12 +775,10 @@ public class Admin_Menu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnDeleteCus, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 94, Short.MAX_VALUE))
-                    .addGroup(pnlViewCustomerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEdit))))
-                .addContainerGap())
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addComponent(btnEdit)
+                .addGap(35, 35, 35))
         );
 
         mainAdminMain.add(pnlViewCustomer, "pnlViewCustomer");
@@ -2100,7 +2098,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         {
             Admin adm = new Admin();
             ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
-            int i = lstCusName.getSelectedIndex();
+            i = lstCusName.getSelectedIndex();
             txtCusName.setText(cusList.get(i).getName());
             txtCusUsername.setText(cusList.get(i).getUsername());
             txtCusEmail.setText(cusList.get(i).getEmailAddress());
@@ -2152,6 +2150,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             txtCusPassword.setEditable(false);
             txtCusPassword2.setEditable(false);
             btnEdit.setText("Edit");
+            
             //edit logic
             if (Arrays.equals(txtCusPassword.getPassword(), txtCusPassword2.getPassword()) == false)
             {
@@ -2163,7 +2162,6 @@ public class Admin_Menu extends javax.swing.JFrame {
                 {
                     Admin adm = new Admin();
                     ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
-                    int i = lstCusName.getSelectedIndex();
                     cusList.get(i).setName(txtCusName.getText());
                     cusList.get(i).setEmailAddress(txtCusEmail.getText());
                     cusList.get(i).setAddress(txtCusAddress.getText());
@@ -2182,7 +2180,6 @@ public class Admin_Menu extends javax.swing.JFrame {
             {
                 Admin adm = new Admin();
                 ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
-                int i = lstCusName.getSelectedIndex();
                 txtCusName.setText(cusList.get(i).getName());
                 txtCusUsername.setText(cusList.get(i).getUsername());
                 txtCusEmail.setText(cusList.get(i).getEmailAddress());
@@ -2216,8 +2213,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtCusPassword.setEditable(false);
         txtCusPassword2.setEditable(false);
         btnEdit.setText("Edit");
-        //btnReset.doClick();
-        menuViewCustomer.doClick();
+        btnReset.doClick();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCusActionPerformed
@@ -2247,13 +2243,23 @@ public class Admin_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteCusActionPerformed
 
+    //Under viewCustomer panale
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        txtCusName.setText("");
-        txtCusUsername.setText("");
-        txtCusEmail.setText("");
-        txtCusAddress.setText("");
-        txtCusPassword.setText("");
-        txtCusPassword2.setText("");
+        try
+        {
+            Admin adm = new Admin();
+            ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
+            txtCusName.setText(cusList.get(i).getName());
+            txtCusUsername.setText(cusList.get(i).getUsername());
+            txtCusEmail.setText(cusList.get(i).getEmailAddress());
+            txtCusAddress.setText(cusList.get(i).getAddress());
+            txtCusPassword.setText("");
+            txtCusPassword2.setText("");
+        }
+        catch(IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnResetActionPerformed
 
     /**
@@ -2306,6 +2312,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnReset2;
     private javax.swing.JButton btnSearchEnter;
     private javax.swing.ButtonGroup buttonGroup1;
+    private java.awt.Choice choice1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;

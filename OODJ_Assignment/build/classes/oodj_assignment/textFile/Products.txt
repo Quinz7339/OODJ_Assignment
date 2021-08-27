@@ -1,0 +1,2 @@
+Prod1,Expresso,5,60.0,50.0,malaysia,89.0,Bitter
+Prod2,Blender,5,60.0,50.0,Massimo

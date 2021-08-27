@@ -377,7 +377,8 @@ public class loginMenu extends javax.swing.JFrame {
         
         if(cpwd.equals(pwd)) //if passwords entered are same, calls the addUser static method
         {
-            Admin.addUser(usr, pwd, name, email, phone, address, usrType);
+            Admin adm = new Admin();
+            adm.addUser(usr, pwd, name, email, phone, address, usrType);
             CardLayout card = (CardLayout)mainLoginMain.getLayout();
             card.show(mainLoginMain, "pnlLogin");
         }

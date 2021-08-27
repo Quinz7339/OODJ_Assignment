@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
+    <Component class="java.awt.Choice" name="choice1">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -964,7 +966,7 @@
                                           <Component id="btnDeleteCus" max="32767" attributes="0"/>
                                           <Component id="jScrollPane2" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="88" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel17" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -979,27 +981,23 @@
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jScrollPane3" pref="226" max="32767" attributes="0"/>
-                                          <Component id="txtCusEmail" pref="226" max="32767" attributes="0"/>
-                                          <Component id="txtCusUsername" pref="226" max="32767" attributes="0"/>
-                                          <Component id="txtCusName" pref="226" max="32767" attributes="0"/>
-                                          <Component id="txtCusPassword" max="32767" attributes="0"/>
-                                          <Component id="txtCusPassword2" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnEdit" min="-2" pref="162" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jScrollPane3" pref="226" max="32767" attributes="0"/>
+                                  <Component id="txtCusEmail" pref="226" max="32767" attributes="0"/>
+                                  <Component id="txtCusUsername" pref="226" max="32767" attributes="0"/>
+                                  <Component id="txtCusName" pref="226" max="32767" attributes="0"/>
+                                  <Component id="txtCusPassword" max="32767" attributes="0"/>
+                                  <Component id="txtCusPassword2" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace pref="99" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnEdit" min="-2" pref="162" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1054,15 +1052,11 @@
                               </Group>
                               <EmptySpace min="0" pref="94" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnReset" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="btnEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="btnReset" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="btnEdit" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

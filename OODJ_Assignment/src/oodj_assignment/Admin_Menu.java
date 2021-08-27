@@ -2221,7 +2221,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         {
             Admin adm = new Admin();
             ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
-            int i = lstCusName.getSelectedIndex();
+            i = lstCusName.getSelectedIndex();
             
             if(JOptionPane.showConfirmDialog(errorMessage,"Are you sure you want to delete this user?", "Delete user confirmation.",
                JOptionPane.YES_NO_OPTION,

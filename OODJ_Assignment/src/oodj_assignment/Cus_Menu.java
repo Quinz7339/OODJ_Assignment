@@ -17,6 +17,7 @@ public class Cus_Menu extends javax.swing.JFrame {
      */
     public Cus_Menu(Customer user)
     {
+        initComponents();
         Customer customer = new Customer(user);
     }
     public Cus_Menu() {

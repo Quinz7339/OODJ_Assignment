@@ -353,7 +353,7 @@ public class loginMenu extends javax.swing.JFrame {
         }
         else if (usr.getUID().contains("ADM"))
         {
-            Admin_Menu admMenu = new Admin_Menu();
+            Admin_Menu admMenu = new Admin_Menu(usr);
             admMenu.setVisible(true);
             this.setVisible(false);
             

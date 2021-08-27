@@ -28,6 +28,11 @@ public class Admin_Menu extends javax.swing.JFrame {
     public Admin_Menu(Customer adm)
     {
         Customer admin = new Customer(adm);
+        initComponents();
+        user.add(rbUsrAdm);
+        user.add(rbUsrCus);
+        prod.add(rbBeans);
+        prod.add(rbEquipments);
     }
     public Admin_Menu() {
         initComponents();

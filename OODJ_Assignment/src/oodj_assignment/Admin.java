@@ -60,7 +60,7 @@ public class Admin extends Customer
                 
             if (flag == false)
             {
-                String newUID = userType + String.valueOf(userIDList.size() + 1);
+                String newUID = userType + String.valueOf(Collections.max(userIDList,null) + 1);
             
                 PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt"),true));
 

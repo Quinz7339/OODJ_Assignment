@@ -165,7 +165,6 @@ public class Admin extends Customer
                 {
                     Product nonFragile = new nonFragile(newProdID,productName,productQuan,productPrice,weight,param1,param2,param3);
                     JOptionPane.showMessageDialog(errorMessage, "New product added successfully.","New product entry.",JOptionPane.INFORMATION_MESSAGE);
-                    System.out.println(nonFragile.toString());
                     pw.println(nonFragile.toString());
                 }
                 else if (mode.equals("equipment"))

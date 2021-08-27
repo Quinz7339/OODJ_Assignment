@@ -345,18 +345,24 @@ public class loginMenu extends javax.swing.JFrame {
         String username = txtLoginUsrname.getText();
         String pwd = String.valueOf(txtLoginPwd.getPassword());
     
-        String userType = Customer.login(username,pwd);
-        if (userType == "adm")
+        Customer user = new Customer();
+        Customer usr = user.login(username,pwd);
+        if(usr == null)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "Username/Password not found. Please try again","Login Failed.",JOptionPane.WARNING_MESSAGE);
+        }
+        else if (usr.getUID().contains("ADM"))
         {
             Admin_Menu admMenu = new Admin_Menu();
-            this.setVisible(false);
             admMenu.setVisible(true);
-        }
-        else if (userType == "cus")
-        {
-            Cus_Menu cusMenu = new Cus_Menu();
             this.setVisible(false);
+            
+        }
+        else if (usr.getUID().contains("CUS"))
+        {
+            Cus_Menu cusMenu = new Cus_Menu(usr);
             cusMenu.setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

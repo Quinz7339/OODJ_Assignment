@@ -1,5 +1,5 @@
-CUS1,philip12,philipgood,,,0123456789,
+CUS1,philip12,philip,philipchua,philip@mumgay,0123456789,jhabdfgiadbgjidgb
 ADM1,ctk12,ctkgood,ctk,ctk@mumgay,71234924,fdhsdfhsedfhAWG
-CUS3,daddyjon,hacker,jonathan,daddyjon@slapmesilly,12835421312,sdafghasdfuiasdfg
-ADM2,eunotsogay,123,nice,eugayasd@mail,325251321,sdfhserhasfg
-ADM3,dfgibhafa,321,hi,kjasdlnjgoag,1785124124,dsagasgew
+CUS3,daddyjon,hacker,jon,daddyjon@slapmesilly,12835421312,sdafghasdfuiasdfg
+CUS4,notdaddyjone,nice,jone,jone@gmail,8921734891254,asdfasghawerh
+CUS5,eugegayneh,123,Eugene,eugene@yougayneh,8781234123,dfsghashndha

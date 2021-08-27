@@ -23,7 +23,12 @@ public class Admin_Menu extends javax.swing.JFrame {
     int j;
     /**
      * Creates new form Admin_Menu
+     * @param adm
      */
+    public Admin_Menu(Customer adm)
+    {
+        Customer admin = new Customer(adm);
+    }
     public Admin_Menu() {
         initComponents();
         user.add(rbUsrAdm);
@@ -265,7 +270,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlAdminMenu, "pnlAdminMenu");
@@ -419,7 +424,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAddCusAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddUser)
                     .addComponent(btnClearField))
@@ -591,7 +596,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGroup(pnlAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAddProdParam3)
                     .addComponent(txtAddProdParam3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -775,7 +780,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnDeleteCus, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 116, Short.MAX_VALUE)
+                .addGap(22, 126, Short.MAX_VALUE)
                 .addComponent(btnEdit)
                 .addGap(35, 35, 35))
         );
@@ -1109,7 +1114,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(jLabel36)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel37)
@@ -1182,7 +1187,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                     .addComponent(jRadioButton5))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlSearch, "pnlSearch");
@@ -1391,7 +1396,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                     .addComponent(jButton8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlAddOrderItem, "pnlAddOrderItem");
@@ -1442,7 +1447,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlBrowseProduct, "pnlBrowseProduct");
@@ -1553,7 +1558,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addGroup(pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1712,7 +1717,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel66))
                     .addGroup(pnlViewProfileLayout.createSequentialGroup()
-                        .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                        .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                         .addGap(2, 2, 2)))
                 .addGap(154, 154, 154)
                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1721,7 +1726,7 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         mainAdminMain.add(pnlViewProfile, "pnlViewProfile");
 
-        jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jMenuBar1.setMaximumSize(new java.awt.Dimension(750, 48));
         jMenuBar1.setMinimumSize(new java.awt.Dimension(750, 48));
@@ -2285,10 +2290,13 @@ public class Admin_Menu extends javax.swing.JFrame {
     private void btnDeleteCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCusActionPerformed
         try
         {
+            //fetches customer details
             Admin adm = new Admin();
             ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
             i = lstCusName.getSelectedIndex();
             
+            
+            //removes customer details based on selected index on jList
             if(JOptionPane.showConfirmDialog(errorMessage,"Are you sure you want to delete this user?", "Delete user confirmation.",
                JOptionPane.YES_NO_OPTION,
                JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
@@ -2296,20 +2304,15 @@ public class Admin_Menu extends javax.swing.JFrame {
                 cusList.remove(i);
                 adm.editCustomer(cusList);
                 menuViewCustomer.doClick();
-                //btnReset.doClick();
             } 
-//            if (lstCusName.getSelectedValue().contains("ADM"))
-//            {
-//                
-//            }
         }
         catch (IOException Ex)
         {
-            
+            JOptionPane.showMessageDialog(errorMessage, "User deletion error. Please try again.","Error",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnDeleteCusActionPerformed
 
-    //Under viewCustomer panale
+    //Under viewCustomer panal
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         try
         {

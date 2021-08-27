@@ -18,7 +18,10 @@ public class Admin extends Customer
     
     // Empty Constructor for Admin
     public Admin(){}
-    
+//    public Admin(Admin adm)
+//    {
+//        super((Customer)adm);
+//    }
     public Admin(String username, String password, String name, String email, String phoneNo, String address, String userType)
     {
         super(username,password, name, email, phoneNo,  address, userType);

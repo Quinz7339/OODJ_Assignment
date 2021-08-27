@@ -13,7 +13,12 @@ public class Cus_Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form Cus_Menu
+     * @param user
      */
+    public Cus_Menu(Customer user)
+    {
+        Customer customer = new Customer(user);
+    }
     public Cus_Menu() {
         initComponents();
     }

@@ -118,6 +118,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtCusPassword = new javax.swing.JPasswordField();
         txtCusPassword2 = new javax.swing.JPasswordField();
         btnBack = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        txtCusPhoneNo = new javax.swing.JTextField();
         pnlEditProduct = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -704,44 +706,50 @@ public class Admin_Menu extends javax.swing.JFrame {
             }
         });
 
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setText("Phone number:");
+
+        txtCusPhoneNo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCusPhoneNo.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout pnlViewCustomerLayout = new javax.swing.GroupLayout(pnlViewCustomer);
         pnlViewCustomer.setLayout(pnlViewCustomerLayout);
         pnlViewCustomerLayout.setHorizontalGroup(
             pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
+                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                         .addComponent(btnBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                         .addComponent(jLabel14)
                         .addGap(254, 254, 254))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
+                    .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                         .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlViewCustomerLayout.createSequentialGroup()
-                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnDeleteCus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                                .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(pnlViewCustomerLayout.createSequentialGroup()
-                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnDeleteCus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2))
+                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(txtCusEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(txtCusUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(txtCusName, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3)
+                            .addComponent(txtCusEmail)
+                            .addComponent(txtCusUsername)
+                            .addComponent(txtCusName)
                             .addComponent(txtCusPassword)
-                            .addComponent(txtCusPassword2))
-                        .addContainerGap(99, Short.MAX_VALUE))))
+                            .addComponent(txtCusPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCusPhoneNo))
+                        .addGap(108, 108, 108))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewCustomerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -757,6 +765,11 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlViewCustomerLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDeleteCus, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                         .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(txtCusName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -770,8 +783,12 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addComponent(txtCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17))
+                        .addGap(12, 12, 12)
+                        .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(txtCusPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCusPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -779,13 +796,8 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(txtCusPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlViewCustomerLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeleteCus, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 126, Short.MAX_VALUE)
+                            .addComponent(txtCusPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(96, 125, Short.MAX_VALUE)
                 .addComponent(btnEdit)
                 .addGap(35, 35, 35))
         );
@@ -1921,6 +1933,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtCusUsername.setEditable(false);
         txtCusEmail.setEditable(false);
         txtCusAddress.setEditable(false);
+        txtCusPhoneNo.setEditable(false);
         txtCusPassword.setEditable(false);
         txtCusPassword2.setEditable(false);
         try
@@ -1932,6 +1945,14 @@ public class Admin_Menu extends javax.swing.JFrame {
             for (int x = 0; x < cusList.size(); x++)
             {
                 cusListModel.addElement(cusList.get(x).getUID());
+                if (x == 0)
+                {
+                    txtCusName.setText(cusList.get(x).getName());
+                    txtCusUsername.setText(cusList.get(x).getUsername());
+                    txtCusAddress.setText(cusList.get(x).getAddress());
+                    txtCusEmail.setText(cusList.get(x).getEmailAddress());
+                    txtCusPhoneNo.setText(cusList.get(x).getPhoneNumber());
+                }
             }
         }
         catch (IOException Ex)
@@ -1945,6 +1966,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlEditProduct");
         prodListModel.removeAllElements();
+        btnEditProd.setEnabled(false);
         btnEditProdBack.setVisible(false);
         btnDeleteProd.setVisible(false);
         txtProdName.setEditable(false);
@@ -2210,10 +2232,14 @@ public class Admin_Menu extends javax.swing.JFrame {
             txtCusPassword2.setEditable(false);
             btnEdit.setText("Edit");
             
-            //edit logic
+            //customer edit logic
             if (Arrays.equals(txtCusPassword.getPassword(), txtCusPassword2.getPassword()) == false)
             {
                 JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Different password entered.",JOptionPane.WARNING_MESSAGE);
+            }
+            else if("".equals(txtCusName.getText()) || "".equals(txtCusEmail.getText()) || "".equals(txtCusAddress.getText()) || "".equals(txtCusPhoneNo.getText()))
+            {
+                JOptionPane.showMessageDialog(errorMessage, "Kindly select a user ID.","UserID not selected.",JOptionPane.WARNING_MESSAGE);
             }
             else
             {
@@ -2222,7 +2248,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                     Admin adm = new Admin();
                     ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
                     if(cusList.get(i).getName().equals(txtCusName.getText()) &&  cusList.get(i).getEmailAddress().equals(txtCusEmail.getText()) &&
-                            cusList.get(i).getAddress().equals(txtCusAddress.getText()))
+                            cusList.get(i).getAddress().equals(txtCusAddress.getText()) && cusList.get(i).getPhoneNumber().equals(txtCusPhoneNo.getText()))
                     {
                         JOptionPane.showMessageDialog(errorMessage, "No changes detected. Please retry.","No fields are changed.",JOptionPane.ERROR_MESSAGE);
                     }
@@ -2231,6 +2257,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         cusList.get(i).setName(txtCusName.getText());
                         cusList.get(i).setEmailAddress(txtCusEmail.getText());
                         cusList.get(i).setAddress(txtCusAddress.getText());
+                        cusList.get(i).setPhoneNumber(txtCusPhoneNo.getText());
                         if (txtCusPassword.getPassword().length > 0)
                         {
                             cusList.get(i).setPassword(String.valueOf(txtCusPassword.getPassword()));
@@ -2328,6 +2355,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void lstProductIDMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstProductIDMouseReleased
+        btnEditProd.setEnabled(true);
         try
         {
             Admin adm = new Admin();
@@ -2407,17 +2435,17 @@ public class Admin_Menu extends javax.swing.JFrame {
                 {
                     for (Object prod:prodList)     
                     {
-                        int quan = Integer.parseInt(txtAddProdQuantity.getText().trim());
-                        int subtotal = quan + Integer.parseInt(lblCurrentQuan.getText());
+                        
                         if (prod instanceof Fragile)
                         {
                             Fragile fragProd = (Fragile) prod;
                             if(lstProductID.getSelectedValue().equals(fragProd.getProductID()))
                             {
-
-                                if(fragProd.getProdQuantity() != subtotal || fragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()) || 
+                                if(txtProdQuan.getText().trim().length()==0|| fragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()) || 
                                         fragProd.getProductPrice() != Double.parseDouble(txtProdPrice.getText().trim()))
                                 {
+                                    int quan = Integer.parseInt(txtProdQuan.getText().trim());
+                                    int subtotal = quan + Integer.parseInt(lblCurrentQuan.getText().trim());
                                     fragProd.setProdQuantity(subtotal);
                                     fragProd.setProductPrice(Double.parseDouble(txtProdPrice.getText().trim()));
                                     fragProd.setProductWeight(Double.parseDouble(txtProdWeight.getText().trim()));
@@ -2430,9 +2458,11 @@ public class Admin_Menu extends javax.swing.JFrame {
                             nonFragile nonFragProd = (nonFragile) prod;
                             if (lstProductID.getSelectedValue().equals(nonFragProd.getProductID()))
                             {
-                                if(nonFragProd.getProdQuantity() != subtotal || nonFragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()) || 
+                                if(txtProdQuan.getText().trim().length()==0 || nonFragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()) || 
                                         nonFragProd.getProductPrice() != Double.parseDouble(txtProdPrice.getText().trim()))
                                 {
+                                    int quan = Integer.parseInt(txtProdQuan.getText().trim());
+                                    int subtotal = quan + Integer.parseInt(lblCurrentQuan.getText().trim());
                                     nonFragProd.setProdQuantity(subtotal);
                                     nonFragProd.setProductPrice(Double.parseDouble(txtProdPrice.getText().trim()));
                                     nonFragProd.setProductWeight(Double.parseDouble(txtProdWeight.getText().trim()));
@@ -2576,6 +2606,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -2716,6 +2747,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField txtCusName;
     private javax.swing.JPasswordField txtCusPassword;
     private javax.swing.JPasswordField txtCusPassword2;
+    private javax.swing.JTextField txtCusPhoneNo;
     private javax.swing.JTextField txtCusUsername;
     private javax.swing.JTextField txtProdName;
     private javax.swing.JTextField txtProdParam1;

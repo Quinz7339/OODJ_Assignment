@@ -17,6 +17,7 @@ public class Product
     protected double productPrice;
     protected double productWeight;
     
+    
     public Product(String prodID,String prodName,int prodQuan, double prodPrice, double prodWeight)
     {
         this.productID = prodID;

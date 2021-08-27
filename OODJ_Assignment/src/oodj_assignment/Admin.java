@@ -204,7 +204,7 @@ public class Admin extends Customer
     }
     
     //method to show list of product
-    public static ArrayList viewProduct() throws IOException
+    public ArrayList viewProduct() throws IOException
     {
         ArrayList<Object> prodList = new ArrayList();
         // ArrayList<Product> nonFragProdList = new ArrayList<nonFragile>();

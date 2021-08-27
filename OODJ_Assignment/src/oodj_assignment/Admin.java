@@ -241,11 +241,11 @@ public class Admin extends Customer
     }
     
     // handles edit and deletion of product data
-    public void editProduct(ArrayList<Product> prod)
+    public void editProduct(ArrayList<Object> prod)
     {
         try
         {
-            PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Users.txt"),false));
+            PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Products.txt"),false));
 
             for (int i = 0; i < prod.size(); i++)
             {
@@ -253,7 +253,7 @@ public class Admin extends Customer
             }
 
             pw.close();
-            JOptionPane.showMessageDialog(errorMessage, " Customer data updated.","Update Successful!",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(errorMessage, "Product data updated.","Update Successful!",JOptionPane.INFORMATION_MESSAGE);
         }
         catch(IOException Ex)
         {

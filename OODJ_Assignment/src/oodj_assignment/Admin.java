@@ -241,7 +241,7 @@ public class Admin extends Customer
     }
     
     // handles edit and deletion of product data
-    public static void editProduct(ArrayList<Product> prod)
+    public void editProduct(ArrayList<Product> prod)
     {
         try
         {

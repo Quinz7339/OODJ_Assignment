@@ -1731,7 +1731,7 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         mainAdminMain.add(pnlViewProfile, "pnlViewProfile");
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
         jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jMenuBar1.setMaximumSize(new java.awt.Dimension(750, 48));
         jMenuBar1.setMinimumSize(new java.awt.Dimension(750, 48));
@@ -2143,22 +2143,13 @@ public class Admin_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_rbEquipmentsActionPerformed
 
     private void btnClearFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearFieldActionPerformed
-//        try
-//        {
-//            Admin adm = new Admin();
-//            ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
-//            int i = lstCusName.getSelectedIndex();
-//            txtCusName.setText(cusList.get(i).getName());
-//            txtCusUsername.setText(cusList.get(i).getUsername());
-//            txtCusEmail.setText(cusList.get(i).getEmailAddress());
-//            txtCusAddress.setText(cusList.get(i).getAddress());
-//            txtCusPassword.setText("");
-//            txtCusPassword2.setText("");
-//        }
-//        catch(IOException Ex)
-//        {
-//            JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
-//        }
+        txtAddCusName.setText("");
+        txtAddCusConfirmPw.setText("");
+        txtAddCusAddress.setText("");
+        txtAddCusUsrname.setText("");
+        txtAddCusPwd.setText("");
+        txtAddCusEmail.setText("");
+        txtAddCusPhone.setText("");
     }//GEN-LAST:event_btnClearFieldActionPerformed
 
     private void lstCusNameMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstCusNameMouseReleased
@@ -2398,17 +2389,58 @@ public class Admin_Menu extends javax.swing.JFrame {
         if (btnEditProd.getText() == "Confirm")
         {
             btnEditProdBack.setVisible(false);
-            txtCusName.setEditable(false);
-            txtCusUsername.setEditable(false);
-            txtCusEmail.setEditable(false);
-            txtCusAddress.setEditable(false);
+            txtProdName.setEditable(false);
+            txtProdWeight.setEditable(false);
+            txtProdPrice.setEditable(false);
+            txtProdQuan.setEditable(false);
             txtCusPassword.setEditable(false);
             txtCusPassword2.setEditable(false);
-            btnEdit.setText("Edit");
+            btnEditProd.setText("Edit");
+            //insert edit logic here
+            
         }
         else if (btnEditProd.getText() == "Edit")
         {
-            
+            btnEditProdBack.setVisible(true);
+            txtProdName.setEditable(false);
+            txtProdWeight.setEditable(true);
+            txtProdPrice.setEditable(true);
+            txtProdQuan.setEditable(true);
+            btnEditProd.setText("Confirm");
+            try
+            {
+                Admin adm = new Admin();
+                ArrayList<Object> prodList = new ArrayList(adm.viewProduct());
+                for (Object prod:prodList)
+                {
+                    if (prod instanceof Fragile)
+                    {
+                        Fragile fragProd = (Fragile) prod;
+                        if(lstProductID.getSelectedValue().equals(fragProd.getProductID()))
+                        {
+                            lblParam2.setVisible(false);
+                            lblParam3.setVisible(false);
+                            txtProdParam2.setVisible(false);
+                            txtProdParam3.setVisible(false);
+                        } 
+                    }
+                    else
+                    {
+                        nonFragile nonFragProd = (nonFragile) prod;
+                        if (lstProductID.getSelectedValue().equals(nonFragProd.getProductID()))
+                        {
+                            lblParam2.setVisible(false);
+                            lblParam3.setVisible(false);
+                            txtProdParam2.setVisible(false);
+                            txtProdParam3.setVisible(false);
+                        }
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                
+            }
         }
     }//GEN-LAST:event_btnEditProdActionPerformed
 

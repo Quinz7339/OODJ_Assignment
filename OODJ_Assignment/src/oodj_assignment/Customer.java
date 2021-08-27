@@ -22,7 +22,7 @@ public class Customer
     protected String emailAddress;
     protected String phoneNumber;
     protected String address;
-
+    
     public String getUID() {
         return UID;
     }
@@ -79,7 +79,8 @@ public class Customer
         this.address = address;
     }
     
-
+    public Customer (){}
+    
     static JFrame errorMessage;
     public static String login(String usr, String pwd)
     {

@@ -15,6 +15,7 @@ import javax.swing.*;
  */
 public class Admin_Menu extends javax.swing.JFrame {
     JFrame errorMessage;
+    ButtonGroup user = new ButtonGroup();
     ButtonGroup prod = new ButtonGroup();
     DefaultListModel cusListModel = new DefaultListModel();
     
@@ -23,6 +24,8 @@ public class Admin_Menu extends javax.swing.JFrame {
      */
     public Admin_Menu() {
         initComponents();
+        user.add(rbUsrAdm);
+        user.add(rbUsrCus);
         prod.add(rbBeans);
         prod.add(rbEquipments);
     }
@@ -103,13 +106,10 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtCusPassword2 = new javax.swing.JPasswordField();
         btnBack = new javax.swing.JButton();
         pnlEditProduct = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         lstProductNames = new javax.swing.JList<>();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        txtEditProdDesc = new javax.swing.JTextArea();
         jLabel25 = new javax.swing.JLabel();
         txtProdQuan = new javax.swing.JTextField();
         btnMinus = new javax.swing.JButton();
@@ -118,8 +118,18 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtProdName = new javax.swing.JTextField();
         lblCurrentQuan = new javax.swing.JLabel();
         btnReset2 = new javax.swing.JButton();
-        btnConfirm = new javax.swing.JButton();
+        btnEditProd = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        txtProdWeight = new javax.swing.JTextField();
+        txtProdOrigin = new javax.swing.JTextField();
+        txtProdAltitude = new javax.swing.JTextField();
+        txtProdTastingNotes = new javax.swing.JTextField();
+        txtProdPrice = new javax.swing.JTextField();
         pnlEditOrder = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -777,13 +787,12 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         pnlEditProduct.setBackground(new java.awt.Color(45, 152, 218));
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel22.setText("Description:");
-
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("Edit Product Info");
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Product Name:");
 
         lstProductNames.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -794,15 +803,11 @@ public class Admin_Menu extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(lstProductNames);
 
-        txtEditProdDesc.setColumns(20);
-        txtEditProdDesc.setRows(5);
-        jScrollPane5.setViewportView(txtEditProdDesc);
-
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("Add/RemoveQuantity:");
 
         txtProdQuan.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtProdQuan.setText("100100");
 
         btnMinus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnMinus.setText("-");
@@ -811,6 +816,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         btnAdd.setText("+");
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Current quantity:");
 
         txtProdName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -822,11 +828,45 @@ public class Admin_Menu extends javax.swing.JFrame {
         btnReset2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnReset2.setText("Reset");
 
-        btnConfirm.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        btnConfirm.setText("Confirm");
+        btnEditProd.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnEditProd.setText("Edit");
+        btnEditProd.setMaximumSize(new java.awt.Dimension(231, 38));
+        btnEditProd.setMinimumSize(new java.awt.Dimension(231, 38));
+        btnEditProd.setPreferredSize(new java.awt.Dimension(231, 38));
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton2.setText("Delete");
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(204, 0, 51));
+        jButton2.setText("Delete Product");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Altitude:");
+
+        jLabel69.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel69.setText("Price:");
+
+        jLabel70.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel70.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel70.setText("Origin:");
+
+        jLabel71.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel71.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel71.setText("Weight:");
+
+        jLabel72.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel72.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel72.setText("Tasting notes:");
+
+        txtProdWeight.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        txtProdOrigin.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        txtProdAltitude.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        txtProdTastingNotes.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        txtProdPrice.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout pnlEditProductLayout = new javax.swing.GroupLayout(pnlEditProduct);
         pnlEditProduct.setLayout(pnlEditProductLayout);
@@ -835,47 +875,46 @@ public class Admin_Menu extends javax.swing.JFrame {
             .addGroup(pnlEditProductLayout.createSequentialGroup()
                 .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlEditProductLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(207, Short.MAX_VALUE)
                         .addComponent(jLabel23)
-                        .addGap(174, 174, 174))
+                        .addGap(186, 186, 186))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEditProductLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel25)
                             .addGroup(pnlEditProductLayout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnReset2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlEditProductLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlEditProductLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
+                                .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnReset2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(41, 41, 41)
                                 .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel24)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jLabel26))
-                                .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlEditProductLayout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
-                                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtProdName)
-                                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(pnlEditProductLayout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addComponent(lblCurrentQuan)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(jLabel71)
+                                    .addComponent(jLabel69)
+                                    .addComponent(jLabel70)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel72)
+                                    .addComponent(jLabel26))))
+                        .addGap(29, 29, 29)
+                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlEditProductLayout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addGap(29, 29, 29)
                                 .addComponent(txtProdQuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnMinus)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAdd)))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAdd))
+                            .addComponent(txtProdAltitude, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtProdOrigin, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtProdPrice, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtProdName)
+                            .addComponent(txtProdWeight, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtProdTastingNotes)
+                            .addGroup(pnlEditProductLayout.createSequentialGroup()
+                                .addComponent(lblCurrentQuan)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(btnEditProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(81, 81, 81))
         );
         pnlEditProductLayout.setVerticalGroup(
             pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -884,16 +923,31 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel23)
                 .addGap(18, 18, 18)
                 .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlEditProductLayout.createSequentialGroup()
                         .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel24)
                             .addComponent(txtProdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtProdWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel71))
+                        .addGap(14, 14, 14)
+                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel69)
+                            .addComponent(txtProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel70)
+                            .addComponent(txtProdOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
+                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtProdAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel72)
+                            .addComponent(txtProdTastingNotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                         .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
                             .addComponent(lblCurrentQuan))
@@ -902,13 +956,17 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addComponent(jLabel25)
                             .addComponent(txtProdQuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnMinus)
-                            .addComponent(btnAdd))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirm)
-                    .addComponent(btnReset2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14))
+                            .addComponent(btnAdd))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEditProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnReset2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14))
+                    .addGroup(pnlEditProductLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         mainAdminMain.add(pnlEditProduct, "pnlEditProduct");
@@ -1801,6 +1859,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         cusListModel.removeAllElements();
         btnBack.setVisible(false);
         btnDeleteCus.setVisible(false);
+        btnReset.setVisible(false);
         txtCusName.setEditable(false);
         txtCusUsername.setEditable(false);
         txtCusEmail.setEditable(false);
@@ -1809,7 +1868,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtCusPassword2.setEditable(false);
         try
         {
-            ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+            Admin adm = new Admin();
+            ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
             lstCusName.setModel(cusListModel);
             
             for (int i = 0; i < cusList.size(); i++)
@@ -1827,6 +1887,30 @@ public class Admin_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlEditProduct");
+        cusListModel.removeAllElements();
+        btnBack.setVisible(false);
+        btnDeleteCus.setVisible(false);
+        txtCusName.setEditable(false);
+        txtCusUsername.setEditable(false);
+        txtCusEmail.setEditable(false);
+        txtCusAddress.setEditable(false);
+        txtCusPassword.setEditable(false);
+        txtCusPassword2.setEditable(false);
+        try
+        {
+            Admin adm = new Admin();
+            ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
+            lstCusName.setModel(cusListModel);
+            
+            for (int i = 0; i < cusList.size(); i++)
+            {
+                cusListModel.addElement(cusList.get(i).getUID());
+            }
+        }
+        catch (IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_menuEditProductActionPerformed
 
     private void menuEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditOrderActionPerformed
@@ -1869,7 +1953,8 @@ public class Admin_Menu extends javax.swing.JFrame {
 
             if(cpwd.equals(pwd)) //if passwords entered are same, calls the addUser static method
             {
-                Admin.addUser(usr, pwd, name, email, phone, address, usrType);
+                Admin adm = new Admin();
+                adm.addUser(usr, pwd, name, email, phone, address, usrType);
             }
             else
             {
@@ -1968,7 +2053,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             
             lblAddProdParam1.setText("Origin:");
             lblAddProdParam2.setText("Altitude (ft):");
-            lblAddProdParam3.setText("Testing Notes:");
+            lblAddProdParam3.setText("Tasting Notes:");
             
             txtAddProdParam1.setVisible(true);
             txtAddProdParam2.setVisible(true);
@@ -1992,20 +2077,29 @@ public class Admin_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_rbEquipmentsActionPerformed
 
     private void btnClearFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearFieldActionPerformed
-        // TODO add your handling code here:
-        txtAddCusName.setText("");
-        txtAddCusUsrname.setText("");
-        txtAddCusAddress.setText("");
-        txtAddCusConfirmPw.setText("");
-        txtAddCusEmail.setText("");
-        txtAddCusPhone.setText("");
-        txtAddCusPwd.setText("");
+//        try
+//        {
+//            Admin adm = new Admin();
+//            ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
+//            int i = lstCusName.getSelectedIndex();
+//            txtCusName.setText(cusList.get(i).getName());
+//            txtCusUsername.setText(cusList.get(i).getUsername());
+//            txtCusEmail.setText(cusList.get(i).getEmailAddress());
+//            txtCusAddress.setText(cusList.get(i).getAddress());
+//            txtCusPassword.setText("");
+//            txtCusPassword2.setText("");
+//        }
+//        catch(IOException Ex)
+//        {
+//            JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
+//        }
     }//GEN-LAST:event_btnClearFieldActionPerformed
 
     private void lstCusNameMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstCusNameMouseReleased
         try
         {
-            ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+            Admin adm = new Admin();
+            ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
             int i = lstCusName.getSelectedIndex();
             txtCusName.setText(cusList.get(i).getName());
             txtCusUsername.setText(cusList.get(i).getUsername());
@@ -2067,7 +2161,8 @@ public class Admin_Menu extends javax.swing.JFrame {
             {
                 try
                 {
-                    ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+                    Admin adm = new Admin();
+                    ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
                     int i = lstCusName.getSelectedIndex();
                     cusList.get(i).setName(txtCusName.getText());
                     cusList.get(i).setEmailAddress(txtCusEmail.getText());
@@ -2076,7 +2171,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                     {
                         cusList.get(i).setPassword(String.valueOf(txtCusPassword.getPassword()));
                     }
-                    Admin.editCustomer(cusList);
+                    adm.editCustomer(cusList);
                 }
                 catch (IOException Ex)
                 {
@@ -2085,7 +2180,8 @@ public class Admin_Menu extends javax.swing.JFrame {
             }
             try
             {
-                ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+                Admin adm = new Admin();
+                ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
                 int i = lstCusName.getSelectedIndex();
                 txtCusName.setText(cusList.get(i).getName());
                 txtCusUsername.setText(cusList.get(i).getUsername());
@@ -2120,12 +2216,15 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtCusPassword.setEditable(false);
         txtCusPassword2.setEditable(false);
         btnEdit.setText("Edit");
+        //btnReset.doClick();
+        menuViewCustomer.doClick();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCusActionPerformed
         try
         {
-            ArrayList<Customer> cusList = new ArrayList<Customer>(Admin.viewCustomer());
+            Admin adm = new Admin();
+            ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
             int i = lstCusName.getSelectedIndex();
             
             if(JOptionPane.showConfirmDialog(errorMessage,"Are you sure you want to delete this user?", "Delete user confirmation.",
@@ -2133,9 +2232,9 @@ public class Admin_Menu extends javax.swing.JFrame {
                JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
             {
                 cusList.remove(i);
-                Admin.editCustomer(cusList);
+                adm.editCustomer(cusList);
                 menuViewCustomer.doClick();
-                btnReset.doClick();
+                //btnReset.doClick();
             } 
 //            if (lstCusName.getSelectedValue().contains("ADM"))
 //            {
@@ -2199,9 +2298,9 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnClearField;
-    private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnDeleteCus;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnEditProd;
     private javax.swing.JButton btnMinus;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReset2;
@@ -2232,7 +2331,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -2283,8 +2381,13 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jList3;
@@ -2309,7 +2412,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
@@ -2370,9 +2472,13 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtCusPassword;
     private javax.swing.JPasswordField txtCusPassword2;
     private javax.swing.JTextField txtCusUsername;
-    private javax.swing.JTextArea txtEditProdDesc;
+    private javax.swing.JTextField txtProdAltitude;
     private javax.swing.JTextField txtProdName;
+    private javax.swing.JTextField txtProdOrigin;
+    private javax.swing.JTextField txtProdPrice;
     private javax.swing.JTextField txtProdQuan;
+    private javax.swing.JTextField txtProdTastingNotes;
+    private javax.swing.JTextField txtProdWeight;
     private javax.swing.JTextField txtSearchBar;
     // End of variables declaration//GEN-END:variables
 }

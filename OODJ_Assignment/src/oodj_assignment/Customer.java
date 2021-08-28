@@ -8,6 +8,7 @@ import java.util.*;
 import java.io.*;
 import javax.swing.*;
 import javax.swing.JFrame;
+import static oodj_assignment.Admin.errorMessage;
 
 /**
  *
@@ -157,9 +158,37 @@ public class Customer
     }
 
     
-    public void browseProd()
+    public ArrayList browseProd()
     {
-        
+        ArrayList<Object> prodList = new ArrayList();
+        // ArrayList<Product> nonFragProdList = new ArrayList<nonFragile>();
+        try
+        {
+            //ArrayList to store Customer objects
+            Scanner scanner = new Scanner (new File("src\\oodj_assignment\\textFile\\Products.txt"));
+            while (scanner.hasNextLine())
+            {
+                String line = scanner.nextLine();
+                String [] prod = line.split(",");
+                
+                if (prod.length == 6)
+                {
+                    Product fragProd = new Fragile (prod[0],prod[1],Integer.parseInt(prod[2]),Double.parseDouble(prod[3]),Double.parseDouble(prod[4]),prod[5]);
+                    prodList.add(fragProd);
+                }
+                else if (prod.length == 8)
+                {
+                    Product nonFragProd = new nonFragile (prod[0],prod[1],Integer.parseInt(prod[2]),Double.parseDouble(prod[3]),Double.parseDouble(prod[4]),prod[5], Double.parseDouble(prod[6]), prod[7]);
+                    prodList.add(nonFragProd);
+                }
+            }
+            scanner.close();
+        }
+        catch(IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "File is corrupted or manually tampered. Kindly revert the changes.","Error",JOptionPane.WARNING_MESSAGE);
+        }
+        return prodList;
     }
     public void viewProd()
     {

@@ -1463,6 +1463,10 @@ public class Cus_Menu extends javax.swing.JFrame {
                 if (lblProdID.getText().equals(fragProd.getProductID()))
                 {
                     // CREATE CHECK INPUT QUANTITY VERSUS PRODUCT QUANTITY check input quantity versus product quantity
+//                    if(Integer.parseInt(lblQuan.getText()) )
+//                    {
+//                        
+//                    }
                     fragProd.setProdQuantity(Integer.parseInt(txtOrderItemQuan.getText()));
                     
                     // append order item object into order item list

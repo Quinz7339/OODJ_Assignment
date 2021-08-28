@@ -1262,6 +1262,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private void cmenuEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuEditOrderActionPerformed
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
         card.show(pnlCusMenu, "pnlEditOrder");
+        txtOrderItemQuan.setText(Integer.toString(0));
         DefaultTableModel orderItemListModel = (DefaultTableModel) tblOrderItemList.getModel();
         
         // Get grand total for pending order
@@ -1462,11 +1463,6 @@ public class Cus_Menu extends javax.swing.JFrame {
                 Fragile fragProd = (Fragile) prod;
                 if (lblProdID.getText().equals(fragProd.getProductID()))
                 {
-                    // CREATE CHECK INPUT QUANTITY VERSUS PRODUCT QUANTITY check input quantity versus product quantity
-//                    if(Integer.parseInt(lblQuan.getText()) )
-//                    {
-//                        
-//                    }
                     fragProd.setProdQuantity(Integer.parseInt(txtOrderItemQuan.getText()));
                     
                     // append order item object into order item list

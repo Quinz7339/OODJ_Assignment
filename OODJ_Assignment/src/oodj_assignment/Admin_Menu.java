@@ -227,15 +227,15 @@ public class Admin_Menu extends javax.swing.JFrame {
         menuAddProduct = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuViewCustomer = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        menuEditProduct = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        menuBrowseProduct = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         menuEditOrder = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        menuBrowseProduct = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        menuEditProduct = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         menuEditProfile = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -720,7 +720,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                         .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                         .addComponent(jLabel14)
                         .addGap(254, 254, 254))
                     .addGroup(pnlViewCustomerLayout.createSequentialGroup()
@@ -1800,6 +1800,36 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu8.setText("Product");
+        jMenu8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenu8.setPreferredSize(new java.awt.Dimension(80, 0));
+
+        menuEditProduct.setText("Edit Product");
+        menuEditProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditProductActionPerformed(evt);
+            }
+        });
+        jMenu8.add(menuEditProduct);
+
+        jMenuBar1.add(jMenu8);
+
+        jMenu5.setText("Shop");
+        jMenu5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenu5.setMaximumSize(new java.awt.Dimension(60, 26));
+        jMenu5.setMinimumSize(new java.awt.Dimension(60, 26));
+        jMenu5.setPreferredSize(new java.awt.Dimension(60, 26));
+
+        menuBrowseProduct.setText("Browse Product");
+        menuBrowseProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBrowseProductActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuBrowseProduct);
+
+        jMenuBar1.add(jMenu5);
+
         jMenu3.setText("Order");
         jMenu3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMenu3.setPreferredSize(new java.awt.Dimension(60, 0));
@@ -1822,22 +1852,6 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu5.setText("Shop");
-        jMenu5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenu5.setMaximumSize(new java.awt.Dimension(60, 26));
-        jMenu5.setMinimumSize(new java.awt.Dimension(60, 26));
-        jMenu5.setPreferredSize(new java.awt.Dimension(60, 26));
-
-        menuBrowseProduct.setText("Browse Product");
-        menuBrowseProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuBrowseProductActionPerformed(evt);
-            }
-        });
-        jMenu5.add(menuBrowseProduct);
-
-        jMenuBar1.add(jMenu5);
-
         jMenu4.setText("Search");
         jMenu4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMenu4.setMaximumSize(new java.awt.Dimension(70, 25));
@@ -1852,20 +1866,6 @@ public class Admin_Menu extends javax.swing.JFrame {
         jMenu4.add(jMenuItem1);
 
         jMenuBar1.add(jMenu4);
-
-        jMenu8.setText("Product");
-        jMenu8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jMenu8.setPreferredSize(new java.awt.Dimension(80, 0));
-
-        menuEditProduct.setText("Edit Product");
-        menuEditProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuEditProductActionPerformed(evt);
-            }
-        });
-        jMenu8.add(menuEditProduct);
-
-        jMenuBar1.add(jMenu8);
 
         jMenu7.setText("Profile");
         jMenu7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N

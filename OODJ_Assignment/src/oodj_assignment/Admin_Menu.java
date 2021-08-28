@@ -165,10 +165,10 @@ public class Admin_Menu extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         pnlAddOrderItem = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        txtOrderItemQuan = new javax.swing.JTextField();
+        btnDecreaseQuan = new javax.swing.JButton();
+        btnAddOrderItemQuan = new javax.swing.JButton();
+        btnAddOrderItem = new javax.swing.JButton();
         lblParam3Header = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lblParam2Header = new javax.swing.JLabel();
@@ -1209,14 +1209,21 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         pnlAddOrderItem.setBackground(new java.awt.Color(204, 204, 255));
 
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton7.setText("-");
+        txtOrderItemQuan.setText("1");
 
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton8.setText("+");
+        btnDecreaseQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDecreaseQuan.setText("-");
 
-        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton9.setText("Add to Order");
+        btnAddOrderItemQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddOrderItemQuan.setText("+");
+
+        btnAddOrderItem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAddOrderItem.setText("Add to Order");
+        btnAddOrderItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrderItemActionPerformed(evt);
+            }
+        });
 
         lblParam3Header.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblParam3Header.setForeground(new java.awt.Color(0, 0, 0));
@@ -1319,12 +1326,12 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addComponent(lblQuan)
                             .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtOrderItemQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnDecreaseQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btnAddOrderItemQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnAddOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
                         .addComponent(jLabel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(592, 592, 592))
@@ -1381,12 +1388,12 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addComponent(lblQuan)
                         .addGap(18, 18, 18)
                         .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton7)
-                            .addComponent(jButton8))
+                            .addComponent(txtOrderItemQuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDecreaseQuan)
+                            .addComponent(btnAddOrderItemQuan))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblProdPrice)))
                     .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
                         .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2565,11 +2572,22 @@ public class Admin_Menu extends javax.swing.JFrame {
                 Fragile fragProd = (Fragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(fragProd.getProductName()))
                 {
+                    if (fragProd.getProdQuantity() == 0)
+                    {
+                        lblQuan.setText("Out of Stock!");
+                        txtOrderItemQuan.setVisible(false);
+                        btnDecreaseQuan.setVisible(false);
+                        btnAddOrderItemQuan.setVisible(false);
+                        btnAddOrderItem.setVisible(false);
+                    }
+                    else
+                    {
+                        lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
+                    }
                     lblProdName.setText(String.valueOf(fragProd.getProductName()));
                     lblProdID.setText(String.valueOf(fragProd.getProductID()));
                     lblProdPrice.setText(String.format("RM%.2f",fragProd.getProductPrice()));
                     lblWeight.setText(String.valueOf(fragProd.getProductWeight()));
-                    lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
                     lblProdType.setText("Equipment (Fragile item)");
                     lblParam1Header.setText("Brand:");
                     lblProdParam1.setText(String.valueOf(fragProd.getBrand()));
@@ -2585,6 +2603,18 @@ public class Admin_Menu extends javax.swing.JFrame {
                 nonFragile nonFragProd = (nonFragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(nonFragProd.getProductName()))
                 {
+                    if (nonFragProd.getProdQuantity() == 0)
+                    {
+                        lblQuan.setText("Out of Stock!");
+                        txtOrderItemQuan.setVisible(false);
+                        btnDecreaseQuan.setVisible(false);
+                        btnAddOrderItemQuan.setVisible(false);
+                        btnAddOrderItem.setVisible(false);
+                    }
+                    else
+                    {
+                        lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
+                    }
                     lblParam2Header.setVisible(true);
                     lblProdParam2.setVisible(true);
                     lblParam3Header.setVisible(true);
@@ -2594,7 +2624,6 @@ public class Admin_Menu extends javax.swing.JFrame {
                     lblProdID.setText(String.valueOf(nonFragProd.getProductID()));
                     lblProdPrice.setText(String.format("RM%.2f",nonFragProd.getProductPrice()));
                     lblWeight.setText(String.valueOf(nonFragProd.getProductWeight()));
-                    lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
                     lblProdType.setText("Coffee (Non-fragile item)");
                     lblParam1Header.setText("Origin:");
                     lblProdParam1.setText(String.valueOf(String.valueOf(nonFragProd.getOrigin())));
@@ -2649,6 +2678,10 @@ public class Admin_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBrowseEquipmentActionPerformed
 
+    private void btnAddOrderItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrderItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddOrderItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2687,6 +2720,8 @@ public class Admin_Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAddOrderItem;
+    private javax.swing.JButton btnAddOrderItemQuan;
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnBack;
@@ -2694,6 +2729,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnBrowseCoffee;
     private javax.swing.JButton btnBrowseEquipment;
     private javax.swing.JButton btnClearField;
+    private javax.swing.JButton btnDecreaseQuan;
     private javax.swing.JButton btnDeleteCus;
     private javax.swing.JButton btnDeleteProd;
     private javax.swing.JButton btnEdit;
@@ -2710,9 +2746,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2794,7 +2827,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -2866,6 +2898,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtCusPassword2;
     private javax.swing.JTextField txtCusPhoneNo;
     private javax.swing.JTextField txtCusUsername;
+    private javax.swing.JTextField txtOrderItemQuan;
     private javax.swing.JTextField txtProdName;
     private javax.swing.JTextField txtProdParam1;
     private javax.swing.JTextField txtProdParam2;

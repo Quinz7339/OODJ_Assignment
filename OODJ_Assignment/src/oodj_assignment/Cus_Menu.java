@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Asus
@@ -16,6 +17,8 @@ import javax.swing.*;
 public class Cus_Menu extends javax.swing.JFrame {
     JFrame errorMessage;
     DefaultListModel prodListModel = new DefaultListModel();
+    // DefaultTableModel orderItemListModel = new DefaultTableModel();
+    ArrayList <OrderItem> orderItemList= new ArrayList<OrderItem>();
     /**
      * Creates new form Cus_Menu
      * @param user
@@ -24,6 +27,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     {
         initComponents();
         Customer customer = new Customer(user);
+        
     }
     public Cus_Menu() {
         initComponents();
@@ -64,12 +68,12 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlViewAddProduct = new javax.swing.JPanel();
         lblProdName = new javax.swing.JLabel();
         lblProdPrice = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnAddOrderItem = new javax.swing.JButton();
+        txtOrderItemQuan = new javax.swing.JTextField();
+        btnDecreaseQuan = new javax.swing.JButton();
+        btnAddQuan = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
+        lblStockStatus = new javax.swing.JLabel();
         lblQuan = new javax.swing.JLabel();
         btnBackToBrowse = new javax.swing.JButton();
         lblProdParam2 = new javax.swing.JLabel();
@@ -105,7 +109,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         pnlEditOrder = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblOrderItemList = new javax.swing.JTable();
         jLabel34 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -198,7 +202,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlCusMainLayout.setHorizontalGroup(
             pnlCusMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCusMainLayout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(pnlCusMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCusMainLayout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -249,7 +253,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                             .addGroup(pnlSearchProductLayout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
                         .addComponent(cBtnSearchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -308,7 +312,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlBrowseProductLayout.setHorizontalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
-                .addContainerGap(160, Short.MAX_VALUE)
+                .addContainerGap(162, Short.MAX_VALUE)
                 .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -348,27 +352,33 @@ public class Cus_Menu extends javax.swing.JFrame {
         lblProdPrice.setForeground(new java.awt.Color(51, 204, 0));
         lblProdPrice.setText("**price**");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Add to Order");
-
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        btnAddOrderItem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAddOrderItem.setText("Add to Order");
+        btnAddOrderItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                btnAddOrderItemActionPerformed(evt);
             }
         });
 
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton7.setText("-");
+        txtOrderItemQuan.setText("1");
+        txtOrderItemQuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtOrderItemQuanActionPerformed(evt);
+            }
+        });
 
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton8.setText("+");
+        btnDecreaseQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDecreaseQuan.setText("-");
+
+        btnAddQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddQuan.setText("+");
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(0, 0, 0));
         jLabel47.setText("Product Description:");
 
-        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel48.setText("In stock:");
+        lblStockStatus.setForeground(new java.awt.Color(0, 0, 0));
+        lblStockStatus.setText("In stock:");
 
         lblQuan.setForeground(new java.awt.Color(0, 0, 0));
         lblQuan.setText("int/ Out of stock!");
@@ -439,15 +449,15 @@ public class Cus_Menu extends javax.swing.JFrame {
                         .addComponent(lblProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblStockStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblQuan)
-                            .addComponent(jButton1)
+                            .addComponent(btnAddOrderItem)
                             .addGroup(pnlViewAddProductLayout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtOrderItemQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnDecreaseQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnAddQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(pnlViewAddProductLayout.createSequentialGroup()
                         .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,17 +531,17 @@ public class Cus_Menu extends javax.swing.JFrame {
                             .addComponent(lblProdParam2))
                         .addGap(105, 105, 105)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel48)
+                .addComponent(lblStockStatus)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblQuan)
                 .addGap(18, 18, 18)
                 .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
+                    .addComponent(txtOrderItemQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDecreaseQuan)
+                    .addComponent(btnAddQuan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblProdPrice))
                 .addContainerGap())
         );
@@ -637,7 +647,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel52)
                         .addGap(247, 247, 247)))
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton11)
@@ -698,41 +708,15 @@ public class Cus_Menu extends javax.swing.JFrame {
 
         pnlEditOrder.setBackground(new java.awt.Color(255, 204, 153));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrderItemList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Product Name", "Amount", "Price", "Subtotal"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, true, true
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane6.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(1).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(100);
-        }
+        ));
+        jScrollPane6.setViewportView(tblOrderItemList);
 
         jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(0, 0, 0));
@@ -749,7 +733,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel37.setForeground(new java.awt.Color(0, 0, 0));
         jLabel37.setText("Grand Total:");
 
-        jLabel38.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(0, 153, 51));
         jLabel38.setText("*price*");
 
@@ -760,7 +744,7 @@ public class Cus_Menu extends javax.swing.JFrame {
             .addGroup(pnlEditOrderLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(469, Short.MAX_VALUE))
+                .addContainerGap(471, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditOrderLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -781,7 +765,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel38)
@@ -881,7 +865,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                             .addGroup(pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel19)))
-                        .addGap(0, 20, Short.MAX_VALUE))))
+                        .addGap(0, 22, Short.MAX_VALUE))))
         );
         pnlViewOrderHistLayout.setVerticalGroup(
             pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -936,7 +920,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlSearchOrderLayout.createSequentialGroup()
                         .addComponent(jLabel36)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 452, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -1026,7 +1010,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(0, 0, Short.MAX_VALUE)))
@@ -1209,6 +1193,18 @@ public class Cus_Menu extends javax.swing.JFrame {
     private void cmenuEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuEditOrderActionPerformed
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
         card.show(pnlCusMenu, "pnlEditOrder");
+        // tblOrderItemList.setModel(orderItemListModel);
+        Object[] rowOrderItem = new Object[5];
+        for (OrderItem orderItem:orderItemList)
+        {
+            rowOrderItem[0] = orderItem.getProductName();
+            rowOrderItem[1] = orderItem.getBuyQuan();
+            rowOrderItem[2] = orderItem.getProductPrice();
+            rowOrderItem[3] = orderItem.getShippingFee();
+            rowOrderItem[4] = orderItem.calcSubtotal();
+            System.out.println(rowOrderItem[0]);
+            orderItemListModel.addRow(rowOrderItem);
+        }
     }//GEN-LAST:event_cmenuEditOrderActionPerformed
 
     private void cmenuViewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuViewProfileActionPerformed
@@ -1230,9 +1226,9 @@ public class Cus_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtOrderItemQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrderItemQuanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtOrderItemQuanActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
@@ -1243,7 +1239,10 @@ public class Cus_Menu extends javax.swing.JFrame {
         card.show(pnlCusMenu, "pnlViewAddProduct"); 
         Customer cus = new Customer();
         ArrayList<Object> prodList = new ArrayList(cus.browseProd());
-        
+        txtOrderItemQuan.setVisible(true);
+        btnDecreaseQuan.setVisible(true);
+        btnAddQuan.setVisible(true);
+        btnAddOrderItem.setVisible(true);
         //for loop to enable object typecasting
         for (Object prod:prodList)
         {
@@ -1253,11 +1252,22 @@ public class Cus_Menu extends javax.swing.JFrame {
                 Fragile fragProd = (Fragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(fragProd.getProductName()))
                 {
+                    if (fragProd.getProdQuantity() == 0)
+                    {
+                        lblQuan.setText("Out of Stock!");
+                        txtOrderItemQuan.setVisible(false);
+                        btnDecreaseQuan.setVisible(false);
+                        btnAddQuan.setVisible(false);
+                        btnAddOrderItem.setVisible(false);
+                    }
+                    else
+                    {
+                        lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
+                    }
                     lblProdName.setText(String.valueOf(fragProd.getProductName()));
                     lblProdID.setText(String.valueOf(fragProd.getProductID()));
                     lblProdPrice.setText(String.format("RM%.2f",fragProd.getProductPrice()));
                     lblWeight.setText(String.valueOf(fragProd.getProductWeight()));
-                    lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
                     lblProdType.setText("Equipment (Fragile item)");
                     lblParam1Header.setText("Brand:");
                     lblProdParam1.setText(String.valueOf(fragProd.getBrand()));
@@ -1273,6 +1283,18 @@ public class Cus_Menu extends javax.swing.JFrame {
                 nonFragile nonFragProd = (nonFragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(nonFragProd.getProductName()))
                 {
+                    if (nonFragProd.getProdQuantity() == 0)
+                    {
+                        lblQuan.setText("Out of Stock!");
+                        txtOrderItemQuan.setVisible(false);
+                        btnDecreaseQuan.setVisible(false);
+                        btnAddQuan.setVisible(false);
+                        btnAddOrderItem.setVisible(false);
+                    }
+                    else
+                    {
+                        lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
+                    }
                     lblParam2Header.setVisible(true);
                     lblProdParam2.setVisible(true);
                     lblParam3Header.setVisible(true);
@@ -1282,7 +1304,6 @@ public class Cus_Menu extends javax.swing.JFrame {
                     lblProdID.setText(String.valueOf(nonFragProd.getProductID()));
                     lblProdPrice.setText(String.format("RM%.2f",nonFragProd.getProductPrice()));
                     lblWeight.setText(String.valueOf(nonFragProd.getProductWeight()));
-                    lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
                     lblProdType.setText("Coffee (Non-fragile item)");
                     lblParam1Header.setText("Origin:");
                     lblProdParam1.setText(String.valueOf(String.valueOf(nonFragProd.getOrigin())));
@@ -1337,6 +1358,52 @@ public class Cus_Menu extends javax.swing.JFrame {
         cmenuBrowseProduct.doClick();
     }//GEN-LAST:event_btnBackToBrowseActionPerformed
 
+    private void btnAddOrderItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrderItemActionPerformed
+        Customer cus = new Customer();
+        ArrayList<Object> prodList = new ArrayList(cus.browseProd());
+        for (Object prod:prodList)
+        {
+            if (prod instanceof Fragile)
+            {
+                //typeccasting each Object into a fragile object
+                Fragile fragProd = (Fragile) prod;
+                if (lblProdID.getText().equals(fragProd.getProductID()))
+                {
+                    // CREATE CHECK INPUT QUANTITY VERSUS PRODUCT QUANTITY check input quantity versus product quantity
+                    fragProd.setProdQuantity(Integer.parseInt(txtOrderItemQuan.getText()));
+                    
+                    // append order item object into order item list
+                    OrderItem orderItem = new OrderItem(fragProd.getProductID(), 
+                            fragProd.getProductName(), 
+                            fragProd.getProdQuantity(),
+                            fragProd.getProductPrice(),
+                            fragProd.calcShipping());
+                    orderItemList.add(orderItem);
+                    cmenuEditOrder.doClick();
+                }
+            }
+            else
+            {
+                //typeccasting each Object into a non-fragile object
+                nonFragile nonFragProd = (nonFragile) prod;
+                if (lblProdID.getText().equals(nonFragProd.getProductID()))
+                {
+                    // CREATE CHECK INPUT QUANTITY VERSUS PRODUCT QUANTITY check input quantity versus product quantity
+                    nonFragProd.setProdQuantity(Integer.parseInt(txtOrderItemQuan.getText()));
+                    
+                    // append order item object into order item list
+                    OrderItem orderItem = new OrderItem(nonFragProd.getProductID(), 
+                            nonFragProd.getProductName(), 
+                            nonFragProd.getProdQuantity(),
+                            nonFragProd.getProductPrice(),
+                            nonFragProd.calcShipping());
+                    orderItemList.add(orderItem);
+                    cmenuEditOrder.doClick();
+                }
+            }
+         }
+    }//GEN-LAST:event_btnAddOrderItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1373,9 +1440,12 @@ public class Cus_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddOrderItem;
+    private javax.swing.JButton btnAddQuan;
     private javax.swing.JButton btnBackToBrowse;
     private javax.swing.JButton btnBrowseCoffee;
     private javax.swing.JButton btnBrowseEquipments;
+    private javax.swing.JButton btnDecreaseQuan;
     private javax.swing.JButton cBtnSearchProduct;
     private javax.swing.JMenuItem cmenuBrowseProduct;
     private javax.swing.JMenuItem cmenuEditOrder;
@@ -1388,14 +1458,11 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JMenu cmenuShop;
     private javax.swing.JMenuItem cmenuViewOrder;
     private javax.swing.JMenuItem cmenuViewProfile;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
@@ -1424,7 +1491,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
@@ -1447,12 +1513,10 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
@@ -1470,6 +1534,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel lblProdPrice;
     private javax.swing.JLabel lblProdType;
     private javax.swing.JLabel lblQuan;
+    private javax.swing.JLabel lblStockStatus;
     private javax.swing.JLabel lblWeight;
     private javax.swing.JList<String> lstBrowseProduct;
     private javax.swing.JPanel pnlBrowseProduct;
@@ -1482,5 +1547,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel pnlViewOrderHist;
     private javax.swing.JPanel pnlViewOrderSummary;
     private javax.swing.JPanel pnlViewProfile;
+    private javax.swing.JTable tblOrderItemList;
+    private javax.swing.JTextField txtOrderItemQuan;
     // End of variables declaration//GEN-END:variables
 }

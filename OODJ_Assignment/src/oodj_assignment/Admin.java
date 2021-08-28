@@ -241,15 +241,24 @@ public class Admin extends Customer
     }
     
     // handles edit and deletion of product data
-    public void editProduct(ArrayList<Object> prod)
+    public void editProduct(ArrayList<Object> prodList)
     {
         try
         {
             PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Products.txt"),false));
 
-            for (int i = 0; i < prod.size(); i++)
+            for (Object prod:prodList)
             {
-                pw.println(prod.get(i).toString());
+                if (prod instanceof Fragile)
+                {
+                    Fragile fragProd = (Fragile) prod;
+                    pw.println(fragProd.toString());
+                }
+                else
+                {
+                    nonFragile nonFragProd = (nonFragile) prod;
+                    pw.println(nonFragProd.toString());
+                }
             }
 
             pw.close();

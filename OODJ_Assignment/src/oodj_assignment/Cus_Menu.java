@@ -5,6 +5,7 @@
  */
 package oodj_assignment;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -43,6 +44,8 @@ public class Cus_Menu extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         pnlCusMenu = new javax.swing.JPanel();
         pnlCusMain = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -55,35 +58,32 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlBrowseProduct = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         lstBrowseProduct = new javax.swing.JList<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnBrowseCoffee = new javax.swing.JButton();
+        btnBrowseEquipments = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         pnlViewAddProduct = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblProdName = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblProdPrice = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lblProdID = new javax.swing.JLabel();
+        lblWeight = new javax.swing.JLabel();
+        lblProdType = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
+        lblParam1Header = new javax.swing.JLabel();
+        lblParam2Header = new javax.swing.JLabel();
+        lblParam3Header = new javax.swing.JLabel();
+        lblProdParam1 = new javax.swing.JLabel();
+        lblProdParam2 = new javax.swing.JLabel();
+        lblProdParam3 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
+        lblQuan = new javax.swing.JLabel();
+        btnBackToBrowse = new javax.swing.JButton();
         pnlViewProfile = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -169,6 +169,8 @@ public class Cus_Menu extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar2.add(jMenu2);
 
+        jScrollPane2.setViewportView(jEditorPane1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlCusMenu.setBackground(new java.awt.Color(255, 204, 204));
@@ -180,9 +182,9 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlCusMenu.setLayout(new java.awt.CardLayout());
 
         pnlCusMain.setBackground(new java.awt.Color(255, 204, 204));
-        pnlCusMain.setMaximumSize(new java.awt.Dimension(750, 500));
-        pnlCusMain.setMinimumSize(new java.awt.Dimension(750, 500));
-        pnlCusMain.setPreferredSize(new java.awt.Dimension(750, 500));
+        pnlCusMain.setMaximumSize(new java.awt.Dimension(750, 616));
+        pnlCusMain.setMinimumSize(new java.awt.Dimension(750, 616));
+        pnlCusMain.setPreferredSize(new java.awt.Dimension(750, 616));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -268,6 +270,8 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlCusMenu.add(pnlSearchProduct, "pnlSearchProduct");
 
         pnlBrowseProduct.setBackground(new java.awt.Color(102, 153, 255));
+        pnlBrowseProduct.setMaximumSize(new java.awt.Dimension(750, 616));
+        pnlBrowseProduct.setMinimumSize(new java.awt.Dimension(750, 616));
 
         lstBrowseProduct.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -281,9 +285,19 @@ public class Cus_Menu extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(lstBrowseProduct);
 
-        jButton2.setText("Coffee");
+        btnBrowseCoffee.setText("Coffee");
+        btnBrowseCoffee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseCoffeeActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Equipments");
+        btnBrowseEquipments.setText("Equipments");
+        btnBrowseEquipments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseEquipmentsActionPerformed(evt);
+            }
+        });
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(0, 0, 0));
@@ -293,18 +307,17 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlBrowseProduct.setLayout(pnlBrowseProductLayout);
         pnlBrowseProductLayout.setHorizontalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBrowseProductLayout.createSequentialGroup()
-                .addContainerGap(169, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
+                .addContainerGap(160, Short.MAX_VALUE)
                 .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
-                        .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(146, 146, 146))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBrowseCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBrowseEquipments, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
                         .addComponent(jLabel31)
-                        .addGap(259, 259, 259))))
+                        .addGap(113, 113, 113)))
+                .addGap(155, 155, 155))
         );
         pnlBrowseProductLayout.setVerticalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,9 +325,9 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBrowseCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBrowseEquipments, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(221, Short.MAX_VALUE))
@@ -324,49 +337,43 @@ public class Cus_Menu extends javax.swing.JFrame {
 
         pnlViewAddProduct.setBackground(new java.awt.Color(255, 204, 153));
         pnlViewAddProduct.setForeground(new java.awt.Color(255, 204, 153));
+        pnlViewAddProduct.setMaximumSize(new java.awt.Dimension(750, 616));
+        pnlViewAddProduct.setMinimumSize(new java.awt.Dimension(750, 616));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("*Product name*");
+        lblProdName.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lblProdName.setForeground(new java.awt.Color(102, 102, 102));
+        lblProdName.setText("name");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Product ID:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 204, 0));
-        jLabel5.setText("**price**");
+        lblProdPrice.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lblProdPrice.setForeground(new java.awt.Color(51, 204, 0));
+        lblProdPrice.setText("**price**");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Weight:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Dimension:");
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Type:");
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setText("Add to Order");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("*id*");
+        lblProdID.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdID.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdID.setText("id");
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("*weight*");
+        lblWeight.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblWeight.setForeground(new java.awt.Color(0, 0, 0));
+        lblWeight.setText("weight");
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("*type*");
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("*dimension*");
+        lblProdType.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdType.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdType.setText("type");
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,37 +387,29 @@ public class Cus_Menu extends javax.swing.JFrame {
         jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton8.setText("+");
 
-        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel39.setText("Origin:");
+        lblParam1Header.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblParam1Header.setForeground(new java.awt.Color(0, 0, 0));
+        lblParam1Header.setText("Param1:");
 
-        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel40.setText("Altitude:");
+        lblParam2Header.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblParam2Header.setForeground(new java.awt.Color(0, 0, 0));
+        lblParam2Header.setText("Param2:");
 
-        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel41.setText("Net Weight:");
+        lblParam3Header.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblParam3Header.setForeground(new java.awt.Color(0, 0, 0));
+        lblParam3Header.setText("Param3:");
 
-        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel42.setText("Tasting Notes:");
+        lblProdParam1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdParam1.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdParam1.setText("param1");
 
-        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel43.setText("jLabel43");
+        lblProdParam2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdParam2.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdParam2.setText("param2");
 
-        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel44.setText("jLabel44");
-
-        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel45.setText("jLabel45");
-
-        jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel46.setText("jLabel46");
+        lblProdParam3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdParam3.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdParam3.setText("param3");
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(0, 0, 0));
@@ -419,117 +418,125 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel48.setForeground(new java.awt.Color(0, 0, 0));
         jLabel48.setText("In stock:");
 
-        jLabel49.setForeground(new java.awt.Color(255, 51, 0));
-        jLabel49.setText("int/ Out of stock!");
+        lblQuan.setForeground(new java.awt.Color(0, 0, 0));
+        lblQuan.setText("int/ Out of stock!");
+
+        btnBackToBrowse.setText("Back ");
+        btnBackToBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToBrowseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlViewAddProductLayout = new javax.swing.GroupLayout(pnlViewAddProduct);
         pnlViewAddProduct.setLayout(pnlViewAddProductLayout);
         pnlViewAddProductLayout.setHorizontalGroup(
             pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlViewAddProductLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(11, 11, 11)
                 .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlViewAddProductLayout.createSequentialGroup()
                         .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(39, 39, 39)
-                        .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(145, 145, 145)
-                        .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel42)
-                            .addComponent(jLabel41)
-                            .addComponent(jLabel40))
-                        .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnlViewAddProductLayout.createSequentialGroup()
-                                    .addGap(19, 19, 19)
-                                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewAddProductLayout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel44, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel43, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(pnlViewAddProductLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(28, 28, 28))
                     .addGroup(pnlViewAddProductLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(145, 145, 145)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel47))
-                .addContainerGap(214, Short.MAX_VALUE))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblProdType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblWeight, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                    .addComponent(lblProdID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblParam1Header, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                    .addComponent(lblParam3Header, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblParam2Header, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlViewAddProductLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblProdParam2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblProdParam3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewAddProductLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblProdParam1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(183, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewAddProductLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(lblProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
                 .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblQuan)
                     .addComponent(jButton1)
-                    .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel5)
-                        .addGroup(pnlViewAddProductLayout.createSequentialGroup()
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel49)))
+                    .addGroup(pnlViewAddProductLayout.createSequentialGroup()
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(pnlViewAddProductLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlViewAddProductLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel47)
+                            .addGroup(pnlViewAddProductLayout.createSequentialGroup()
+                                .addComponent(lblProdName)
+                                .addGap(49, 49, 49))))
+                    .addComponent(btnBackToBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        pnlViewAddProductLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel4, jLabel8, lblProdParam1, lblProdParam2, lblProdParam3});
+
         pnlViewAddProductLayout.setVerticalGroup(
             pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlViewAddProductLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel47)
-                .addGap(18, 18, 18)
-                .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel39)
-                    .addComponent(jLabel43))
+                .addGap(12, 12, 12)
+                .addComponent(btnBackToBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblProdName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lblProdID)
+                    .addComponent(lblParam1Header)
+                    .addComponent(lblProdParam1))
+                .addGap(37, 37, 37)
                 .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel40)
-                    .addComponent(jLabel44))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lblWeight)
+                    .addComponent(lblParam2Header)
+                    .addComponent(lblProdParam2))
+                .addGap(43, 43, 43)
                 .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel45))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel12))
-                    .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel42)
-                        .addComponent(jLabel46)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                    .addComponent(lblProdParam3)
+                    .addComponent(jLabel8)
+                    .addComponent(lblProdType)
+                    .addComponent(lblParam3Header))
+                .addGap(100, 100, 100)
                 .addComponent(jLabel48)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel49)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblQuan)
+                .addGap(18, 18, 18)
                 .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7)
                     .addComponent(jButton8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlViewAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProdPrice))
                 .addContainerGap())
         );
+
+        pnlViewAddProductLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel4, jLabel6, jLabel8, lblParam1Header, lblParam2Header, lblParam3Header, lblProdID, lblProdParam1, lblProdParam2, lblProdParam3, lblProdType, lblWeight});
 
         pnlCusMenu.add(pnlViewAddProduct, "pnlViewAddProduct");
 
@@ -1172,8 +1179,8 @@ public class Cus_Menu extends javax.swing.JFrame {
     private void cmenuBrowseProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuBrowseProductActionPerformed
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
         card.show(pnlCusMenu, "pnlBrowseProduct");
-        Admin adm = new Admin();
-        ArrayList<Product> prodList = new ArrayList(adm.browseProd());
+        Customer cus = new Customer();
+        ArrayList<Product> prodList = new ArrayList(cus.browseProd());
         lstBrowseProduct.setModel(prodListModel);
         for (Product prod:prodList)
         {
@@ -1234,8 +1241,99 @@ public class Cus_Menu extends javax.swing.JFrame {
 
     private void lstBrowseProductMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstBrowseProductMouseReleased
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
-        card.show(pnlCusMenu, "pnlViewAddProduct");    
+        card.show(pnlCusMenu, "pnlViewAddProduct"); 
+        Customer cus = new Customer();
+        ArrayList<Object> prodList = new ArrayList(cus.browseProd());
+        
+        //for loop to enable object typecasting
+        for (Object prod:prodList)
+        {
+            if (prod instanceof Fragile)
+            {
+                //typeccasting each Object into a fragile object
+                Fragile fragProd = (Fragile) prod;
+                if (lstBrowseProduct.getSelectedValue().equals(fragProd.getProductName()))
+                {
+                    lblProdName.setText(String.valueOf(fragProd.getProductName()));
+                    lblProdID.setText(String.valueOf(fragProd.getProductID()));
+                    lblProdPrice.setText("RM" + "#.00".format(String.valueOf(fragProd.getProductPrice())));
+                    lblWeight.setText(String.valueOf(fragProd.getProductWeight()));
+                    lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
+                    lblProdType.setText("Equipment (Fragile item)");
+                    lblParam1Header.setText("Brand:");
+                    lblProdParam1.setText(String.valueOf(fragProd.getBrand()));
+                    lblParam2Header.setVisible(false);
+                    lblProdParam2.setVisible(false);
+                    lblParam3Header.setVisible(false);
+                    lblProdParam3.setVisible(false);
+                }
+            }
+            else
+            {
+                //typeccasting each Object into a nonFragile object
+                nonFragile nonFragProd = (nonFragile) prod;
+                if (lstBrowseProduct.getSelectedValue().equals(nonFragProd.getProductName()))
+                {
+                    lblProdName.setText(String.valueOf(nonFragProd.getProductName()));
+                    lblProdName.setText(String.valueOf(nonFragProd.getProductName()));
+                    lblProdID.setText(String.valueOf(nonFragProd.getProductID()));
+                    lblProdPrice.setText("RM" + "#.00".format(String.valueOf(nonFragProd.getProductPrice())));
+                    lblWeight.setText(String.valueOf(nonFragProd.getProductWeight()));
+                    lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
+                    lblProdType.setText("Coffee (Non-fragile item)");
+                    lblParam1Header.setText("Origin:");
+                    lblProdParam1.setText(String.valueOf(String.valueOf(nonFragProd.getOrigin())));
+                    lblParam2Header.setText("Altitude:");
+                    lblProdParam2.setText(String.valueOf(nonFragProd.getAltitude()));
+                    lblParam3Header.setText("Tasting Notes:");
+                    lblProdParam3.setText(String.valueOf(nonFragProd.getTasteNotes()));
+                }
+
+            }
+        }
     }//GEN-LAST:event_lstBrowseProductMouseReleased
+
+    private void btnBrowseCoffeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseCoffeeActionPerformed
+        prodListModel.removeAllElements();
+        Customer cus = new Customer();
+        ArrayList<Product> prodList = new ArrayList(cus.browseProd());
+        lstBrowseProduct.setModel(prodListModel);
+        for (Product prod:prodList)
+        {
+            if (prod.getClass() == Fragile.class)
+            {
+                continue;
+            }
+            else if (prod.getClass() == nonFragile.class)
+            {
+                Product nonFragProd = (nonFragile) prod;
+                prodListModel.addElement(nonFragProd.getProductName());
+            }
+        }
+    }//GEN-LAST:event_btnBrowseCoffeeActionPerformed
+
+    private void btnBrowseEquipmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseEquipmentsActionPerformed
+        prodListModel.removeAllElements();
+        Customer cus = new Customer();
+        ArrayList<Product> prodList = new ArrayList(cus.browseProd());
+        lstBrowseProduct.setModel(prodListModel);
+        for (Product prod:prodList)
+        {
+            if (prod.getClass() == Fragile.class)
+            {
+                Product Fragile = (Fragile) prod;
+                prodListModel.addElement(Fragile.getProductName()); 
+            }
+            else if (prod.getClass() == nonFragile.class)
+            {
+                continue;
+            }
+        }
+    }//GEN-LAST:event_btnBrowseEquipmentsActionPerformed
+
+    private void btnBackToBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToBrowseActionPerformed
+        cmenuBrowseProduct.doClick();
+    }//GEN-LAST:event_btnBackToBrowseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1273,6 +1371,9 @@ public class Cus_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBackToBrowse;
+    private javax.swing.JButton btnBrowseCoffee;
+    private javax.swing.JButton btnBrowseEquipments;
     private javax.swing.JButton cBtnSearchProduct;
     private javax.swing.JMenuItem cmenuBrowseProduct;
     private javax.swing.JMenuItem cmenuEditOrder;
@@ -1288,26 +1389,20 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1325,24 +1420,13 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList5;
@@ -1356,6 +1440,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -1372,6 +1457,18 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lblParam1Header;
+    private javax.swing.JLabel lblParam2Header;
+    private javax.swing.JLabel lblParam3Header;
+    private javax.swing.JLabel lblProdID;
+    private javax.swing.JLabel lblProdName;
+    private javax.swing.JLabel lblProdParam1;
+    private javax.swing.JLabel lblProdParam2;
+    private javax.swing.JLabel lblProdParam3;
+    private javax.swing.JLabel lblProdPrice;
+    private javax.swing.JLabel lblProdType;
+    private javax.swing.JLabel lblQuan;
+    private javax.swing.JLabel lblWeight;
     private javax.swing.JList<String> lstBrowseProduct;
     private javax.swing.JPanel pnlBrowseProduct;
     private javax.swing.JPanel pnlCusMain;

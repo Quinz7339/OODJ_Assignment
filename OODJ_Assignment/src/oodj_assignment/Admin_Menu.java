@@ -2431,58 +2431,66 @@ public class Admin_Menu extends javax.swing.JFrame {
                 Admin adm = new Admin();
                 ArrayList<Object> prodList = new ArrayList(adm.viewProduct());
                 
-                try
+                for (Object prod:prodList)     
                 {
-                    for (Object prod:prodList)     
+
+                    if (prod instanceof Fragile)
                     {
-                        
-                        if (prod instanceof Fragile)
+                        Fragile fragProd = (Fragile) prod;
+                        if(lstProductID.getSelectedValue().equals(fragProd.getProductID()))
                         {
-                            Fragile fragProd = (Fragile) prod;
-                            if(lstProductID.getSelectedValue().equals(fragProd.getProductID()))
+                            try
                             {
-                                if(txtProdQuan.getText().trim().length()==0|| fragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()) || 
-                                        fragProd.getProductPrice() != Double.parseDouble(txtProdPrice.getText().trim()))
+                                if(txtProdQuan.getText().trim().length()!=0)
                                 {
                                     int quan = Integer.parseInt(txtProdQuan.getText().trim());
                                     int subtotal = quan + Integer.parseInt(lblCurrentQuan.getText().trim());
                                     fragProd.setProdQuantity(subtotal);
-                                    fragProd.setProductPrice(Double.parseDouble(txtProdPrice.getText().trim()));
-                                    fragProd.setProductWeight(Double.parseDouble(txtProdWeight.getText().trim()));
-                                    break;
                                 }
-                            } 
+                                if(fragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()))
+                                {
+                                    fragProd.setProductWeight(Double.parseDouble(txtProdWeight.getText().trim()));
+                                }
+                                if(fragProd.getProductPrice() != Double.parseDouble(txtProdPrice.getText().trim()))
+                                {
+                                    fragProd.setProductPrice(Double.parseDouble(txtProdPrice.getText().trim()));
+                                }
+                            }
+                            catch (NumberFormatException e){} // allow exception to happen due to no change of quantity
                         }
-                        else
+                    }
+                    else
+                    {
+                        nonFragile nonFragProd = (nonFragile) prod;
+                        if (lstProductID.getSelectedValue().equals(nonFragProd.getProductID()))
                         {
-                            nonFragile nonFragProd = (nonFragile) prod;
-                            if (lstProductID.getSelectedValue().equals(nonFragProd.getProductID()))
+                            try
                             {
-                                if(txtProdQuan.getText().trim().length()==0 || nonFragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()) || 
-                                        nonFragProd.getProductPrice() != Double.parseDouble(txtProdPrice.getText().trim()))
+                                if(txtProdQuan.getText().trim().length()!=0)
                                 {
                                     int quan = Integer.parseInt(txtProdQuan.getText().trim());
                                     int subtotal = quan + Integer.parseInt(lblCurrentQuan.getText().trim());
                                     nonFragProd.setProdQuantity(subtotal);
-                                    nonFragProd.setProductPrice(Double.parseDouble(txtProdPrice.getText().trim()));
+                                }
+                                if(nonFragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()))
+                                {
                                     nonFragProd.setProductWeight(Double.parseDouble(txtProdWeight.getText().trim()));
-                                    break;
+                                }
+                                if(nonFragProd.getProductPrice() != Double.parseDouble(txtProdPrice.getText().trim()))
+                                {
+                                    nonFragProd.setProductPrice(Double.parseDouble(txtProdPrice.getText().trim()));
                                 }
                             }
+                            catch (NumberFormatException e){} // allow exception to happen due to no change of quantity
                         }
                     }
-                }
-
-                catch (NumberFormatException e)
-                {
-                    JOptionPane.showMessageDialog(errorMessage, "Weight, Price or Quantity not in appropriate data type!","Error",JOptionPane.ERROR_MESSAGE);
                 }
                 adm.editProduct(prodList);
             }
             catch (IOException ex)
             {
                 JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
-            } 
+            }
         }
         else if (btnEditProd.getText() == "Edit")
         {

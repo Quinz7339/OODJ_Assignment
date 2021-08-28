@@ -9,7 +9,7 @@ package oodj_assignment;
  *
  * @author phili
  */
-public class nonFragile extends Product
+public class nonFragile extends Product implements Shipping
 {
     private String origin;
     private double altitude;

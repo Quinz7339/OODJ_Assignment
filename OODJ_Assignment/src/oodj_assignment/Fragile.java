@@ -9,7 +9,7 @@ package oodj_assignment;
  *
  * @author phili
  */
-public class Fragile extends Product
+public class Fragile extends Product implements Shipping
 {
     private String brand;
 

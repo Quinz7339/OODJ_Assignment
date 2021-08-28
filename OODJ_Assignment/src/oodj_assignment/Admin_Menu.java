@@ -128,8 +128,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         lstProductID = new javax.swing.JList<>();
         jLabel25 = new javax.swing.JLabel();
         txtProdQuan = new javax.swing.JTextField();
-        btnMinus = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
+        btnEditProdDecQuan = new javax.swing.JButton();
+        btnEditProdAddQuan = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         txtProdName = new javax.swing.JTextField();
         lblCurrentQuan = new javax.swing.JLabel();
@@ -834,11 +834,21 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtProdQuan.setMinimumSize(new java.awt.Dimension(100, 30));
         txtProdQuan.setPreferredSize(new java.awt.Dimension(100, 30));
 
-        btnMinus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        btnMinus.setText("-");
+        btnEditProdDecQuan.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnEditProdDecQuan.setText("-");
+        btnEditProdDecQuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditProdDecQuanActionPerformed(evt);
+            }
+        });
 
-        btnAdd.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        btnAdd.setText("+");
+        btnEditProdAddQuan.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnEditProdAddQuan.setText("+");
+        btnEditProdAddQuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditProdAddQuanActionPerformed(evt);
+            }
+        });
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
@@ -959,9 +969,9 @@ public class Admin_Menu extends javax.swing.JFrame {
                                                 .addGap(29, 29, 29)
                                                 .addComponent(txtProdQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(95, 95, 95)
-                                                .addComponent(btnMinus)
+                                                .addComponent(btnEditProdDecQuan)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnAdd))
+                                                .addComponent(btnEditProdAddQuan))
                                             .addGroup(pnlEditProductLayout.createSequentialGroup()
                                                 .addGap(45, 45, 45)
                                                 .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1012,8 +1022,8 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel25)
                             .addComponent(txtProdQuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMinus)
-                            .addComponent(btnAdd))
+                            .addComponent(btnEditProdDecQuan)
+                            .addComponent(btnEditProdAddQuan))
                         .addGap(26, 26, 26)
                         .addGroup(pnlEditProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblParam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1969,6 +1979,9 @@ public class Admin_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlEditProduct");
+        btnEditProdAddQuan.setEnabled(false);
+        btnEditProdDecQuan.setEnabled(false);
+        txtProdQuan.setEditable(false);
         prodListModel.removeAllElements();
         btnEditProd.setEnabled(false);
         btnEditProdBack.setVisible(false);
@@ -2205,6 +2218,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             txtCusUsername.setText(cusList.get(i).getUsername());
             txtCusEmail.setText(cusList.get(i).getEmailAddress());
             txtCusAddress.setText(cusList.get(i).getAddress());
+            txtCusPhoneNo.setText(cusList.get(i).getPhoneNumber());
             txtCusPassword.setText("");
             txtCusPassword2.setText("");
         }
@@ -2268,8 +2282,9 @@ public class Admin_Menu extends javax.swing.JFrame {
                 {
                     Admin adm = new Admin();
                     ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
-                    if(cusList.get(i).getName().equals(txtCusName.getText()) &&  cusList.get(i).getEmailAddress().equals(txtCusEmail.getText()) &&
-                            cusList.get(i).getAddress().equals(txtCusAddress.getText()) && cusList.get(i).getPhoneNumber().equals(txtCusPhoneNo.getText()))
+                    if((cusList.get(i).getName().equals(txtCusName.getText()) &&  cusList.get(i).getEmailAddress().equals(txtCusEmail.getText()) &&
+                            cusList.get(i).getAddress().equals(txtCusAddress.getText()) && cusList.get(i).getPhoneNumber().equals(txtCusPhoneNo.getText()))&&
+                            cusList.get(i).getPassword().equals(String.valueOf(txtCusPassword.getPassword())))
                     {
                         JOptionPane.showMessageDialog(errorMessage, "No changes detected. Please retry.","No fields are changed.",JOptionPane.ERROR_MESSAGE);
                     }
@@ -2377,6 +2392,12 @@ public class Admin_Menu extends javax.swing.JFrame {
 
     private void lstProductIDMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstProductIDMouseReleased
         btnEditProd.setEnabled(true);
+        txtProdQuan.setText(Integer.toString(0));
+        btnEditProd.setText("Edit");
+        btnEditProdAddQuan.setEnabled(false);
+        btnEditProdDecQuan.setEnabled(false);
+        txtProdWeight.setEditable(false);
+        txtProdPrice.setEditable(false);
         try
         {
             Admin adm = new Admin();
@@ -2446,7 +2467,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             txtCusPassword2.setEditable(false);
             btnEditProd.setText("Edit");
             
-            //insert edit logic here
+            //edit product logic here
             try
             {
                 Admin adm = new Admin();
@@ -2507,6 +2528,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                     }
                 }
                 adm.editProduct(prodList);
+                menuEditProduct.doClick();
             }
             catch (IOException ex)
             {
@@ -2515,11 +2537,13 @@ public class Admin_Menu extends javax.swing.JFrame {
         }
         else if (btnEditProd.getText() == "Edit")
         {
+            btnEditProdAddQuan.setEnabled(true);
+            btnEditProdDecQuan.setEnabled(true);
             btnEditProdBack.setVisible(true);
             txtProdName.setEditable(false);
             txtProdWeight.setEditable(true);
             txtProdPrice.setEditable(true);
-            txtProdQuan.setEditable(true);
+            txtProdQuan.setEditable(false);
             btnEditProd.setText("Confirm");
             try
             {
@@ -2682,6 +2706,32 @@ public class Admin_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddOrderItemActionPerformed
 
+    private void btnEditProdAddQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProdAddQuanActionPerformed
+        if (Integer.parseInt(txtProdQuan.getText()) >= 0)
+        {
+            int y = Integer.parseInt(txtProdQuan.getText()) + 1;
+            txtProdQuan.setText(Integer.toString(y));
+            btnEditProdDecQuan.setEnabled(true);
+        }
+        else
+        {
+            btnEditProdAddQuan.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnEditProdAddQuanActionPerformed
+
+    private void btnEditProdDecQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProdDecQuanActionPerformed
+        if (Integer.parseInt(txtProdQuan.getText()) > 0)
+        {
+            int y = Integer.parseInt(txtProdQuan.getText()) - 1;
+            txtProdQuan.setText(Integer.toString(y));
+            btnEditProdAddQuan.setEnabled(true);
+        }
+        else
+        {
+            btnEditProdDecQuan.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnEditProdDecQuanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2719,7 +2769,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddOrderItem;
     private javax.swing.JButton btnAddOrderItemQuan;
     private javax.swing.JButton btnAddProduct;
@@ -2734,8 +2783,9 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteProd;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnEditProd;
+    private javax.swing.JButton btnEditProdAddQuan;
     private javax.swing.JButton btnEditProdBack;
-    private javax.swing.JButton btnMinus;
+    private javax.swing.JButton btnEditProdDecQuan;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReset2;
     private javax.swing.JButton btnSearchEnter;

@@ -369,9 +369,19 @@ public class Cus_Menu extends javax.swing.JFrame {
 
         btnDecreaseQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDecreaseQuan.setText("-");
+        btnDecreaseQuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDecreaseQuanActionPerformed(evt);
+            }
+        });
 
         btnAddQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAddQuan.setText("+");
+        btnAddQuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddQuanActionPerformed(evt);
+            }
+        });
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(0, 0, 0));
@@ -1203,7 +1213,7 @@ public class Cus_Menu extends javax.swing.JFrame {
             rowOrderItem[3] = orderItem.getShippingFee();
             rowOrderItem[4] = orderItem.calcSubtotal();
             System.out.println(rowOrderItem[0]);
-            orderItemListModel.addRow(rowOrderItem);
+            //orderItemListModel.addRow(rowOrderItem);
         }
     }//GEN-LAST:event_cmenuEditOrderActionPerformed
 
@@ -1243,6 +1253,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         btnDecreaseQuan.setVisible(true);
         btnAddQuan.setVisible(true);
         btnAddOrderItem.setVisible(true);
+        txtOrderItemQuan.setEditable(false);
         //for loop to enable object typecasting
         for (Object prod:prodList)
         {
@@ -1403,6 +1414,32 @@ public class Cus_Menu extends javax.swing.JFrame {
             }
          }
     }//GEN-LAST:event_btnAddOrderItemActionPerformed
+
+    private void btnDecreaseQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecreaseQuanActionPerformed
+        if(Integer.parseInt(txtOrderItemQuan.getText()) > 0)
+        {
+            int y = Integer.parseInt(txtOrderItemQuan.getText()) - 1;
+            txtOrderItemQuan.setText(Integer.toString(y));
+            btnAddQuan.setEnabled(true);
+        } 
+        else
+        {
+            btnDecreaseQuan.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnDecreaseQuanActionPerformed
+
+    private void btnAddQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddQuanActionPerformed
+        if(Integer.parseInt(txtOrderItemQuan.getText()) < Integer.parseInt(lblQuan.getText()))
+        {
+            int y = Integer.parseInt(txtOrderItemQuan.getText()) + 1;
+            txtOrderItemQuan.setText(Integer.toString(y));
+            btnDecreaseQuan.setEnabled(true);
+        }
+        else 
+        {
+            btnAddQuan.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnAddQuanActionPerformed
 
     /**
      * @param args the command line arguments

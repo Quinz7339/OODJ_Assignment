@@ -11,5 +11,5 @@ package oodj_assignment;
  */
 public class Order 
 {
-    
+    private String OrderID;
 }

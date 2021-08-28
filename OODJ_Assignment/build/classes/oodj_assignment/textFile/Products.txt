@@ -1,8 +1,8 @@
 Prod1,Ethiopian Guji G1,40,60.0,1.0,Ethiopia,2200.0,Berries like
-Prod2,Columbian Supremo,35,40.0,1.0,Columbia,1700.0,Chocolatey
-Prod3,Cup,90,30.0,0.5,ceram
+Prod2,Columbian Supremo,40,40.0,1.0,Columbia,1700.0,Chocolatey
+Prod3,Cup,99,30.0,0.5,ceram
 Prod4,Espresso glass,50,30.0,0.2,ceram
 Prod5,Brazil Cerrado,70,32.0,1.0,Brazil,1100.0,Nutty
-Prod6,Coffee Grinder,25,120.0,1.0,Hario
-Prod7,V60 dripper,0,40.0,0.4,Hario
+Prod6,Coffee Grinder,30,120.0,1.0,Hario
+Prod7,V60 dripper,5,40.0,0.4,Hario
 Prod8,Janson Farm Geisha,20,240.0,1.0,Panama,2100.0,Jasmine and citrus

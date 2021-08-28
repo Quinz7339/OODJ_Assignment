@@ -17,8 +17,8 @@ import javax.swing.table.DefaultTableModel;
 public class Cus_Menu extends javax.swing.JFrame {
     JFrame errorMessage;
     DefaultListModel prodListModel = new DefaultListModel();
-    // DefaultTableModel orderItemListModel = new DefaultTableModel();
     ArrayList <OrderItem> orderItemList= new ArrayList<OrderItem>();
+    Customer customer;
     /**
      * Creates new form Cus_Menu
      * @param user
@@ -26,7 +26,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     public Cus_Menu(Customer user)
     {
         initComponents();
-        Customer customer = new Customer(user);
+        this.customer = user;
         
     }
     public Cus_Menu() {
@@ -111,10 +111,10 @@ public class Cus_Menu extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         tblOrderItemList = new javax.swing.JTable();
         jLabel34 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        btnDeleteOrderItem = new javax.swing.JButton();
+        btnCreateOrder = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
+        lblEditOrderGrandTotal = new javax.swing.JLabel();
         pnlViewOrderHist = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -129,7 +129,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btnSearchOrder = new javax.swing.JButton();
         pnlViewOrderSummary = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -233,6 +233,11 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel22.setText("Enter product name or ID:");
 
         cBtnSearchProduct.setText("Search");
+        cBtnSearchProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cBtnSearchProductActionPerformed(evt);
+            }
+        });
 
         jLabel32.setBackground(new java.awt.Color(153, 204, 255));
         jLabel32.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -723,29 +728,66 @@ public class Cus_Menu extends javax.swing.JFrame {
 
             },
             new String [] {
-
+                "Product name", "Quantity", "Price", "Shipping Fee", "Subtotal"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane6.setViewportView(tblOrderItemList);
+        if (tblOrderItemList.getColumnModel().getColumnCount() > 0) {
+            tblOrderItemList.getColumnModel().getColumn(0).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(0).setPreferredWidth(350);
+            tblOrderItemList.getColumnModel().getColumn(1).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tblOrderItemList.getColumnModel().getColumn(2).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tblOrderItemList.getColumnModel().getColumn(3).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tblOrderItemList.getColumnModel().getColumn(4).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(4).setPreferredWidth(100);
+        }
 
         jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(0, 0, 0));
         jLabel34.setText("Items currently in cart:");
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(204, 0, 0));
-        jButton4.setText("Delete Product");
+        btnDeleteOrderItem.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnDeleteOrderItem.setForeground(new java.awt.Color(204, 0, 0));
+        btnDeleteOrderItem.setText("Delete Item");
+        btnDeleteOrderItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteOrderItemActionPerformed(evt);
+            }
+        });
 
-        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton9.setText("Add to Order");
+        btnCreateOrder.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnCreateOrder.setText("Create Order");
+        btnCreateOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateOrderActionPerformed(evt);
+            }
+        });
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 3, 13)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(0, 0, 0));
         jLabel37.setText("Grand Total:");
 
-        jLabel38.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(0, 153, 51));
-        jLabel38.setText("*price*");
+        lblEditOrderGrandTotal.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lblEditOrderGrandTotal.setForeground(new java.awt.Color(0, 153, 51));
+        lblEditOrderGrandTotal.setText("*price*");
 
         javax.swing.GroupLayout pnlEditOrderLayout = new javax.swing.GroupLayout(pnlEditOrder);
         pnlEditOrder.setLayout(pnlEditOrderLayout);
@@ -758,12 +800,13 @@ public class Cus_Menu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditOrderLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel37)
                     .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton4)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel38, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jButton9))
+                        .addComponent(btnDeleteOrderItem)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblEditOrderGrandTotal)
+                        .addComponent(btnCreateOrder)
+                        .addComponent(jLabel37)))
                 .addGap(19, 19, 19))
         );
         pnlEditOrderLayout.setVerticalGroup(
@@ -774,13 +817,13 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeleteOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel38)
+                .addComponent(lblEditOrderGrandTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCreateOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
 
@@ -807,18 +850,25 @@ public class Cus_Menu extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Product name", "Quantity", "Price", "Subtotal"
+                "Product name", "Quantity", "Price", "Shipping Fee", "Subtotal"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -826,15 +876,16 @@ public class Cus_Menu extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(jTable2);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(1).setMinWidth(100);
+            jTable2.getColumnModel().getColumn(0).setResizable(false);
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(300);
+            jTable2.getColumnModel().getColumn(1).setResizable(false);
             jTable2.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jTable2.getColumnModel().getColumn(1).setMaxWidth(100);
-            jTable2.getColumnModel().getColumn(2).setMinWidth(100);
+            jTable2.getColumnModel().getColumn(2).setResizable(false);
             jTable2.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTable2.getColumnModel().getColumn(2).setMaxWidth(100);
-            jTable2.getColumnModel().getColumn(3).setMinWidth(100);
+            jTable2.getColumnModel().getColumn(3).setResizable(false);
             jTable2.getColumnModel().getColumn(3).setPreferredWidth(100);
-            jTable2.getColumnModel().getColumn(3).setMaxWidth(100);
+            jTable2.getColumnModel().getColumn(4).setResizable(false);
+            jTable2.getColumnModel().getColumn(4).setPreferredWidth(100);
         }
 
         jButton10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -848,7 +899,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Grand Total:");
 
-        jLabel50.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         jLabel50.setForeground(new java.awt.Color(51, 153, 0));
         jLabel50.setText("**Price**");
 
@@ -871,11 +922,14 @@ public class Cus_Menu extends javax.swing.JFrame {
                             .addGroup(pnlViewOrderHistLayout.createSequentialGroup()
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel19)))
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 22, Short.MAX_VALUE))))
+            .addGroup(pnlViewOrderHistLayout.createSequentialGroup()
+                .addGap(526, 526, 526)
+                .addGroup(pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel50))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlViewOrderHistLayout.setVerticalGroup(
             pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -890,7 +944,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel50)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addGroup(pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -915,7 +969,12 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel36.setForeground(new java.awt.Color(204, 0, 0));
         jLabel36.setText("No Matches Found!");
 
-        jButton6.setText("Search");
+        btnSearchOrder.setText("Search");
+        btnSearchOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchOrderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlSearchOrderLayout = new javax.swing.GroupLayout(pnlSearchOrder);
         pnlSearchOrder.setLayout(pnlSearchOrderLayout);
@@ -931,7 +990,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                     .addGroup(pnlSearchOrderLayout.createSequentialGroup()
                         .addComponent(jLabel36)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnlSearchOrderLayout.setVerticalGroup(
@@ -944,7 +1003,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnlSearchOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(482, Short.MAX_VALUE))
         );
 
@@ -1203,8 +1262,22 @@ public class Cus_Menu extends javax.swing.JFrame {
     private void cmenuEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuEditOrderActionPerformed
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
         card.show(pnlCusMenu, "pnlEditOrder");
-        // tblOrderItemList.setModel(orderItemListModel);
+        DefaultTableModel orderItemListModel = (DefaultTableModel) tblOrderItemList.getModel();
+        
+        // Get grand total for pending order
+        Order order = new Order(customer.genOrderID(), orderItemList);
+        lblEditOrderGrandTotal.setText(String.format("RM%.2f",order.getGrandTotal()));
+        
+        // clear order list table
+        int rowsToRemove = orderItemListModel.getRowCount();
+        //remove rows from the bottom one by one
+        for (int i = rowsToRemove - 1; i >= 0; i--)
+        {
+            orderItemListModel.removeRow(i);
+        }
+        
         Object[] rowOrderItem = new Object[5];
+        
         for (OrderItem orderItem:orderItemList)
         {
             rowOrderItem[0] = orderItem.getProductName();
@@ -1212,8 +1285,8 @@ public class Cus_Menu extends javax.swing.JFrame {
             rowOrderItem[2] = orderItem.getProductPrice();
             rowOrderItem[3] = orderItem.getShippingFee();
             rowOrderItem[4] = orderItem.calcSubtotal();
-            System.out.println(rowOrderItem[0]);
-            //orderItemListModel.addRow(rowOrderItem);
+            orderItemListModel.addRow(rowOrderItem);
+            
         }
     }//GEN-LAST:event_cmenuEditOrderActionPerformed
 
@@ -1370,6 +1443,15 @@ public class Cus_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackToBrowseActionPerformed
 
     private void btnAddOrderItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrderItemActionPerformed
+        DefaultTableModel orderItemListModel = (DefaultTableModel) tblOrderItemList.getModel();
+        int rowsToRemove = orderItemListModel.getRowCount();
+        //remove rows from the bottom one by one
+        for (int i = rowsToRemove - 1; i >= 0; i--)
+        {
+            orderItemListModel.removeRow(i);
+        }
+            
+        
         Customer cus = new Customer();
         ArrayList<Object> prodList = new ArrayList(cus.browseProd());
         for (Object prod:prodList)
@@ -1441,6 +1523,38 @@ public class Cus_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddQuanActionPerformed
 
+    private void btnCreateOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateOrderActionPerformed
+        String newOrderID = customer.genOrderID();
+        Order order = new Order(newOrderID,orderItemList);
+        customer.addOrder(order);
+        orderItemList.clear();
+        cmenuViewOrder.doClick();
+    }//GEN-LAST:event_btnCreateOrderActionPerformed
+
+    private void btnDeleteOrderItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteOrderItemActionPerformed
+        if(tblOrderItemList.getSelectedRow() >= 0)
+        {
+            String selectedItem = tblOrderItemList.getValueAt(tblOrderItemList.getSelectedRow(), 0).toString();
+            for (OrderItem orderItem:orderItemList)
+            {
+                if (orderItem.getProductName() == selectedItem)
+                {
+                    orderItemList.remove(orderItem);
+                    cmenuEditOrder.doClick();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnDeleteOrderItemActionPerformed
+
+    private void btnSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchOrderActionPerformed
+
+    private void cBtnSearchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBtnSearchProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cBtnSearchProductActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1482,7 +1596,10 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnBackToBrowse;
     private javax.swing.JButton btnBrowseCoffee;
     private javax.swing.JButton btnBrowseEquipments;
+    private javax.swing.JButton btnCreateOrder;
     private javax.swing.JButton btnDecreaseQuan;
+    private javax.swing.JButton btnDeleteOrderItem;
+    private javax.swing.JButton btnSearchOrder;
     private javax.swing.JButton cBtnSearchProduct;
     private javax.swing.JMenuItem cmenuBrowseProduct;
     private javax.swing.JMenuItem cmenuEditOrder;
@@ -1497,10 +1614,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem cmenuViewProfile;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton9;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1526,7 +1640,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
@@ -1560,6 +1673,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lblEditOrderGrandTotal;
     private javax.swing.JLabel lblParam1Header;
     private javax.swing.JLabel lblParam2Header;
     private javax.swing.JLabel lblParam3Header;

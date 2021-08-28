@@ -113,7 +113,6 @@ public class Customer
             String line;
             Boolean flagUsrname = false;
             Boolean flagPwd = false;
-            //String userType = "";
             
             while ((line = br.readLine()) != null)
             {
@@ -130,21 +129,12 @@ public class Customer
                         if (flagUsrname == true && flagPwd == true)
                         {
                             return User;
-            //                if (userType.equals("ADM"))
-            //                {
-            //                    return "adm";
-            //                }
-            //                else if (userType.equals("CUS"))
-            //                {
-            //                    return "cus";
-            //                }
                         }
                         else
                         {
                             return null;
                         }
                     }
-                    //userType = user[0].substring(0,3);
                 }
                 
             }
@@ -157,7 +147,7 @@ public class Customer
         return null;
     }
 
-    
+    // TO view/browse product to be added into order items
     public ArrayList browseProd()
     {
         ArrayList<Object> prodList = new ArrayList();
@@ -190,10 +180,55 @@ public class Customer
         }
         return prodList;
     }
-    public void viewProd()
+    
+    public void addOrder(Order order)
     {
-        
+        try
+        {
+            PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Orders.txt"),true));
+            for (OrderItem orderItem: order.getOrderItem())
+            {
+                pw.println(String.format("%s,%s,%s,%s,%s,%s", order.getOrderID(),this.UID, orderItem.getProductID(), orderItem.getBuyQuan(), order.getGrandTotal(),order.getPayStatus()));
+            }
+            pw.close();
+        }
+        catch (IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "File not found!","Error",JOptionPane.WARNING_MESSAGE);
+        }
     }
+    
+    public String genOrderID()
+    {
+        try
+        {
+            ArrayList <Integer> orderIDList = new ArrayList<Integer>();
+
+            Scanner scanner = new Scanner (new File("src\\oodj_assignment\\textFile\\Orders.txt"));
+            while (scanner.hasNextLine())
+            {
+                String line = scanner.nextLine();
+                String [] order = line.split(",");
+                int orderID = Integer.parseInt(order[0].substring(3));    //removes the prefix of the User ID (ADM, CUS)
+                orderIDList.add(orderID);
+                    
+            }
+            
+            if (orderIDList.size() == 0)
+            {
+                orderIDList.add(0);
+            }
+                        
+            String newOrderID = "ODR" + String.valueOf(Collections.max(orderIDList,null) + 1);
+            return newOrderID;
+        }
+        catch(IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "File is corrupted or manually tampered. Kindly revert the changes.","Error",JOptionPane.WARNING_MESSAGE);
+        }
+        return null;
+    }
+    
     public String toString()
     {
          return  String.format("%s,%s,%s,%s,%s,%s,%s",UID,username,password,name, emailAddress,phoneNumber,address);

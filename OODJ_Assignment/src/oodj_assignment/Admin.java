@@ -207,6 +207,7 @@ public class Admin extends Customer
     }
     
     //method to show list of product
+    // This is for edit product function
     public ArrayList viewProduct() throws IOException
     {
         ArrayList<Object> prodList = new ArrayList();

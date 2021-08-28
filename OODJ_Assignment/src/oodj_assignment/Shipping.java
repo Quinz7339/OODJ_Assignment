@@ -11,5 +11,7 @@ package oodj_assignment;
  */
 public interface Shipping 
 {
-    final double multiplier =2.5;
+    final double baseShipping = 10;
+    
+    public double calcShipping();
 }

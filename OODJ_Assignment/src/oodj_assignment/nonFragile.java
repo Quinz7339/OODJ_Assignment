@@ -54,5 +54,10 @@ public class nonFragile extends Product implements Shipping
     {
         return String.format("%s,%s,%s,%s,%s,%s,%s,%s",productID,productName,prodQuantity,productPrice,productWeight,origin,altitude,tasteNotes);
     }
+    public double calcShipping()
+    {
+        double shippingFee = baseShipping * productWeight * prodQuantity;
+        return shippingFee;
+    }
 }
 

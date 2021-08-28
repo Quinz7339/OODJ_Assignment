@@ -8,7 +8,7 @@ import java.awt.CardLayout;
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
-
+import java.lang.*;
 /**
  *
  * @author phili
@@ -19,6 +19,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     ButtonGroup prod = new ButtonGroup();
     DefaultListModel cusListModel = new DefaultListModel();
     DefaultListModel prodListModel = new DefaultListModel();
+    DefaultListModel prodNameListModel = new DefaultListModel();
     int i;
     int j;
     /**
@@ -164,37 +165,34 @@ public class Admin_Menu extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         pnlAddOrderItem = new javax.swing.JPanel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        lblParam3Header = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lblParam2Header = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        lblParam1Header = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        lblProdName = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        lblProdParam3 = new javax.swing.JLabel();
+        lblProdType = new javax.swing.JLabel();
+        lblWeight = new javax.swing.JLabel();
+        lblProdParam2 = new javax.swing.JLabel();
+        lblProdID = new javax.swing.JLabel();
+        lblProdParam1 = new javax.swing.JLabel();
+        lblQuan = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        lblProdPrice = new javax.swing.JLabel();
+        btnBackBrowseProduct = new javax.swing.JButton();
         pnlBrowseProduct = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        btnBrowseCoffee = new javax.swing.JButton();
+        btnBrowseEquipment = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        lstBrowseProduct = new javax.swing.JList<>();
         pnlViewOrderHist = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -233,7 +231,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         menuEditOrder = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menuBrowseProduct = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
@@ -722,7 +720,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlViewCustomerLayout.createSequentialGroup()
                         .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                         .addComponent(jLabel14)
                         .addGap(254, 254, 254))
                     .addGroup(pnlViewCustomerLayout.createSequentialGroup()
@@ -797,7 +795,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addGroup(pnlViewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(txtCusPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(96, 125, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEdit)
                 .addGap(35, 35, 35))
         );
@@ -1120,7 +1118,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addComponent(jLabel35)
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         pnlEditOrderLayout.setVerticalGroup(
             pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1131,7 +1129,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel36)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel37)
@@ -1211,88 +1209,6 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         pnlAddOrderItem.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel38.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel38.setText("*Product name*");
-
-        jLabel39.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel39.setText("Product Description:");
-
-        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel40.setText("jLabel40");
-
-        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel41.setText("Weight:");
-
-        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel42.setText("Dimension:");
-
-        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel43.setText("Type:");
-
-        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel44.setText("Product ID:");
-
-        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel45.setText("jLabel45");
-
-        jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel46.setText("jLabel46");
-
-        jLabel47.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel47.setText("Tasting Notes:");
-
-        jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel48.setText("jLabel48");
-
-        jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel49.setText("Origin:");
-
-        jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel50.setText("Altitude:");
-
-        jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel51.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel51.setText("Net Weight:");
-
-        jLabel52.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel52.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel52.setText("jLabel52");
-
-        jLabel53.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel53.setText("jLabel53");
-
-        jLabel54.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel54.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel54.setText("jLabel54");
-
-        jLabel55.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel55.setText("jLabel55");
-
-        jLabel56.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel56.setText("In Stock:");
-
-        jLabel57.setForeground(new java.awt.Color(255, 51, 0));
-        jLabel57.setText("int/ Out of Stock!");
-
-        jLabel58.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel58.setForeground(new java.awt.Color(51, 204, 0));
-        jLabel58.setText("**price**");
-
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton7.setText("-");
 
@@ -1302,118 +1218,186 @@ public class Admin_Menu extends javax.swing.JFrame {
         jButton9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton9.setText("Add to Order");
 
+        lblParam3Header.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblParam3Header.setForeground(new java.awt.Color(0, 0, 0));
+        lblParam3Header.setText("Param3:");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Type:");
+
+        lblParam2Header.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblParam2Header.setForeground(new java.awt.Color(0, 0, 0));
+        lblParam2Header.setText("Param2:");
+
+        jLabel70.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel70.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel70.setText("Weight:");
+
+        lblParam1Header.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblParam1Header.setForeground(new java.awt.Color(0, 0, 0));
+        lblParam1Header.setText("Param1:");
+
+        jLabel72.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel72.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel72.setText("Product ID:");
+
+        lblProdName.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lblProdName.setForeground(new java.awt.Color(102, 102, 102));
+        lblProdName.setText("name");
+
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel47.setText("Product Description:");
+
+        lblProdParam3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdParam3.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdParam3.setText("param3");
+
+        lblProdType.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdType.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdType.setText("type");
+
+        lblWeight.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblWeight.setForeground(new java.awt.Color(0, 0, 0));
+        lblWeight.setText("weight");
+
+        lblProdParam2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdParam2.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdParam2.setText("param2");
+
+        lblProdID.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdID.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdID.setText("id");
+
+        lblProdParam1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblProdParam1.setForeground(new java.awt.Color(0, 0, 0));
+        lblProdParam1.setText("param1");
+
+        lblQuan.setForeground(new java.awt.Color(0, 0, 0));
+        lblQuan.setText("int/ Out of stock!");
+
+        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel48.setText("In stock:");
+
+        lblProdPrice.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lblProdPrice.setForeground(new java.awt.Color(51, 204, 0));
+        lblProdPrice.setText("**price**");
+
+        btnBackBrowseProduct.setText("Back");
+        btnBackBrowseProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackBrowseProductActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlAddOrderItemLayout = new javax.swing.GroupLayout(pnlAddOrderItem);
         pnlAddOrderItem.setLayout(pnlAddOrderItemLayout);
         pnlAddOrderItemLayout.setHorizontalGroup(
             pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
                         .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
+                                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblProdType, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblProdParam3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblProdParam2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblParam2Header, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblProdParam1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblParam1Header, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblParam3Header, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblQuan)
                             .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel41)
-                                .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                                .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
+                        .addComponent(jLabel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(592, 592, 592))
+                    .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
+                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel47)
+                            .addComponent(lblProdName)
+                            .addComponent(btnBackBrowseProduct)
+                            .addComponent(lblProdID, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddOrderItemLayout.createSequentialGroup()
                         .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
-                                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(212, 212, 212)
-                                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel51)
-                                    .addComponent(jLabel50)
-                                    .addComponent(jLabel47))
-                                .addGap(26, 26, 26)
-                                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel54, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
-                                .addComponent(jLabel40)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(76, 76, 76)
-                                .addComponent(jLabel52))))
-                    .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(195, 195, 195))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddOrderItemLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel57)
-                    .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                                .addComponent(jLabel70, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(90, 90, 90))
+                            .addComponent(lblWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(502, 502, 502)))
+                .addContainerGap())
         );
         pnlAddOrderItemLayout.setVerticalGroup(
             pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel38)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel39)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
-                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel44)
-                            .addComponent(jLabel52)
-                            .addComponent(jLabel49))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel41)
-                            .addComponent(jLabel53)
-                            .addComponent(jLabel48)
-                            .addComponent(jLabel50))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel54)
-                                .addComponent(jLabel45))
-                            .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddOrderItemLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel51)))
-                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel47)
-                            .addComponent(jLabel55)))
-                    .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel43)
-                            .addComponent(jLabel46))))
-                .addGap(43, 43, 43)
-                .addComponent(jLabel56)
+                .addContainerGap()
+                .addComponent(btnBackBrowseProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(lblProdName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel57)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel58)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel47)
+                .addGap(34, 34, 34)
                 .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
+                    .addComponent(jLabel72)
+                    .addComponent(lblParam1Header))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblProdID)
+                    .addComponent(lblProdParam1))
+                .addGap(37, 37, 37)
+                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
+                        .addGap(0, 105, Short.MAX_VALUE)
+                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddOrderItemLayout.createSequentialGroup()
+                                .addComponent(jLabel48)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddOrderItemLayout.createSequentialGroup()
+                                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(lblParam3Header))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblProdType)
+                                    .addComponent(lblProdParam3))
+                                .addGap(22, 22, 22)))
+                        .addComponent(lblQuan)
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7)
+                            .addComponent(jButton8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblProdPrice)))
+                    .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
+                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel70)
+                            .addComponent(lblParam2Header))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblWeight)
+                            .addComponent(lblProdParam2))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         mainAdminMain.add(pnlAddOrderItem, "pnlAddOrderItem");
@@ -1425,46 +1409,59 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Shop Our Product:");
 
-        jButton4.setText("Coffee");
+        btnBrowseCoffee.setText("Coffee");
+        btnBrowseCoffee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseCoffeeActionPerformed(evt);
+            }
+        });
 
-        jButton10.setText("Equipment");
+        btnBrowseEquipment.setText("Equipment");
+        btnBrowseEquipment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseEquipmentActionPerformed(evt);
+            }
+        });
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        lstBrowseProduct.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane7.setViewportView(jList2);
+        lstBrowseProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lstBrowseProductMouseReleased(evt);
+            }
+        });
+        jScrollPane7.setViewportView(lstBrowseProduct);
 
         javax.swing.GroupLayout pnlBrowseProductLayout = new javax.swing.GroupLayout(pnlBrowseProduct);
         pnlBrowseProduct.setLayout(pnlBrowseProductLayout);
         pnlBrowseProductLayout.setHorizontalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
-                .addContainerGap(195, Short.MAX_VALUE)
+            .addGroup(pnlBrowseProductLayout.createSequentialGroup()
+                .addGap(175, 175, 175)
                 .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
                         .addComponent(jLabel29)
-                        .addGap(263, 263, 263))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
-                        .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(149, 149, 149))))
+                        .addGap(114, 114, 114))
+                    .addComponent(btnBrowseEquipment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBrowseCoffee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
         pnlBrowseProductLayout.setVerticalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBrowseProductLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBrowseCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBrowseEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlBrowseProduct, "pnlBrowseProduct");
@@ -1814,13 +1811,13 @@ public class Admin_Menu extends javax.swing.JFrame {
         jMenu5.setMinimumSize(new java.awt.Dimension(60, 26));
         jMenu5.setPreferredSize(new java.awt.Dimension(60, 26));
 
-        jMenuItem2.setText("Browse Product");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuBrowseProduct.setText("Browse Product");
+        menuBrowseProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuBrowseProductActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem2);
+        jMenu5.add(menuBrowseProduct);
 
         jMenuBar1.add(jMenu5);
 
@@ -2056,10 +2053,27 @@ public class Admin_Menu extends javax.swing.JFrame {
         card.show(mainAdminMain, "pnlViewOrderHist");
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menuBrowseProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBrowseProductActionPerformed
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlBrowseProduct");
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        prodNameListModel.removeAllElements();
+        Customer cus = new Customer();
+        ArrayList<Product> prodList = new ArrayList(cus.browseProd());
+        lstBrowseProduct.setModel(prodNameListModel);
+        for (Product prod:prodList)
+        {
+            if (prod.getClass() == Fragile.class)
+            {
+                Product fragProd = (Fragile) prod;
+                prodNameListModel.addElement(fragProd.getProductName());
+            }
+            else if (prod.getClass() == nonFragile.class)
+            {
+                Product nonFragProd = (nonFragile) prod;
+                prodNameListModel.addElement(nonFragProd.getProductName());
+            }
+        }
+    }//GEN-LAST:event_menuBrowseProductActionPerformed
 
     private void menuEditProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditProfileActionPerformed
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
@@ -2537,6 +2551,104 @@ public class Admin_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEditProdActionPerformed
 
+    private void lstBrowseProductMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstBrowseProductMouseReleased
+        CardLayout card = (CardLayout)mainAdminMain.getLayout();
+        card.show(mainAdminMain, "pnlAddOrderItem");
+        Customer cus = new Customer();
+        ArrayList<Object> prodList = new ArrayList(cus.browseProd());
+        
+        for (Object prod:prodList)
+        {
+            if (prod instanceof Fragile)
+            {
+                //typeccasting each Object into a fragile object
+                Fragile fragProd = (Fragile) prod;
+                if (lstBrowseProduct.getSelectedValue().equals(fragProd.getProductName()))
+                {
+                    lblProdName.setText(String.valueOf(fragProd.getProductName()));
+                    lblProdID.setText(String.valueOf(fragProd.getProductID()));
+                    lblProdPrice.setText(String.format("RM%.2f",fragProd.getProductPrice()));
+                    lblWeight.setText(String.valueOf(fragProd.getProductWeight()));
+                    lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
+                    lblProdType.setText("Equipment (Fragile item)");
+                    lblParam1Header.setText("Brand:");
+                    lblProdParam1.setText(String.valueOf(fragProd.getBrand()));
+                    lblParam2Header.setVisible(false);
+                    lblProdParam2.setVisible(false);
+                    lblParam3Header.setVisible(false);
+                    lblProdParam3.setVisible(false);
+                }
+            }
+            else
+            {
+                //typeccasting each Object into a nonFragile object
+                nonFragile nonFragProd = (nonFragile) prod;
+                if (lstBrowseProduct.getSelectedValue().equals(nonFragProd.getProductName()))
+                {
+                    lblParam2Header.setVisible(true);
+                    lblProdParam2.setVisible(true);
+                    lblParam3Header.setVisible(true);
+                    lblProdParam3.setVisible(true);
+                    lblProdName.setText(String.valueOf(nonFragProd.getProductName()));
+                    lblProdName.setText(String.valueOf(nonFragProd.getProductName()));
+                    lblProdID.setText(String.valueOf(nonFragProd.getProductID()));
+                    lblProdPrice.setText(String.format("RM%.2f",nonFragProd.getProductPrice()));
+                    lblWeight.setText(String.valueOf(nonFragProd.getProductWeight()));
+                    lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
+                    lblProdType.setText("Coffee (Non-fragile item)");
+                    lblParam1Header.setText("Origin:");
+                    lblProdParam1.setText(String.valueOf(String.valueOf(nonFragProd.getOrigin())));
+                    lblParam2Header.setText("Altitude:");
+                    lblProdParam2.setText(String.valueOf(nonFragProd.getAltitude()));
+                    lblParam3Header.setText("Tasting Notes:");
+                    lblProdParam3.setText(String.valueOf(nonFragProd.getTasteNotes()));
+                }
+            }
+        }
+    }//GEN-LAST:event_lstBrowseProductMouseReleased
+
+    private void btnBackBrowseProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackBrowseProductActionPerformed
+        menuBrowseProduct.doClick();
+    }//GEN-LAST:event_btnBackBrowseProductActionPerformed
+
+    private void btnBrowseCoffeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseCoffeeActionPerformed
+        prodNameListModel.removeAllElements();
+        Customer cus = new Customer();
+        ArrayList<Product> prodList = new ArrayList(cus.browseProd());
+        lstBrowseProduct.setModel(prodNameListModel);
+        for (Product prod:prodList)
+        {
+            if (prod.getClass() == Fragile.class)
+            {
+                continue;
+            }
+            else if (prod.getClass() == nonFragile.class)
+            {
+                Product nonFragProd = (nonFragile) prod;
+                prodNameListModel.addElement(nonFragProd.getProductName());
+            }
+        }
+    }//GEN-LAST:event_btnBrowseCoffeeActionPerformed
+
+    private void btnBrowseEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseEquipmentActionPerformed
+        prodNameListModel.removeAllElements();
+        Customer cus = new Customer();
+        ArrayList<Product> prodList = new ArrayList(cus.browseProd());
+        lstBrowseProduct.setModel(prodNameListModel);
+        for (Product prod:prodList)
+        {
+            if (prod.getClass() == Fragile.class)
+            {
+                Product fragProd = (Fragile) prod;
+                prodNameListModel.addElement(fragProd.getProductName());
+            }
+            else if (prod.getClass() == nonFragile.class)
+            {
+                continue;
+            }
+        }
+    }//GEN-LAST:event_btnBrowseEquipmentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2578,6 +2690,9 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBackBrowseProduct;
+    private javax.swing.JButton btnBrowseCoffee;
+    private javax.swing.JButton btnBrowseEquipment;
     private javax.swing.JButton btnClearField;
     private javax.swing.JButton btnDeleteCus;
     private javax.swing.JButton btnDeleteProd;
@@ -2590,11 +2705,9 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchEnter;
     private javax.swing.ButtonGroup buttonGroup1;
     private java.awt.Choice choice1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -2631,29 +2744,10 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
@@ -2667,10 +2761,12 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jList3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -2682,7 +2778,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
@@ -2709,13 +2804,27 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel lblAddProdParam3;
     private javax.swing.JLabel lblCurrentQuan;
     private javax.swing.JLabel lblParam1;
+    private javax.swing.JLabel lblParam1Header;
     private javax.swing.JLabel lblParam2;
+    private javax.swing.JLabel lblParam2Header;
     private javax.swing.JLabel lblParam3;
+    private javax.swing.JLabel lblParam3Header;
+    private javax.swing.JLabel lblProdID;
+    private javax.swing.JLabel lblProdName;
+    private javax.swing.JLabel lblProdParam1;
+    private javax.swing.JLabel lblProdParam2;
+    private javax.swing.JLabel lblProdParam3;
+    private javax.swing.JLabel lblProdPrice;
+    private javax.swing.JLabel lblProdType;
+    private javax.swing.JLabel lblQuan;
+    private javax.swing.JLabel lblWeight;
+    private javax.swing.JList<String> lstBrowseProduct;
     private javax.swing.JList<String> lstCusName;
     private javax.swing.JList<String> lstProductID;
     private javax.swing.JPanel mainAdminMain;
     private javax.swing.JMenuItem menuAddProduct;
     private javax.swing.JMenuItem menuAddUser;
+    private javax.swing.JMenuItem menuBrowseProduct;
     private javax.swing.JMenuItem menuEditOrder;
     private javax.swing.JMenuItem menuEditProduct;
     private javax.swing.JMenuItem menuEditProfile;

@@ -71,4 +71,9 @@ public class Fragile extends Product implements Shipping
     {
         return String.format("%s,%s,%s,%s,%s,%s",productID,productName,prodQuantity,productPrice,productWeight,brand);
     }
+    public double calcShipping()
+    {
+        double shippingFee = baseShipping * productWeight * prodQuantity * 1.05;
+        return shippingFee;
+    }
 }

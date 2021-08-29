@@ -15,13 +15,22 @@ import java.lang.*;
  */
 public class Admin_Menu extends javax.swing.JFrame {
     JFrame errorMessage;
+    
+    //grouping radio buttons
     ButtonGroup user = new ButtonGroup();
     ButtonGroup prod = new ButtonGroup();
+    
+    //getting the list models of jLists
     DefaultListModel cusListModel = new DefaultListModel();
     DefaultListModel prodListModel = new DefaultListModel();
     DefaultListModel prodNameListModel = new DefaultListModel();
+    
+    Customer admin;
+    
+    //holds the value of the selected index on jList
     int i;
     int j;
+    ArrayList <OrderItem> orderItemList = new ArrayList<OrderItem>();
     /**
      * Creates new form Admin_Menu
      * @param adm
@@ -30,6 +39,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     {
         Customer admin = new Customer(adm);
         initComponents();
+        this.admin  = admin;
         user.add(rbUsrAdm);
         user.add(rbUsrCus);
         prod.add(rbBeans);
@@ -1226,6 +1236,11 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         btnAddOrderItemQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAddOrderItemQuan.setText("+");
+        btnAddOrderItemQuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrderItemQuanActionPerformed(evt);
+            }
+        });
 
         btnAddOrderItem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnAddOrderItem.setText("Add to Order");
@@ -2238,7 +2253,7 @@ public class Admin_Menu extends javax.swing.JFrame {
             txtCusAddress.setEditable(false);
             txtCusPassword.setEditable(false);
             txtCusPassword2.setEditable(false);
-            JOptionPane.showMessageDialog(errorMessage, "Admin Information cannot be altered by another admin.","WARNING",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(errorMessage, "Admin Information cannot be altered by another admin. If you want to change your profile, head to the 'Profile' section.","WARNING",JOptionPane.WARNING_MESSAGE);
         }
         else
         {
@@ -2731,6 +2746,11 @@ public class Admin_Menu extends javax.swing.JFrame {
             btnEditProdDecQuan.setEnabled(false);
         }
     }//GEN-LAST:event_btnEditProdDecQuanActionPerformed
+
+    private void btnAddOrderItemQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrderItemQuanActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnAddOrderItemQuanActionPerformed
 
     /**
      * @param args the command line arguments

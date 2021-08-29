@@ -151,6 +151,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         cmenuProfile = new javax.swing.JMenu();
         cmenuViewProfile = new javax.swing.JMenuItem();
         cmenuHome = new javax.swing.JMenu();
+        btnLogout = new javax.swing.JMenuItem();
         cmenuReturnHome = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
@@ -1198,6 +1199,14 @@ public class Cus_Menu extends javax.swing.JFrame {
         cmenuHome.setText("Home");
         cmenuHome.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        cmenuHome.add(btnLogout);
+
         cmenuReturnHome.setText("Return To Home");
         cmenuReturnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1573,29 +1582,30 @@ public class Cus_Menu extends javax.swing.JFrame {
 
     private void lstOrderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstOrderMouseReleased
         DefaultTableModel orderOrderItemListModel = (DefaultTableModel) tblOrderOrderItems.getModel();
-
         try
         {
+            
             ArrayList<Order> orderList = new ArrayList(customer.viewOrder(customer.getUID()));
 
-            for (Object orders: orderList)
+            for (Order odr: orderList)
             {
-                Order odr = (Order) orders;
+                //Order odr = (Order) orders;
                 Object[] rowOrderItem = new Object[5];
-                for (Object orderItems: odr.getOrderItem())
-                {
-                    if (lstOrder.getSelectedValue().equals(odr.getOrderID()))
+                if (lstOrder.getSelectedValue().equals(odr.getOrderID()))
                     {
-                        OrderItem odrItems = (OrderItem) orderItems;
-                        rowOrderItem[0] = odrItems.getProductName();
-                        rowOrderItem[1] = odrItems.getBuyQuan();
-                        rowOrderItem[2] = odrItems.getProductPrice();
-                        rowOrderItem[3] = odrItems.getShippingFee();
-                        rowOrderItem[4] = odrItems.calcSubtotal();
-                        System.out.println(rowOrderItem[0]);
-                        orderOrderItemListModel.addRow(rowOrderItem);
+                        for (Object orderItems: odr.getOrderItem())
+                        {
+                            OrderItem odrItems = (OrderItem) orderItems;
+                            rowOrderItem[0] = odrItems.getProductName();
+                            rowOrderItem[1] = odrItems.getBuyQuan();
+                            rowOrderItem[2] = odrItems.getProductPrice();
+                            rowOrderItem[3] = odrItems.getShippingFee();
+                            rowOrderItem[4] = odrItems.calcSubtotal();
+                            System.out.println(rowOrderItem[0]);
+                            orderOrderItemListModel.addRow(rowOrderItem);
+                        }
                     }
-                }
+                
                 // Get grand total for selected order
                 lblViewOrderGrandTotal.setText(String.format("RM%.2f",odr.getGrandTotal()));
                 break;
@@ -1614,6 +1624,12 @@ public class Cus_Menu extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_lstOrderMouseReleased
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        loginMenu newLogin = new loginMenu();
+        newLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1659,6 +1675,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnCreateOrder;
     private javax.swing.JButton btnDecreaseQuan;
     private javax.swing.JButton btnDeleteOrderItem;
+    private javax.swing.JMenuItem btnLogout;
     private javax.swing.JButton btnSearchOrder;
     private javax.swing.JButton cBtnSearchProduct;
     private javax.swing.JMenuItem cmenuBrowseProduct;

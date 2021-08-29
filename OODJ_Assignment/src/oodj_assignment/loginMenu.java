@@ -363,6 +363,7 @@ public class loginMenu extends javax.swing.JFrame {
             Cus_Menu cusMenu = new Cus_Menu(usr);
             cusMenu.setVisible(true);
             this.setVisible(false);
+            this.dispose();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

@@ -231,11 +231,18 @@ public class Customer
     
     public ArrayList viewOrder(String UID) throws IOException
     {
+        //stores everyOrderItems that a single customer added
         ArrayList<Order> orderList = new ArrayList<Order>();
+        
+        //
         ArrayList<OrderItem> orderItems = new ArrayList();
         ArrayList<Object> prodList = new ArrayList();
+        
+        
         Admin adm = new Admin();
         prodList = adm.viewProduct();
+        
+        
         ArrayList<String> tempOrderIDDup = new ArrayList();
         ArrayList<String> tempOrderIDNoDup = new ArrayList();
         
@@ -249,7 +256,7 @@ public class Customer
                 String line = scannerOrder.nextLine();
                 String [] odrVar = line.split(",");
                 
-                if (odrVar[1].equals(this.UID))
+                if (odrVar[1].equals(UID))
                 {
                     tempOrderIDDup.add(odrVar[0]);
                     for (Object prod: prodList)

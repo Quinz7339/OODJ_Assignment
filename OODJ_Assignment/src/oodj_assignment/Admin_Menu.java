@@ -249,7 +249,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         menuEditProfile = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        jMenuHome = new javax.swing.JMenu();
+        btnLogout = new javax.swing.JMenuItem();
         menuHome = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1916,9 +1917,17 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
-        jMenu6.setText("Home");
-        jMenu6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jMenu6.setPreferredSize(new java.awt.Dimension(60, 0));
+        jMenuHome.setText("Home");
+        jMenuHome.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenuHome.setPreferredSize(new java.awt.Dimension(60, 0));
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jMenuHome.add(btnLogout);
 
         menuHome.setText("Return to Home");
         menuHome.addActionListener(new java.awt.event.ActionListener() {
@@ -1926,9 +1935,9 @@ public class Admin_Menu extends javax.swing.JFrame {
                 menuHomeActionPerformed(evt);
             }
         });
-        jMenu6.add(menuHome);
+        jMenuHome.add(menuHome);
 
-        jMenuBar1.add(jMenu6);
+        jMenuBar1.add(jMenuHome);
 
         setJMenuBar(jMenuBar1);
 
@@ -2899,6 +2908,12 @@ public class Admin_Menu extends javax.swing.JFrame {
         menuViewOrder.doClick();
     }//GEN-LAST:event_btnCreateOrderActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        loginMenu newLogin = new loginMenu();
+        newLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2955,6 +2970,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnEditProdAddQuan;
     private javax.swing.JButton btnEditProdBack;
     private javax.swing.JButton btnEditProdDecQuan;
+    private javax.swing.JMenuItem btnLogout;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReset2;
     private javax.swing.JButton btnSearchEnter;
@@ -3022,10 +3038,10 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuHome;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;

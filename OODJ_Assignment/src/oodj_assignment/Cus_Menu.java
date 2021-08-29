@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Cus_Menu extends javax.swing.JFrame {
     JFrame errorMessage;
     DefaultListModel prodListModel = new DefaultListModel();
+    DefaultListModel orderIDListModel = new DefaultListModel();
     ArrayList <OrderItem> orderItemList= new ArrayList<OrderItem>();
     Customer customer;
     /**
@@ -118,13 +119,13 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlViewOrderHist = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList5 = new javax.swing.JList<>();
+        lstOrder = new javax.swing.JList<>();
         jButton5 = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblOrderOrderItems = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
+        lblViewOrderGrandTotal = new javax.swing.JLabel();
         pnlSearchOrder = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -366,11 +367,6 @@ public class Cus_Menu extends javax.swing.JFrame {
         });
 
         txtOrderItemQuan.setText("1");
-        txtOrderItemQuan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtOrderItemQuanActionPerformed(evt);
-            }
-        });
 
         btnDecreaseQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDecreaseQuan.setText("-");
@@ -835,20 +831,25 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Order List");
 
-        jList5.setBackground(new java.awt.Color(204, 204, 204));
-        jList5.setForeground(new java.awt.Color(0, 0, 0));
-        jList5.setModel(new javax.swing.AbstractListModel<String>() {
+        lstOrder.setBackground(new java.awt.Color(204, 204, 204));
+        lstOrder.setForeground(new java.awt.Color(0, 0, 0));
+        lstOrder.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane5.setViewportView(jList5);
+        lstOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lstOrderMouseReleased(evt);
+            }
+        });
+        jScrollPane5.setViewportView(lstOrder);
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(204, 51, 0));
         jButton5.setText("Delete Order");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrderOrderItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -874,18 +875,18 @@ public class Cus_Menu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane7.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setResizable(false);
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(300);
-            jTable2.getColumnModel().getColumn(1).setResizable(false);
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jTable2.getColumnModel().getColumn(2).setResizable(false);
-            jTable2.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTable2.getColumnModel().getColumn(3).setResizable(false);
-            jTable2.getColumnModel().getColumn(3).setPreferredWidth(100);
-            jTable2.getColumnModel().getColumn(4).setResizable(false);
-            jTable2.getColumnModel().getColumn(4).setPreferredWidth(100);
+        jScrollPane7.setViewportView(tblOrderOrderItems);
+        if (tblOrderOrderItems.getColumnModel().getColumnCount() > 0) {
+            tblOrderOrderItems.getColumnModel().getColumn(0).setResizable(false);
+            tblOrderOrderItems.getColumnModel().getColumn(0).setPreferredWidth(300);
+            tblOrderOrderItems.getColumnModel().getColumn(1).setResizable(false);
+            tblOrderOrderItems.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tblOrderOrderItems.getColumnModel().getColumn(2).setResizable(false);
+            tblOrderOrderItems.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tblOrderOrderItems.getColumnModel().getColumn(3).setResizable(false);
+            tblOrderOrderItems.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tblOrderOrderItems.getColumnModel().getColumn(4).setResizable(false);
+            tblOrderOrderItems.getColumnModel().getColumn(4).setPreferredWidth(100);
         }
 
         jButton10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -899,9 +900,9 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Grand Total:");
 
-        jLabel50.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
-        jLabel50.setForeground(new java.awt.Color(51, 153, 0));
-        jLabel50.setText("**Price**");
+        lblViewOrderGrandTotal.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lblViewOrderGrandTotal.setForeground(new java.awt.Color(51, 153, 0));
+        lblViewOrderGrandTotal.setText("**Price**");
 
         javax.swing.GroupLayout pnlViewOrderHistLayout = new javax.swing.GroupLayout(pnlViewOrderHist);
         pnlViewOrderHist.setLayout(pnlViewOrderHistLayout);
@@ -928,7 +929,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addGap(526, 526, 526)
                 .addGroup(pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19)
-                    .addComponent(jLabel50))
+                    .addComponent(lblViewOrderGrandTotal))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlViewOrderHistLayout.setVerticalGroup(
@@ -943,7 +944,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel50)
+                .addComponent(lblViewOrderGrandTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addGroup(pnlViewOrderHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1298,7 +1299,25 @@ public class Cus_Menu extends javax.swing.JFrame {
 
     private void cmenuViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuViewOrderActionPerformed
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
-        card.show(pnlCusMenu, "pnlViewOrderHist");                                        
+        card.show(pnlCusMenu, "pnlViewOrderHist");  
+        
+        // Show list of order IDs
+        orderIDListModel.removeAllElements();
+        try
+        {
+            ArrayList<Order> orderList = new ArrayList(customer.viewOrder(customer.getUID()));
+            lstOrder.setModel(orderIDListModel);
+            
+            for (Object orders: orderList)
+            {
+                Order odr = (Order) orders;
+                orderIDListModel.addElement(odr.getOrderID());
+            }
+        }
+        catch (IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_cmenuViewOrderActionPerformed
 
     private void cmenuSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuSearchOrderActionPerformed
@@ -1309,10 +1328,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void txtOrderItemQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrderItemQuanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtOrderItemQuanActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
@@ -1556,6 +1571,49 @@ public class Cus_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cBtnSearchProductActionPerformed
 
+    private void lstOrderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstOrderMouseReleased
+        DefaultTableModel orderOrderItemListModel = (DefaultTableModel) tblOrderOrderItems.getModel();
+
+        try
+        {
+            ArrayList<Order> orderList = new ArrayList(customer.viewOrder(customer.getUID()));
+
+            for (Object orders: orderList)
+            {
+                Order odr = (Order) orders;
+                Object[] rowOrderItem = new Object[5];
+                for (Object orderItems: odr.getOrderItem())
+                {
+                    if (lstOrder.getSelectedValue().equals(odr.getOrderID()))
+                    {
+                        OrderItem odrItems = (OrderItem) orderItems;
+                        rowOrderItem[0] = odrItems.getProductName();
+                        rowOrderItem[1] = odrItems.getBuyQuan();
+                        rowOrderItem[2] = odrItems.getProductPrice();
+                        rowOrderItem[3] = odrItems.getShippingFee();
+                        rowOrderItem[4] = odrItems.calcSubtotal();
+                        System.out.println(rowOrderItem[0]);
+                        orderOrderItemListModel.addRow(rowOrderItem);
+                    }
+                }
+                // Get grand total for selected order
+                lblViewOrderGrandTotal.setText(String.format("RM%.2f",odr.getGrandTotal()));
+            }
+            
+            // clear order list table
+            int rowsToRemove = orderOrderItemListModel.getRowCount();
+            //remove rows from the bottom one by one
+            for (int i = rowsToRemove - 1; i >= 0; i--)
+            {
+                orderOrderItemListModel.removeRow(i);
+            }
+        }
+        catch (IOException Ex)
+        {
+            
+        }
+    }//GEN-LAST:event_lstOrderMouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1642,13 +1700,11 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1664,7 +1720,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -1687,8 +1742,10 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel lblProdType;
     private javax.swing.JLabel lblQuan;
     private javax.swing.JLabel lblStockStatus;
+    private javax.swing.JLabel lblViewOrderGrandTotal;
     private javax.swing.JLabel lblWeight;
     private javax.swing.JList<String> lstBrowseProduct;
+    private javax.swing.JList<String> lstOrder;
     private javax.swing.JPanel pnlBrowseProduct;
     private javax.swing.JPanel pnlCusMain;
     private javax.swing.JPanel pnlCusMenu;
@@ -1700,6 +1757,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel pnlViewOrderSummary;
     private javax.swing.JPanel pnlViewProfile;
     private javax.swing.JTable tblOrderItemList;
+    private javax.swing.JTable tblOrderOrderItems;
     private javax.swing.JTextField txtOrderItemQuan;
     // End of variables declaration//GEN-END:variables
 }

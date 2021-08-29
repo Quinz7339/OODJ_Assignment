@@ -214,7 +214,7 @@ public class Admin extends Customer
         // ArrayList<Product> nonFragProdList = new ArrayList<nonFragile>();
         try
         {
-            //ArrayList to store Customer objects
+            //ArrayList to retrieve product objects
             Scanner scanner = new Scanner (new File("src\\oodj_assignment\\textFile\\Products.txt"));
             while (scanner.hasNextLine())
             {

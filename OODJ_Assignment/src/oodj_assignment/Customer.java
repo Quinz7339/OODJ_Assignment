@@ -188,7 +188,7 @@ public class Customer
             PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Orders.txt"),true));
             for (OrderItem orderItem: order.getOrderItem())
             {
-                pw.println(String.format("%s,%s,%s,%s,%s,%s", order.getOrderID(),this.UID, orderItem.getProductID(), orderItem.getBuyQuan(), order.getGrandTotal(),order.getPayStatus()));
+                pw.println(String.format("%s,%s,%s,%s,%s,%s", order.getOrderID(),this.UID, orderItem.getProductID(), orderItem.getBuyQuan(), orderItem.calcSubtotal(),order.getPayStatus()));
             }
             pw.close();
         }
@@ -229,6 +229,76 @@ public class Customer
         return null;
     }
     
+    public ArrayList viewOrder(String UID) throws IOException
+    {
+        ArrayList<Order> orderList = new ArrayList<Order>();
+        ArrayList<OrderItem> orderItems = new ArrayList();
+        ArrayList<Object> prodList = new ArrayList();
+        Admin adm = new Admin();
+        prodList = adm.viewProduct();
+        ArrayList<String> tempOrderIDDup = new ArrayList();
+        ArrayList<String> tempOrderIDNoDup = new ArrayList();
+        
+        //retrieve order and get its order item's details with the product list
+        try
+        {
+            //ArrayList to retrieve  objects
+            Scanner scannerOrder = new Scanner (new File("src\\oodj_assignment\\textFile\\Orders.txt"));
+            while (scannerOrder.hasNextLine())
+            {
+                String line = scannerOrder.nextLine();
+                String [] odrVar = line.split(",");
+                
+                if (odrVar[1].equals(this.UID))
+                {
+                    tempOrderIDDup.add(odrVar[0]);
+                    for (Object prod: prodList)
+                    {
+                        if (prod instanceof Fragile)
+                        {
+                            Fragile fragProd = (Fragile) prod;
+                            if (odrVar[2].equals(fragProd.getProductID()))
+                            {
+                                OrderItem orderItem = new OrderItem(odrVar[2], fragProd.getProductName(), Integer.parseInt(odrVar[3]), fragProd.getProductPrice(), fragProd.calcShipping());
+                                orderItems.add(orderItem);
+                            }
+
+                        }
+                        else
+                        {
+                            nonFragile nonFragProd = (nonFragile) prod;
+                            if (odrVar[2].equals(nonFragProd.getProductID()))
+                            {
+                                OrderItem orderItem = new OrderItem(odrVar[2], nonFragProd.getProductName(), Integer.parseInt(odrVar[3]), nonFragProd.getProductPrice(), nonFragProd.calcShipping());
+                                orderItems.add(orderItem);
+                            }
+                        }
+                    }
+                }
+            }
+            for (String OrderID : tempOrderIDDup) 
+            {
+                // If this element is not present in tempOrderIDNoDup
+                // then add it
+                if (!tempOrderIDNoDup.contains(OrderID)) 
+                {
+                    tempOrderIDNoDup.add(OrderID);
+                }
+            }
+            
+            for (String OrderID: tempOrderIDNoDup)
+            {
+                Order orders = new Order(OrderID,orderItems);
+                orderList.add(orders);
+            }
+            scannerOrder.close();
+        }
+        catch(IOException Ex)
+        {
+            JOptionPane.showMessageDialog(errorMessage, "File is corrupted or manually tampered. Kindly revert the changes.","Error",JOptionPane.WARNING_MESSAGE);
+        }
+        return orderList;
+    }
     public String toString()
     {
          return  String.format("%s,%s,%s,%s,%s,%s,%s",UID,username,password,name, emailAddress,phoneNumber,address);

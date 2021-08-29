@@ -9,6 +9,7 @@ import java.io.*;
 import java.util.*;
 import javax.swing.*;
 import java.lang.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author phili
@@ -160,11 +161,11 @@ public class Admin_Menu extends javax.swing.JFrame {
         pnlEditOrder = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
+        tblOrderItemList = new javax.swing.JTable();
+        btnDeleteOrderItem = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
+        lblEditOrderGrandTotal = new javax.swing.JLabel();
         pnlSearch = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         txtSearchBar = new javax.swing.JTextField();
@@ -177,7 +178,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         pnlAddOrderItem = new javax.swing.JPanel();
         txtOrderItemQuan = new javax.swing.JTextField();
         btnDecreaseQuan = new javax.swing.JButton();
-        btnAddOrderItemQuan = new javax.swing.JButton();
+        btnAddQuan = new javax.swing.JButton();
         btnAddOrderItem = new javax.swing.JButton();
         lblParam3Header = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -1066,22 +1067,22 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(0, 0, 0));
         jLabel35.setText("Items currently in cart:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrderItemList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Product name", "Quantity", "Price", "Subtotal"
+                "Product name", "Quantity", "Price", "Shipping Fee", "Subtotal"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1092,22 +1093,28 @@ public class Admin_Menu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane10.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(1).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(100);
+        jScrollPane10.setViewportView(tblOrderItemList);
+        if (tblOrderItemList.getColumnModel().getColumnCount() > 0) {
+            tblOrderItemList.getColumnModel().getColumn(0).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(0).setPreferredWidth(350);
+            tblOrderItemList.getColumnModel().getColumn(1).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tblOrderItemList.getColumnModel().getColumn(2).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tblOrderItemList.getColumnModel().getColumn(3).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tblOrderItemList.getColumnModel().getColumn(4).setResizable(false);
+            tblOrderItemList.getColumnModel().getColumn(4).setPreferredWidth(100);
         }
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(204, 0, 0));
-        jButton5.setText("Delete Product");
+        btnDeleteOrderItem.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnDeleteOrderItem.setForeground(new java.awt.Color(204, 0, 0));
+        btnDeleteOrderItem.setText("Delete Item");
+        btnDeleteOrderItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteOrderItemActionPerformed(evt);
+            }
+        });
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton6.setText("Add to Order");
@@ -1116,28 +1123,30 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel36.setForeground(new java.awt.Color(0, 0, 0));
         jLabel36.setText("Grand Total:");
 
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 153, 51));
-        jLabel37.setText("*price*");
+        lblEditOrderGrandTotal.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        lblEditOrderGrandTotal.setForeground(new java.awt.Color(0, 153, 51));
+        lblEditOrderGrandTotal.setText("*price*");
 
         javax.swing.GroupLayout pnlEditOrderLayout = new javax.swing.GroupLayout(pnlEditOrder);
         pnlEditOrder.setLayout(pnlEditOrderLayout);
         pnlEditOrderLayout.setHorizontalGroup(
             pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEditOrderLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton6)
-                            .addComponent(jLabel36))
-                        .addGroup(pnlEditOrderLayout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel35)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlEditOrderLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel35)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDeleteOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlEditOrderLayout.createSequentialGroup()
+                        .addGap(577, 577, 577)
+                        .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel36)
+                            .addComponent(lblEditOrderGrandTotal)
+                            .addGroup(pnlEditOrderLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jButton6)))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         pnlEditOrderLayout.setVerticalGroup(
@@ -1148,11 +1157,11 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeleteOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel36)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel37)
+                .addComponent(lblEditOrderGrandTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
@@ -1233,12 +1242,17 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         btnDecreaseQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDecreaseQuan.setText("-");
-
-        btnAddOrderItemQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddOrderItemQuan.setText("+");
-        btnAddOrderItemQuan.addActionListener(new java.awt.event.ActionListener() {
+        btnDecreaseQuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddOrderItemQuanActionPerformed(evt);
+                btnDecreaseQuanActionPerformed(evt);
+            }
+        });
+
+        btnAddQuan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddQuan.setText("+");
+        btnAddQuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddQuanActionPerformed(evt);
             }
         });
 
@@ -1355,7 +1369,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnDecreaseQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAddOrderItemQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnAddQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(btnAddOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pnlAddOrderItemLayout.createSequentialGroup()
                         .addComponent(jLabel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1415,7 +1429,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtOrderItemQuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnDecreaseQuan)
-                            .addComponent(btnAddOrderItemQuan))
+                            .addComponent(btnAddQuan))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlAddOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAddOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2034,9 +2048,35 @@ public class Admin_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuEditProductActionPerformed
 
     private void menuEditOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditOrderActionPerformed
-        // TODO add your handling code here:
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlEditOrder");
+        txtOrderItemQuan.setText(Integer.toString(0));
+        DefaultTableModel orderItemListModel = (DefaultTableModel) tblOrderItemList.getModel();
+        
+        // Get grand total for pending order
+        Order order = new Order(admin.genOrderID(), orderItemList);
+        lblEditOrderGrandTotal.setText(String.format("RM%.2f",order.getGrandTotal()));
+        
+        // clear order list table
+        int rowsToRemove = orderItemListModel.getRowCount();
+        //remove rows from the bottom one by one
+        for (int i = rowsToRemove - 1; i >= 0; i--)
+        {
+            orderItemListModel.removeRow(i);
+        }
+        
+        Object[] rowOrderItem = new Object[5];
+        
+        for (OrderItem orderItem:orderItemList)
+        {
+            rowOrderItem[0] = orderItem.getProductName();
+            rowOrderItem[1] = orderItem.getBuyQuan();
+            rowOrderItem[2] = orderItem.getProductPrice();
+            rowOrderItem[3] = orderItem.getShippingFee();
+            rowOrderItem[4] = orderItem.calcSubtotal();
+            orderItemListModel.addRow(rowOrderItem);
+            
+        }
     }//GEN-LAST:event_menuEditOrderActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -2616,7 +2656,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         lblQuan.setText("Out of Stock!");
                         txtOrderItemQuan.setVisible(false);
                         btnDecreaseQuan.setVisible(false);
-                        btnAddOrderItemQuan.setVisible(false);
+                        btnAddQuan.setVisible(false);
                         btnAddOrderItem.setVisible(false);
                     }
                     else
@@ -2647,7 +2687,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                         lblQuan.setText("Out of Stock!");
                         txtOrderItemQuan.setVisible(false);
                         btnDecreaseQuan.setVisible(false);
-                        btnAddOrderItemQuan.setVisible(false);
+                        btnAddQuan.setVisible(false);
                         btnAddOrderItem.setVisible(false);
                     }
                     else
@@ -2718,7 +2758,57 @@ public class Admin_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBrowseEquipmentActionPerformed
 
     private void btnAddOrderItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrderItemActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel orderItemListModel = (DefaultTableModel) tblOrderItemList.getModel();
+        int rowsToRemove = orderItemListModel.getRowCount();
+        //remove rows from the bottom one by one
+        for (int i = rowsToRemove - 1; i >= 0; i--)
+        {
+            orderItemListModel.removeRow(i);
+        }
+            
+        
+        Customer cus = new Customer();
+        ArrayList<Object> prodList = new ArrayList(cus.browseProd());
+        for (Object prod:prodList)
+        {
+            if (prod instanceof Fragile)
+            {
+                //typeccasting each Object into a fragile object
+                Fragile fragProd = (Fragile) prod;
+                if (lblProdID.getText().equals(fragProd.getProductID()))
+                {
+                    fragProd.setProdQuantity(Integer.parseInt(txtOrderItemQuan.getText()));
+                    
+                    // append order item object into order item list
+                    OrderItem orderItem = new OrderItem(fragProd.getProductID(), 
+                            fragProd.getProductName(), 
+                            fragProd.getProdQuantity(),
+                            fragProd.getProductPrice(),
+                            fragProd.calcShipping());
+                    orderItemList.add(orderItem);
+                    menuEditOrder.doClick();
+                }
+            }
+            else
+            {
+                //typeccasting each Object into a non-fragile object
+                nonFragile nonFragProd = (nonFragile) prod;
+                if (lblProdID.getText().equals(nonFragProd.getProductID()))
+                {
+                    // CREATE CHECK INPUT QUANTITY VERSUS PRODUCT QUANTITY check input quantity versus product quantity
+                    nonFragProd.setProdQuantity(Integer.parseInt(txtOrderItemQuan.getText()));
+                    
+                    // append order item object into order item list
+                    OrderItem orderItem = new OrderItem(nonFragProd.getProductID(), 
+                            nonFragProd.getProductName(), 
+                            nonFragProd.getProdQuantity(),
+                            nonFragProd.getProductPrice(),
+                            nonFragProd.calcShipping());
+                    orderItemList.add(orderItem);
+                    menuEditOrder.doClick();
+                }
+            }
+         }
     }//GEN-LAST:event_btnAddOrderItemActionPerformed
 
     private void btnEditProdAddQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProdAddQuanActionPerformed
@@ -2747,10 +2837,48 @@ public class Admin_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEditProdDecQuanActionPerformed
 
-    private void btnAddOrderItemQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrderItemQuanActionPerformed
-        // TODO add your handling code here:
+    private void btnAddQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddQuanActionPerformed
+        if(Integer.parseInt(txtOrderItemQuan.getText()) < Integer.parseInt(lblQuan.getText()))
+        {
+            int y = Integer.parseInt(txtOrderItemQuan.getText()) + 1;
+            txtOrderItemQuan.setText(Integer.toString(y));
+            btnDecreaseQuan.setEnabled(true);
+        }
+        else 
+        {
+            btnAddQuan.setEnabled(false);
+        }
         
-    }//GEN-LAST:event_btnAddOrderItemQuanActionPerformed
+    }//GEN-LAST:event_btnAddQuanActionPerformed
+
+    private void btnDecreaseQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecreaseQuanActionPerformed
+        if(Integer.parseInt(txtOrderItemQuan.getText()) > 0)
+        {
+            int y = Integer.parseInt(txtOrderItemQuan.getText()) - 1;
+            txtOrderItemQuan.setText(Integer.toString(y));
+            btnAddQuan.setEnabled(true);
+        } 
+        else
+        {
+            btnDecreaseQuan.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnDecreaseQuanActionPerformed
+
+    private void btnDeleteOrderItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteOrderItemActionPerformed
+        if(tblOrderItemList.getSelectedRow() >= 0)
+        {
+            String selectedItem = tblOrderItemList.getValueAt(tblOrderItemList.getSelectedRow(), 0).toString();
+            for (OrderItem orderItem:orderItemList)
+            {
+                if (orderItem.getProductName() == selectedItem)
+                {
+                    orderItemList.remove(orderItem);
+                    menuEditOrder.doClick();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnDeleteOrderItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2790,8 +2918,8 @@ public class Admin_Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddOrderItem;
-    private javax.swing.JButton btnAddOrderItemQuan;
     private javax.swing.JButton btnAddProduct;
+    private javax.swing.JButton btnAddQuan;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBackBrowseProduct;
@@ -2800,6 +2928,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnClearField;
     private javax.swing.JButton btnDecreaseQuan;
     private javax.swing.JButton btnDeleteCus;
+    private javax.swing.JButton btnDeleteOrderItem;
     private javax.swing.JButton btnDeleteProd;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnEditProd;
@@ -2814,7 +2943,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2846,7 +2974,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -2895,7 +3022,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -2905,6 +3031,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel lblAddProdParam2;
     private javax.swing.JLabel lblAddProdParam3;
     private javax.swing.JLabel lblCurrentQuan;
+    private javax.swing.JLabel lblEditOrderGrandTotal;
     private javax.swing.JLabel lblParam1;
     private javax.swing.JLabel lblParam1Header;
     private javax.swing.JLabel lblParam2;
@@ -2947,6 +3074,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbEquipments;
     private javax.swing.JRadioButton rbUsrAdm;
     private javax.swing.JRadioButton rbUsrCus;
+    private javax.swing.JTable tblOrderItemList;
     private javax.swing.JTextField txtAddCusAddress;
     private javax.swing.JPasswordField txtAddCusConfirmPw;
     private javax.swing.JTextField txtAddCusEmail;

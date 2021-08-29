@@ -317,6 +317,7 @@ public class Customer
         }
         return orderList;
     }
+    @Override
     public String toString()
     {
          return  String.format("%s,%s,%s,%s,%s,%s,%s",UID,username,password,name, emailAddress,phoneNumber,address);

@@ -1598,6 +1598,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 }
                 // Get grand total for selected order
                 lblViewOrderGrandTotal.setText(String.format("RM%.2f",odr.getGrandTotal()));
+                break;
             }
             
             // clear order list table

@@ -1324,6 +1324,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         Customer cus = new Customer();
         ArrayList<Object> prodList = new ArrayList(cus.browseProd());
         txtOrderItemQuan.setVisible(true);
+        txtOrderItemQuan.setText("1");
         btnDecreaseQuan.setVisible(true);
         btnAddQuan.setVisible(true);
         btnAddOrderItem.setVisible(true);

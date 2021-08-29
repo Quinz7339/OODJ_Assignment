@@ -163,7 +163,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         tblOrderItemList = new javax.swing.JTable();
         btnDeleteOrderItem = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnCreateOrder = new javax.swing.JButton();
         jLabel36 = new javax.swing.JLabel();
         lblEditOrderGrandTotal = new javax.swing.JLabel();
         pnlSearch = new javax.swing.JPanel();
@@ -244,7 +244,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         menuBrowseProduct = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         menuEditOrder = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuViewOrder = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
@@ -1116,8 +1116,13 @@ public class Admin_Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton6.setText("Add to Order");
+        btnCreateOrder.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCreateOrder.setText("Create Order");
+        btnCreateOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateOrderActionPerformed(evt);
+            }
+        });
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(0, 0, 0));
@@ -1146,7 +1151,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                             .addComponent(lblEditOrderGrandTotal)
                             .addGroup(pnlEditOrderLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jButton6)))))
+                                .addComponent(btnCreateOrder)))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         pnlEditOrderLayout.setVerticalGroup(
@@ -1163,7 +1168,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEditOrderGrandTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCreateOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
 
@@ -1871,13 +1876,13 @@ public class Admin_Menu extends javax.swing.JFrame {
         });
         jMenu3.add(menuEditOrder);
 
-        jMenuItem3.setText("View Order History");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuViewOrder.setText("View Order History");
+        menuViewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuViewOrderActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem3);
+        jMenu3.add(menuViewOrder);
 
         jMenuBar1.add(jMenu3);
 
@@ -2123,10 +2128,10 @@ public class Admin_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuViewOrderActionPerformed
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
         card.show(mainAdminMain, "pnlViewOrderHist");
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menuViewOrderActionPerformed
 
     private void menuBrowseProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBrowseProductActionPerformed
         CardLayout card = (CardLayout)mainAdminMain.getLayout();
@@ -2642,7 +2647,13 @@ public class Admin_Menu extends javax.swing.JFrame {
         card.show(mainAdminMain, "pnlAddOrderItem");
         Customer cus = new Customer();
         ArrayList<Object> prodList = new ArrayList(cus.browseProd());
-        
+        txtOrderItemQuan.setVisible(true);
+        txtOrderItemQuan.setText("1");
+        btnDecreaseQuan.setVisible(true);
+        btnAddQuan.setVisible(true);
+        btnAddOrderItem.setVisible(true);
+        txtOrderItemQuan.setEditable(false);
+        //for loop to enable object typecasting
         for (Object prod:prodList)
         {
             if (prod instanceof Fragile)
@@ -2880,6 +2891,14 @@ public class Admin_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteOrderItemActionPerformed
 
+    private void btnCreateOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateOrderActionPerformed
+        String newOrderID = admin.genOrderID();
+        Order order = new Order(newOrderID,orderItemList);
+        admin.addOrder(order);
+        orderItemList.clear();
+        menuViewOrder.doClick();
+    }//GEN-LAST:event_btnCreateOrderActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2926,6 +2945,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnBrowseCoffee;
     private javax.swing.JButton btnBrowseEquipment;
     private javax.swing.JButton btnClearField;
+    private javax.swing.JButton btnCreateOrder;
     private javax.swing.JButton btnDecreaseQuan;
     private javax.swing.JButton btnDeleteCus;
     private javax.swing.JButton btnDeleteOrderItem;
@@ -2943,7 +2963,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3008,7 +3027,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -3059,6 +3077,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuEditProfile;
     private javax.swing.JMenuItem menuHome;
     private javax.swing.JMenuItem menuViewCustomer;
+    private javax.swing.JMenuItem menuViewOrder;
     private javax.swing.JPanel pnlAddCustomer;
     private javax.swing.JPanel pnlAddOrderItem;
     private javax.swing.JPanel pnlAddProduct;

@@ -1232,31 +1232,28 @@ public class Cus_Menu extends javax.swing.JFrame {
                 Fragile fragProd = (Fragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(fragProd.getProductName()))
                 {
-                    if (fragProd.getProdQuantity() == 0)
+                    if (orderItemList.isEmpty())
+                    {
+                        lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
+                    }
+                    else
+                    {
+                        for (OrderItem orderItem : orderItemList)
+                        {
+                            if (orderItem.getProductID().equals(fragProd.productID))
+                            {
+                                lblQuan.setText(String.valueOf(fragProd.getProdQuantity() - orderItem.getBuyQuan()));
+                            }
+                        }
+                    }
+                    
+                    if (Integer.parseInt(lblQuan.getText()) == 0)
                     {
                         lblQuan.setText("Out of Stock!");
                         txtOrderItemQuan.setVisible(false);
                         btnDecreaseQuan.setVisible(false);
                         btnAddQuan.setVisible(false);
                         btnAddOrderItem.setVisible(false);
-                    }
-                    else
-                    {
-                        if (orderItemList.isEmpty())
-                        {
-                            lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
-                        }
-                        else
-                        {
-                            for (OrderItem orderItem : orderItemList)
-                            {
-                                if (orderItem.getProductID().equals(fragProd.productID))
-                                {
-                                    System.out.println(orderItem.getBuyQuan());
-                                    lblQuan.setText(String.valueOf(fragProd.getProdQuantity() - orderItem.getBuyQuan()));
-                                }
-                            }
-                        }
                     }
                     lblProdName.setText(String.valueOf(fragProd.getProductName()));
                     lblProdID.setText(String.valueOf(fragProd.getProductID()));
@@ -1277,7 +1274,22 @@ public class Cus_Menu extends javax.swing.JFrame {
                 nonFragile nonFragProd = (nonFragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(nonFragProd.getProductName()))
                 {
-                    if (nonFragProd.getProdQuantity() == 0)
+                    if (orderItemList.isEmpty())
+                    {
+                        lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
+                    }
+                    else
+                    {
+                        for (OrderItem orderItem : orderItemList)
+                        {
+                            if (orderItem.getProductID().equals(nonFragProd.productID))
+                            {
+                                lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity() - orderItem.getBuyQuan()));
+                            }
+                        }
+                    }
+
+                    if (Integer.parseInt(lblQuan.getText()) == 0)
                     {
                         lblQuan.setText("Out of Stock!");
                         txtOrderItemQuan.setVisible(false);
@@ -1285,10 +1297,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                         btnAddQuan.setVisible(false);
                         btnAddOrderItem.setVisible(false);
                     }
-                    else
-                    {
-                        lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
-                    }
+                    
                     lblParam2Header.setVisible(true);
                     lblProdParam2.setVisible(true);
                     lblParam3Header.setVisible(true);

@@ -170,12 +170,14 @@ public class Admin_Menu extends javax.swing.JFrame {
         pnlSearch = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         txtSearchBar = new javax.swing.JTextField();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        rbSearchCus = new javax.swing.JRadioButton();
+        rbSearchProd = new javax.swing.JRadioButton();
+        rbSearchOrder = new javax.swing.JRadioButton();
         btnSearchEnter = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jLabel32 = new javax.swing.JLabel();
+        lblSearchElement = new javax.swing.JLabel();
         pnlAddOrderItem = new javax.swing.JPanel();
         txtOrderItemQuan = new javax.swing.JTextField();
         btnDecreaseQuan = new javax.swing.JButton();
@@ -1166,7 +1168,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDeleteOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel36)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEditOrderGrandTotal)
@@ -1183,19 +1185,39 @@ public class Admin_Menu extends javax.swing.JFrame {
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("Enter ID to search:");
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton3.setText("Customer");
+        buttonGroup1.add(rbSearchCus);
+        rbSearchCus.setForeground(new java.awt.Color(0, 0, 0));
+        rbSearchCus.setText("Customer");
+        rbSearchCus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSearchCusActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton4.setText("Product");
+        buttonGroup1.add(rbSearchProd);
+        rbSearchProd.setForeground(new java.awt.Color(0, 0, 0));
+        rbSearchProd.setText("Product");
+        rbSearchProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSearchProdActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(jRadioButton5);
-        jRadioButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton5.setText("Order");
+        buttonGroup1.add(rbSearchOrder);
+        rbSearchOrder.setForeground(new java.awt.Color(0, 0, 0));
+        rbSearchOrder.setText("Order");
+        rbSearchOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSearchOrderActionPerformed(evt);
+            }
+        });
 
         btnSearchEnter.setText("Enter");
+        btnSearchEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchEnterActionPerformed(evt);
+            }
+        });
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -1204,24 +1226,37 @@ public class Admin_Menu extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(jList1);
 
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel32.setText("Searching for:");
+
+        lblSearchElement.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        lblSearchElement.setForeground(new java.awt.Color(0, 0, 0));
+        lblSearchElement.setText("                           ");
+
         javax.swing.GroupLayout pnlSearchLayout = new javax.swing.GroupLayout(pnlSearch);
         pnlSearch.setLayout(pnlSearchLayout);
         pnlSearchLayout.setHorizontalGroup(
             pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSearchLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlSearchLayout.createSequentialGroup()
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlSearchLayout.createSequentialGroup()
+                            .addComponent(rbSearchCus, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(rbSearchProd, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(12, 12, 12)
+                            .addComponent(rbSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                            .addComponent(btnSearchEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtSearchBar)
+                        .addComponent(jScrollPane6)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlSearchLayout.createSequentialGroup()
+                        .addComponent(jLabel32)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
-                        .addComponent(btnSearchEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtSearchBar)
-                    .addComponent(jScrollPane6)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblSearchElement, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         pnlSearchLayout.setVerticalGroup(
@@ -1233,13 +1268,17 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addComponent(txtSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton3)
+                    .addComponent(rbSearchCus)
                     .addComponent(btnSearchEnter)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5))
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(285, Short.MAX_VALUE))
+                    .addComponent(rbSearchProd)
+                    .addComponent(rbSearchOrder))
+                .addGap(53, 53, 53)
+                .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(lblSearchElement))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlSearch, "pnlSearch");
@@ -2694,17 +2733,28 @@ public class Admin_Menu extends javax.swing.JFrame {
                 Fragile fragProd = (Fragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(fragProd.getProductName()))
                 {
-                    if (fragProd.getProdQuantity() == 0)
+                    if (orderItemList.isEmpty())
+                    {
+                        lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
+                    }
+                    else
+                    {
+                        for (OrderItem orderItem : orderItemList)
+                        {
+                            if (orderItem.getProductID().equals(fragProd.productID))
+                            {
+                                lblQuan.setText(String.valueOf(fragProd.getProdQuantity() - orderItem.getBuyQuan()));
+                            }
+                        }
+                    }
+                    
+                    if (Integer.parseInt(lblQuan.getText()) == 0)
                     {
                         lblQuan.setText("Out of Stock!");
                         txtOrderItemQuan.setVisible(false);
                         btnDecreaseQuan.setVisible(false);
                         btnAddQuan.setVisible(false);
                         btnAddOrderItem.setVisible(false);
-                    }
-                    else
-                    {
-                        lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
                     }
                     lblProdName.setText(String.valueOf(fragProd.getProductName()));
                     lblProdID.setText(String.valueOf(fragProd.getProductID()));
@@ -2725,17 +2775,28 @@ public class Admin_Menu extends javax.swing.JFrame {
                 nonFragile nonFragProd = (nonFragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(nonFragProd.getProductName()))
                 {
-                    if (nonFragProd.getProdQuantity() == 0)
+                    if (orderItemList.isEmpty())
+                    {
+                        lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
+                    }
+                    else
+                    {
+                        for (OrderItem orderItem : orderItemList)
+                        {
+                            if (orderItem.getProductID().equals(nonFragProd.productID))
+                            {
+                                lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity() - orderItem.getBuyQuan()));
+                            }
+                        }
+                    }
+                    
+                    if (Integer.parseInt(lblQuan.getText()) == 0)
                     {
                         lblQuan.setText("Out of Stock!");
                         txtOrderItemQuan.setVisible(false);
                         btnDecreaseQuan.setVisible(false);
                         btnAddQuan.setVisible(false);
                         btnAddOrderItem.setVisible(false);
-                    }
-                    else
-                    {
-                        lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
                     }
                     lblParam2Header.setVisible(true);
                     lblProdParam2.setVisible(true);
@@ -2924,6 +2985,35 @@ public class Admin_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteOrderItemActionPerformed
 
     private void btnCreateOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateOrderActionPerformed
+        ArrayList<Object> manipulateProd = new ArrayList(admin.browseProd());
+        for (Object prod:manipulateProd)
+        {
+            if (prod instanceof Fragile)
+            {
+                Fragile fragProd = (Fragile) prod;
+                for (int i=0; i < tblOrderItemList.getRowCount(); i++)
+                {
+                    if (tblOrderItemList.getValueAt(i, 0).equals(fragProd.getProductName()))
+                    {
+                        fragProd.setProdQuantity(fragProd.getProdQuantity() - Integer.parseInt(tblOrderItemList.getValueAt(i, 1).toString()));
+                    }
+                }
+            }
+            else
+            {
+                nonFragile nonFragProd = (nonFragile) prod;
+                for (int i=0; i < tblOrderItemList.getRowCount(); i++)
+                {
+                    if (tblOrderItemList.getValueAt(i, 0).equals(nonFragProd.getProductName()))
+                    {
+                        nonFragProd.setProdQuantity(nonFragProd.getProdQuantity() - Integer.parseInt(tblOrderItemList.getValueAt(i, 1).toString()));
+                    }
+                }
+            }
+        }
+        
+        Admin adm = new Admin();
+        adm.editProduct(manipulateProd);
         String newOrderID = admin.genOrderID();
         Order order = new Order(newOrderID,orderItemList);
         admin.addOrder(order);
@@ -2978,6 +3068,25 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_lstOrderMouseReleased
+
+    private void btnSearchEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchEnterActionPerformed
+        // get user input and the attributes to search for
+        admin.search(String.valueOf(txtSearchBar.getText()),lblSearchElement.getText());
+        
+        
+    }//GEN-LAST:event_btnSearchEnterActionPerformed
+
+    private void rbSearchCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSearchCusActionPerformed
+        lblSearchElement.setText("Customer");
+    }//GEN-LAST:event_rbSearchCusActionPerformed
+
+    private void rbSearchProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSearchProdActionPerformed
+        lblSearchElement.setText("Product");
+    }//GEN-LAST:event_rbSearchProdActionPerformed
+
+    private void rbSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSearchOrderActionPerformed
+        lblSearchElement.setText("Order");
+    }//GEN-LAST:event_rbSearchOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3069,6 +3178,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -3100,9 +3210,6 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -3134,6 +3241,7 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel lblProdPrice;
     private javax.swing.JLabel lblProdType;
     private javax.swing.JLabel lblQuan;
+    private javax.swing.JLabel lblSearchElement;
     private javax.swing.JLabel lblViewOrderGrandTotal;
     private javax.swing.JLabel lblWeight;
     private javax.swing.JList<String> lstBrowseProduct;
@@ -3171,6 +3279,9 @@ public class Admin_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel pnlViewProfile;
     private javax.swing.JRadioButton rbBeans;
     private javax.swing.JRadioButton rbEquipments;
+    private javax.swing.JRadioButton rbSearchCus;
+    private javax.swing.JRadioButton rbSearchOrder;
+    private javax.swing.JRadioButton rbSearchProd;
     private javax.swing.JRadioButton rbUsrAdm;
     private javax.swing.JRadioButton rbUsrCus;
     private javax.swing.JTable tblOrderItemList;

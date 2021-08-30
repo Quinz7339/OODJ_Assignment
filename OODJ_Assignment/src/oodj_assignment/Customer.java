@@ -341,6 +341,41 @@ public class Customer
         }
         return null;
     }
+    
+    public ArrayList search(String searchCase, String searchEle)
+    {
+        if (searchEle == "Customer")
+        {
+            
+        }
+        else if (searchEle == "Product")
+        {
+            Admin adm = new Admin();
+            try
+            {
+                ArrayList prodList = new ArrayList(adm.viewProduct());
+                
+                for (Object prod: prodList)
+                {
+                    if (prod instanceof Fragile)
+                    {
+                        Fragile fragProd = (Fragile) prod;
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+            }
+            catch (IOException Ex)
+            {
+                
+            }
+            
+        }
+        else if (searchEle == "Order")
+    }
     @Override
     public String toString()
     {

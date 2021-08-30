@@ -113,11 +113,11 @@ public class Cus_Menu extends javax.swing.JFrame {
         btnCreateOrder = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
         lblEditOrderGrandTotal = new javax.swing.JLabel();
+        btnDeleteOrder = new javax.swing.JButton();
         pnlViewOrderSummary = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         lstOrder = new javax.swing.JList<>();
-        jButton5 = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblOrderOrderItems = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
@@ -726,27 +726,42 @@ public class Cus_Menu extends javax.swing.JFrame {
 
         lblEditOrderGrandTotal.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         lblEditOrderGrandTotal.setForeground(new java.awt.Color(0, 153, 51));
-        lblEditOrderGrandTotal.setText("*price*");
+        lblEditOrderGrandTotal.setText("RM0.00");
+
+        btnDeleteOrder.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnDeleteOrder.setForeground(new java.awt.Color(204, 51, 0));
+        btnDeleteOrder.setText("Delete Order");
+        btnDeleteOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteOrderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlEditOrderLayout = new javax.swing.GroupLayout(pnlEditOrder);
         pnlEditOrder.setLayout(pnlEditOrderLayout);
         pnlEditOrderLayout.setHorizontalGroup(
             pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEditOrderLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(471, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditOrderLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnDeleteOrderItem)
+                .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlEditOrderLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlEditOrderLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblEditOrderGrandTotal)
-                        .addComponent(btnCreateOrder)
-                        .addComponent(jLabel37)))
-                .addGap(19, 19, 19))
+                    .addGroup(pnlEditOrderLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnDeleteOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditOrderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnDeleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCreateOrder)
+                    .addComponent(lblEditOrderGrandTotal)
+                    .addComponent(jLabel37))
+                .addGap(44, 44, 44))
         );
         pnlEditOrderLayout.setVerticalGroup(
             pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -757,13 +772,14 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnDeleteOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEditOrderGrandTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCreateOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlEditOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDeleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreateOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pnlCusMenu.add(pnlEditOrder, "pnlEditOrder");
@@ -787,10 +803,6 @@ public class Cus_Menu extends javax.swing.JFrame {
             }
         });
         jScrollPane5.setViewportView(lstOrder);
-
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(204, 51, 0));
-        jButton5.setText("Delete Order");
 
         tblOrderOrderItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -852,9 +864,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlViewOrderSummaryLayout.createSequentialGroup()
-                        .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel33)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel33)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlViewOrderSummaryLayout.createSequentialGroup()
                         .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -890,9 +900,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblViewOrderGrandTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         pnlCusMenu.add(pnlViewOrderSummary, "pnlViewOrderHist");
@@ -1143,7 +1151,6 @@ public class Cus_Menu extends javax.swing.JFrame {
                             {
                                 if (orderItem.getProductName().equals(lstBrowseProduct.getSelectedValue()))
                                 {
-                                    System.out.println(orderItem.getBuyQuan());
                                     lblQuan.setText(String.valueOf(fragProd.getProdQuantity() - orderItem.getBuyQuan()));
                                 }
                             }
@@ -1185,7 +1192,6 @@ public class Cus_Menu extends javax.swing.JFrame {
                             {
                                 if (orderItem.getProductName().equals(lstBrowseProduct.getSelectedValue()))
                                 {
-                                    System.out.println(orderItem.getBuyQuan());
                                     lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity() - orderItem.getBuyQuan()));
                                 }
                             }
@@ -1321,7 +1327,6 @@ public class Cus_Menu extends javax.swing.JFrame {
         {
             for (int i  = orderItemList.size() - 1; i >=0 ; i -- )
             {
-                System.out.println(i);
                 if (orderItemList.get(i).getProductID().equals(lblProdID.getText()))
                 {
                     orderItemList.remove(i);
@@ -1485,6 +1490,11 @@ public class Cus_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSearchOrderActionPerformed
 
+    private void btnDeleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteOrderActionPerformed
+        orderItemList.clear();
+        cmenuEditOrder.doClick();
+    }//GEN-LAST:event_btnDeleteOrderActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1528,6 +1538,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnBrowseEquipments;
     private javax.swing.JButton btnCreateOrder;
     private javax.swing.JButton btnDecreaseQuan;
+    private javax.swing.JButton btnDeleteOrder;
     private javax.swing.JButton btnDeleteOrderItem;
     private javax.swing.JMenuItem btnLogout;
     private javax.swing.JButton btnSearchOrder;
@@ -1544,7 +1555,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem cmenuViewOrder;
     private javax.swing.JMenuItem cmenuViewProfile;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton5;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

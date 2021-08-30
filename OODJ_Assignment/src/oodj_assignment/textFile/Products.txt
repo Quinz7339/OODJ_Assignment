@@ -1,4 +1,4 @@
-Prod1,Ethiopian Guji G1,29,60.0,1.0,Ethiopia,2200.0,Berries like
+Prod1,Ethiopian Guji G1,25,60.0,1.0,Ethiopia,2200.0,Berries like
 Prod2,Columbian Supremo,25,40.0,1.0,Columbia,1700.0,Chocolatey
 Prod3,Cup,99,30.0,0.5,ceram
 Prod4,Espresso glass,50,30.0,0.2,ceram

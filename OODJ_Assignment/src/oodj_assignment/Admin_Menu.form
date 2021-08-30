@@ -1844,9 +1844,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblEditOrderGrandTotal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnCreateOrder" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="btnDeleteOrder" alignment="3" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnCreateOrder" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="btnDeleteOrder" max="32767" attributes="0"/>
+                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>

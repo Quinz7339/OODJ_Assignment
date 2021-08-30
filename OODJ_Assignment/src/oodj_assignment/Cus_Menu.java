@@ -55,17 +55,14 @@ public class Cus_Menu extends javax.swing.JFrame {
         pnlCusMain = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        pnlSearchProduct = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        cBtnSearchProduct = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
         pnlBrowseProduct = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         lstBrowseProduct = new javax.swing.JList<>();
         btnBrowseCoffee = new javax.swing.JButton();
         btnBrowseEquipments = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
+        txtSearchProduct = new javax.swing.JTextField();
+        btnSearchProduct = new javax.swing.JButton();
         pnlViewAddProduct = new javax.swing.JPanel();
         lblProdName = new javax.swing.JLabel();
         lblProdPrice = new javax.swing.JLabel();
@@ -123,13 +120,9 @@ public class Cus_Menu extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblOrderOrderItems = new javax.swing.JTable();
-        jButton10 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         lblViewOrderGrandTotal = new javax.swing.JLabel();
-        pnlSearchOrder = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
+        txtSearchOrder = new javax.swing.JTextField();
         btnSearchOrder = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         cmenuShop = new javax.swing.JMenu();
@@ -211,65 +204,10 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
 
         pnlCusMenu.add(pnlCusMain, "pnlCusMain");
-
-        pnlSearchProduct.setBackground(new java.awt.Color(102, 153, 255));
-        pnlSearchProduct.setForeground(new java.awt.Color(204, 204, 204));
-        pnlSearchProduct.setMaximumSize(new java.awt.Dimension(750, 500));
-        pnlSearchProduct.setMinimumSize(new java.awt.Dimension(750, 500));
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel22.setText("Enter product name or ID:");
-
-        cBtnSearchProduct.setText("Search");
-        cBtnSearchProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cBtnSearchProductActionPerformed(evt);
-            }
-        });
-
-        jLabel32.setBackground(new java.awt.Color(153, 204, 255));
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel32.setText("No Matches Found!");
-
-        javax.swing.GroupLayout pnlSearchProductLayout = new javax.swing.GroupLayout(pnlSearchProduct);
-        pnlSearchProduct.setLayout(pnlSearchProductLayout);
-        pnlSearchProductLayout.setHorizontalGroup(
-            pnlSearchProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSearchProductLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlSearchProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
-                    .addGroup(pnlSearchProductLayout.createSequentialGroup()
-                        .addGroup(pnlSearchProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addGroup(pnlSearchProductLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
-                        .addComponent(cBtnSearchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        pnlSearchProductLayout.setVerticalGroup(
-            pnlSearchProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSearchProductLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlSearchProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel32)
-                    .addComponent(cBtnSearchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(477, Short.MAX_VALUE))
-        );
-
-        pnlCusMenu.add(pnlSearchProduct, "pnlSearchProduct");
 
         pnlBrowseProduct.setBackground(new java.awt.Color(102, 153, 255));
         pnlBrowseProduct.setMaximumSize(new java.awt.Dimension(750, 616));
@@ -305,34 +243,47 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel31.setForeground(new java.awt.Color(0, 0, 0));
         jLabel31.setText("Shop our product:");
 
+        btnSearchProduct.setText("Search");
+        btnSearchProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchProductActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBrowseProductLayout = new javax.swing.GroupLayout(pnlBrowseProduct);
         pnlBrowseProduct.setLayout(pnlBrowseProductLayout);
         pnlBrowseProductLayout.setHorizontalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBrowseCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBrowseEquipments, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBrowseProductLayout.createSequentialGroup()
+                .addContainerGap(167, Short.MAX_VALUE)
+                .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSearchProduct)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlBrowseProductLayout.createSequentialGroup()
                         .addComponent(jLabel31)
-                        .addGap(113, 113, 113)))
-                .addGap(155, 155, 155))
+                        .addGap(113, 113, 113))
+                    .addGroup(pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnBrowseCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBrowseEquipments, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(150, 150, 150))
         );
         pnlBrowseProductLayout.setVerticalGroup(
             pnlBrowseProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBrowseProductLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel31)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(txtSearchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearchProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(btnBrowseCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBrowseEquipments, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         pnlCusMenu.add(pnlBrowseProduct, "pnlBrowseProduct");
@@ -806,7 +757,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnDeleteOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEditOrderGrandTotal)
@@ -878,13 +829,6 @@ public class Cus_Menu extends javax.swing.JFrame {
             tblOrderOrderItems.getColumnModel().getColumn(4).setPreferredWidth(100);
         }
 
-        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(51, 153, 0));
-        jButton10.setText("Pay");
-        jButton10.setMaximumSize(new java.awt.Dimension(135, 31));
-        jButton10.setMinimumSize(new java.awt.Dimension(135, 31));
-        jButton10.setPreferredSize(new java.awt.Dimension(135, 31));
-
         jLabel19.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Grand Total:");
@@ -892,6 +836,13 @@ public class Cus_Menu extends javax.swing.JFrame {
         lblViewOrderGrandTotal.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         lblViewOrderGrandTotal.setForeground(new java.awt.Color(51, 153, 0));
         lblViewOrderGrandTotal.setText("RM0.00");
+
+        btnSearchOrder.setText("Search");
+        btnSearchOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchOrderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlViewOrderSummaryLayout = new javax.swing.GroupLayout(pnlViewOrderSummary);
         pnlViewOrderSummary.setLayout(pnlViewOrderSummaryLayout);
@@ -901,103 +852,50 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlViewOrderSummaryLayout.createSequentialGroup()
-                        .addComponent(jLabel33)
+                        .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel33)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlViewOrderSummaryLayout.createSequentialGroup()
-                        .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlViewOrderSummaryLayout.createSequentialGroup()
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(400, 400, 400)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(pnlViewOrderSummaryLayout.createSequentialGroup()
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlViewOrderSummaryLayout.createSequentialGroup()
+                                .addGap(520, 520, 520)
+                                .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(lblViewOrderGrandTotal)))
+                            .addGroup(pnlViewOrderSummaryLayout.createSequentialGroup()
+                                .addComponent(txtSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSearchOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 22, Short.MAX_VALUE))))
-            .addGroup(pnlViewOrderSummaryLayout.createSequentialGroup()
-                .addGap(526, 526, 526)
-                .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addComponent(lblViewOrderGrandTotal))
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlViewOrderSummaryLayout.setVerticalGroup(
             pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlViewOrderSummaryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(31, 31, 31)
+                .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchOrder))
+                .addGap(18, 18, 18)
                 .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblViewOrderGrandTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-                .addGroup(pnlViewOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
         pnlCusMenu.add(pnlViewOrderSummary, "pnlViewOrderHist");
-
-        pnlSearchOrder.setBackground(new java.awt.Color(255, 204, 153));
-
-        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel35.setText("Enter order ID:");
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        jLabel36.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel36.setText("No Matches Found!");
-
-        btnSearchOrder.setText("Search");
-        btnSearchOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchOrderActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlSearchOrderLayout = new javax.swing.GroupLayout(pnlSearchOrder);
-        pnlSearchOrder.setLayout(pnlSearchOrderLayout);
-        pnlSearchOrderLayout.setHorizontalGroup(
-            pnlSearchOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSearchOrderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlSearchOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2)
-                    .addGroup(pnlSearchOrderLayout.createSequentialGroup()
-                        .addComponent(jLabel35)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlSearchOrderLayout.createSequentialGroup()
-                        .addComponent(jLabel36)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
-                        .addComponent(btnSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        pnlSearchOrderLayout.setVerticalGroup(
-            pnlSearchOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSearchOrderLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel35)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(pnlSearchOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel36)
-                    .addComponent(btnSearchOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(482, Short.MAX_VALUE))
-        );
-
-        pnlCusMenu.add(pnlSearchOrder, "pnlSearchOrder");
 
         jMenuBar1.setMaximumSize(new java.awt.Dimension(238, 40));
         jMenuBar1.setMinimumSize(new java.awt.Dimension(238, 40));
@@ -1204,10 +1102,6 @@ public class Cus_Menu extends javax.swing.JFrame {
         card.show(pnlCusMenu, "pnlSearchOrder"); 
     }//GEN-LAST:event_cmenuSearchOrderActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
@@ -1232,28 +1126,28 @@ public class Cus_Menu extends javax.swing.JFrame {
                 Fragile fragProd = (Fragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(fragProd.getProductName()))
                 {
-                    if (orderItemList.isEmpty())
-                    {
-                        lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
-                    }
-                    else
-                    {
-                        for (OrderItem orderItem : orderItemList)
-                        {
-                            if (orderItem.getProductID().equals(fragProd.productID))
-                            {
-                                lblQuan.setText(String.valueOf(fragProd.getProdQuantity() - orderItem.getBuyQuan()));
-                            }
-                        }
-                    }
-                    
-                    if (Integer.parseInt(lblQuan.getText()) == 0)
+                    if (fragProd.getProdQuantity() == 0)
                     {
                         lblQuan.setText("Out of Stock!");
                         txtOrderItemQuan.setVisible(false);
                         btnDecreaseQuan.setVisible(false);
                         btnAddQuan.setVisible(false);
                         btnAddOrderItem.setVisible(false);
+                    }
+                    else
+                    {
+                        lblQuan.setText(String.valueOf(fragProd.getProdQuantity()));
+                        if (!orderItemList.isEmpty())
+                        {
+                            for (OrderItem orderItem : orderItemList)
+                            {
+                                if (orderItem.getProductName().equals(lstBrowseProduct.getSelectedValue()))
+                                {
+                                    System.out.println(orderItem.getBuyQuan());
+                                    lblQuan.setText(String.valueOf(fragProd.getProdQuantity() - orderItem.getBuyQuan()));
+                                }
+                            }
+                        }
                     }
                     lblProdName.setText(String.valueOf(fragProd.getProductName()));
                     lblProdID.setText(String.valueOf(fragProd.getProductID()));
@@ -1274,28 +1168,28 @@ public class Cus_Menu extends javax.swing.JFrame {
                 nonFragile nonFragProd = (nonFragile) prod;
                 if (lstBrowseProduct.getSelectedValue().equals(nonFragProd.getProductName()))
                 {
-                    if (orderItemList.isEmpty())
-                    {
-                        lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
-                    }
-                    else
-                    {
-                        for (OrderItem orderItem : orderItemList)
-                        {
-                            if (orderItem.getProductID().equals(nonFragProd.productID))
-                            {
-                                lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity() - orderItem.getBuyQuan()));
-                            }
-                        }
-                    }
-
-                    if (Integer.parseInt(lblQuan.getText()) == 0)
+                    if (nonFragProd.getProdQuantity() == 0)
                     {
                         lblQuan.setText("Out of Stock!");
                         txtOrderItemQuan.setVisible(false);
                         btnDecreaseQuan.setVisible(false);
                         btnAddQuan.setVisible(false);
                         btnAddOrderItem.setVisible(false);
+                    }
+                    else
+                    {
+                        lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity()));
+                        if (!orderItemList.isEmpty())
+                        {
+                            for (OrderItem orderItem : orderItemList)
+                            {
+                                if (orderItem.getProductName().equals(lstBrowseProduct.getSelectedValue()))
+                                {
+                                    System.out.println(orderItem.getBuyQuan());
+                                    lblQuan.setText(String.valueOf(nonFragProd.getProdQuantity() - orderItem.getBuyQuan()));
+                                }
+                            }
+                        }
                     }
                     
                     lblParam2Header.setVisible(true);
@@ -1381,14 +1275,14 @@ public class Cus_Menu extends javax.swing.JFrame {
                 Fragile fragProd = (Fragile) prod;
                 if (lblProdID.getText().equals(fragProd.getProductID()))
                 {
-                    fragProd.setProdQuantity(Integer.parseInt(txtOrderItemQuan.getText()));
+                    int buyQuan = Integer.parseInt(txtOrderItemQuan.getText());
                     
                     // append order item object into order item list
                     OrderItem orderItem = new OrderItem(fragProd.getProductID(), 
                             fragProd.getProductName(), 
-                            fragProd.getProdQuantity(),
+                            buyQuan,
                             fragProd.getProductPrice(),
-                            fragProd.calcShipping());
+                            fragProd.calcShipping(buyQuan));
                     orderItemList.add(orderItem);
                 }
             }
@@ -1399,20 +1293,20 @@ public class Cus_Menu extends javax.swing.JFrame {
                 if (lblProdID.getText().equals(nonFragProd.getProductID()))
                 {
                     // CREATE CHECK INPUT QUANTITY VERSUS PRODUCT QUANTITY check input quantity versus product quantity
-                    nonFragProd.setProdQuantity(Integer.parseInt(txtOrderItemQuan.getText()));
+                    int buyQuan = Integer.parseInt(txtOrderItemQuan.getText());
                     
                     // append order item object into order item list
                     OrderItem orderItem = new OrderItem(nonFragProd.getProductID(), 
                             nonFragProd.getProductName(), 
-                            nonFragProd.getProdQuantity(),
+                            buyQuan,
                             nonFragProd.getProductPrice(),
-                            nonFragProd.calcShipping());
+                            nonFragProd.calcShipping(buyQuan));
                     orderItemList.add(orderItem);
 
                 }
             }
         }
-        // REDUNDANCY IN GLOBAL LIST
+        // Remove redundant order items in arraylist
         int count = 0;
         OrderItem dupItem = null;
         for (int i = 0; i < orderItemList.size(); i++)
@@ -1525,14 +1419,6 @@ public class Cus_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteOrderItemActionPerformed
 
-    private void btnSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchOrderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSearchOrderActionPerformed
-
-    private void cBtnSearchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBtnSearchProductActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cBtnSearchProductActionPerformed
-
     private void lstOrderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstOrderMouseReleased
         DefaultTableModel orderOrderItemListModel = (DefaultTableModel) tblOrderOrderItems.getModel();
         
@@ -1581,6 +1467,24 @@ public class Cus_Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnSearchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchProductActionPerformed
+        prodListModel.clear();
+        ArrayList<Product> returnedList = new ArrayList(customer.search(customer.getUID(),String.valueOf(txtSearchProduct.getText()),"Product"));
+        for (Product prod: returnedList)
+        {
+            prodListModel.addElement(prod.getProductName());
+        }
+    }//GEN-LAST:event_btnSearchProductActionPerformed
+
+    private void btnSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchOrderActionPerformed
+        orderIDListModel.clear();
+        ArrayList<Order> returnedList = new ArrayList(customer.search(customer.getUID(),String.valueOf(txtSearchOrder.getText()),"Order"));
+        for (Order odr: returnedList)
+        {
+            orderIDListModel.addElement(odr.getOrderID());
+        }
+    }//GEN-LAST:event_btnSearchOrderActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1627,7 +1531,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteOrderItem;
     private javax.swing.JMenuItem btnLogout;
     private javax.swing.JButton btnSearchOrder;
-    private javax.swing.JButton cBtnSearchProduct;
+    private javax.swing.JButton btnSearchProduct;
     private javax.swing.JMenuItem cmenuBrowseProduct;
     private javax.swing.JMenuItem cmenuEditOrder;
     private javax.swing.JMenu cmenuHome;
@@ -1639,7 +1543,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JMenu cmenuShop;
     private javax.swing.JMenuItem cmenuViewOrder;
     private javax.swing.JMenuItem cmenuViewProfile;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton5;
     private javax.swing.JEditorPane jEditorPane1;
@@ -1648,7 +1551,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1656,11 +1558,8 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel51;
@@ -1681,8 +1580,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
@@ -1710,13 +1607,13 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel pnlCusMain;
     private javax.swing.JPanel pnlCusMenu;
     private javax.swing.JPanel pnlEditOrder;
-    private javax.swing.JPanel pnlSearchOrder;
-    private javax.swing.JPanel pnlSearchProduct;
     private javax.swing.JPanel pnlViewAddProduct;
     private javax.swing.JPanel pnlViewOrderSummary;
     private javax.swing.JPanel pnlViewProfile;
     private javax.swing.JTable tblOrderItemList;
     private javax.swing.JTable tblOrderOrderItems;
     private javax.swing.JTextField txtOrderItemQuan;
+    private javax.swing.JTextField txtSearchOrder;
+    private javax.swing.JTextField txtSearchProduct;
     // End of variables declaration//GEN-END:variables
 }

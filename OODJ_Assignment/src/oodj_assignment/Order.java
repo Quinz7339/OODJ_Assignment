@@ -16,14 +16,9 @@ public class Order
     private final String orderID;
     private final ArrayList<OrderItem> orderItem;
     private final double grandTotal;
-    private final String payStatus = "Unpaid";  
 
     public String getOrderID() {
         return orderID;
-    }
-
-    public String getPayStatus() {
-        return payStatus;
     }
 
     public ArrayList<OrderItem> getOrderItem() {

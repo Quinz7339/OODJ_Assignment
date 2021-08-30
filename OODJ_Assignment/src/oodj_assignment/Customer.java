@@ -188,7 +188,7 @@ public class Customer
             PrintWriter pw = new PrintWriter(new FileWriter(new File("src\\oodj_assignment\\textFile\\Orders.txt"),true));
             for (OrderItem orderItem: order.getOrderItem())
             {
-                pw.println(String.format("%s,%s,%s,%s,%s,%s", order.getOrderID(),this.UID, orderItem.getProductID(), orderItem.getBuyQuan(), orderItem.calcSubtotal(),order.getPayStatus()));
+                pw.println(String.format("%s,%s,%s,%s,%s", order.getOrderID(),this.UID, orderItem.getProductID(), orderItem.getBuyQuan(), orderItem.calcSubtotal()));
             }
             pw.close();
         }
@@ -231,12 +231,10 @@ public class Customer
     
     public ArrayList viewOrder(String UID) throws IOException
     {
-        ArrayList<Order> allOrdersList = new ArrayList();
         //stores everyOrderItems that a single customer added
         ArrayList<Order> orderList = new ArrayList();
         
-        //
-        
+        //Stores all products
         ArrayList<Object> prodList = new ArrayList();
         
         
@@ -305,7 +303,7 @@ public class Customer
                                 Fragile fragProd = (Fragile) prod;
                                 if (odrVar[2].equals(fragProd.getProductID()))
                                 {
-                                    OrderItem orderItem = new OrderItem(odrVar[2], fragProd.getProductName(), Integer.parseInt(odrVar[3]), fragProd.getProductPrice(), fragProd.calcShipping());
+                                    OrderItem orderItem = new OrderItem(odrVar[2], fragProd.getProductName(), Integer.parseInt(odrVar[3]), fragProd.getProductPrice(), fragProd.calcShipping(Integer.parseInt(odrVar[3])));
                                     orderItems.add(orderItem);
                                 }
                             }
@@ -314,7 +312,7 @@ public class Customer
                                 nonFragile nonFragProd = (nonFragile) prod;
                                 if (odrVar[2].equals(nonFragProd.getProductID()))
                                 {
-                                    OrderItem orderItem = new OrderItem(odrVar[2], nonFragProd.getProductName(), Integer.parseInt(odrVar[3]), nonFragProd.getProductPrice(), nonFragProd.calcShipping());
+                                    OrderItem orderItem = new OrderItem(odrVar[2], nonFragProd.getProductName(), Integer.parseInt(odrVar[3]), nonFragProd.getProductPrice(), nonFragProd.calcShipping(Integer.parseInt(odrVar[3])));
                                     orderItems.add(orderItem);
                                 }
                             }
@@ -334,31 +332,48 @@ public class Customer
         return null;
     }
     
-    public ArrayList search(String searchCase, String searchEle)
+    public ArrayList search(String UID, String searchCase, String searchEle)
     {
         if (searchEle == "Customer")
         {
-            
+            Admin adm = new Admin();
+            try
+            {
+                ArrayList<Customer> cusList = new ArrayList(adm.viewCustomer());
+                ArrayList<Customer> returnObj = new ArrayList();
+                
+                for (Customer cus: cusList)
+                {
+                    if (cus.getUID().toLowerCase().contains(searchCase.toLowerCase()) ||
+                            cus.getName().toLowerCase().contains(searchCase.toLowerCase()))
+                    {
+                        returnObj.add(cus);
+                    }
+                }
+                return returnObj;
+            }
+            catch (IOException Ex)
+            {
+                
+            }
         }
         else if (searchEle == "Product")
         {
             Admin adm = new Admin();
             try
             {
-                ArrayList prodList = new ArrayList(adm.viewProduct());
+                ArrayList<Product> prodList = new ArrayList(adm.viewProduct());
+                ArrayList<Product> returnObj = new ArrayList();
                 
-                for (Object prod: prodList)
+                for (Product prod: prodList)
                 {
-                    if (prod instanceof Fragile)
+                    if (prod.getProductID().toLowerCase().contains(searchCase.toLowerCase()) || 
+                            prod.getProductName().toLowerCase().contains(searchCase.toLowerCase()))
                     {
-                        Fragile fragProd = (Fragile) prod;
-                        
-                    }
-                    else
-                    {
-                        
+                        returnObj.add(prod);
                     }
                 }
+                return returnObj;
             }
             catch (IOException Ex)
             {
@@ -367,6 +382,28 @@ public class Customer
             
         }
         else if (searchEle == "Order")
+        {
+            Admin adm = new Admin();
+            try
+            {
+                ArrayList<Order> orderList = adm.viewOrder(this.UID);
+                ArrayList<Order> returnObj = new ArrayList();
+                
+                for (Order odr: orderList)
+                {
+                    if (odr.getOrderID().toLowerCase().contains(searchCase.toLowerCase()))
+                    {
+                        returnObj.add(odr);
+                    }
+                }
+                return returnObj;
+            }
+            catch (IOException Ex)
+            {
+                
+            }
+        }
+        return null;
     }
     @Override
     public String toString()

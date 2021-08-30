@@ -13,5 +13,5 @@ public interface Shipping
 {
     final double baseShipping = 10;
     
-    public double calcShipping();
+    public double calcShipping(int buyQuan);
 }

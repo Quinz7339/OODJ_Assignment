@@ -56,9 +56,9 @@ public class nonFragile extends Product implements Shipping
     }
     
     @Override
-    public double calcShipping()
+    public double calcShipping(int buyQuan)
     {
-        double shippingFee = baseShipping * productWeight * prodQuantity;
+        double shippingFee = baseShipping * productWeight * buyQuan;
         return shippingFee;
     }
 }

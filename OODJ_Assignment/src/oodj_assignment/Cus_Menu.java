@@ -1381,8 +1381,10 @@ public class Cus_Menu extends javax.swing.JFrame {
                             fragProd.getProductPrice(),
                             fragProd.calcShipping());
                     orderItemList.add(orderItem);
+                    //tempoOrderItemList.add(orderItem);
+                    
                     // REDUNDANCY IN GLOBAL LIST
-                    cmenuEditOrder.doClick();
+                    //cmenuEditOrder.doClick();
                 }
             }
             else
@@ -1401,12 +1403,64 @@ public class Cus_Menu extends javax.swing.JFrame {
                             nonFragProd.getProductPrice(),
                             nonFragProd.calcShipping());
                     orderItemList.add(orderItem);
+                    //tempoOrderItemList.add(orderItem);
+                    
                     // REDUNDANCY IN GLOBAL LIST
-                    cmenuEditOrder.doClick();
+                    //cmenuEditOrder.doClick();
                 }
             }
         }
         // REDUNDANCY IN GLOBAL LIST
+        int count = 0;
+        //OrderItem dupItem = new OrderItem(null,null,0,0.0,0.0);
+        OrderItem dupItem = null;
+        for (int i = 0; i < orderItemList.size(); i++)
+        {
+            if(orderItemList.get(i).getProductID().equals(lblProdID.getText()))
+            {
+                count = count + orderItemList.get(i).getBuyQuan();
+                dupItem = orderItemList.get(i);
+            }           
+        }
+        if (!dupItem.equals(null))
+        {
+            for (int i  = orderItemList.size() - 1; i >=0 ; i -- )
+            {
+                System.out.println(i);
+                if (orderItemList.get(i).getProductID().equals(lblProdID.getText()))
+                {
+                    orderItemList.remove(i);
+                }
+            }
+            OrderItem orderItem = new OrderItem(dupItem.getProductID(),
+                        dupItem.getProductName(),
+                        count,
+                        dupItem.getProductPrice(),
+                        dupItem.getShippingFee());
+            
+            orderItemList.add(orderItem);
+//            System.out.println(i+"\n");
+//            if(orderItemList.size() <=1 || i < 1)
+//            {
+//                //this if statement is so that the for loop bypaasses the 1st item - as we only need to compare the 2nd and the rest item the arraylist
+//                continue;
+//            }
+//            else if(orderItemList.get(i).getProductID().equals(orderItemList.get(i-1).getProductID()))
+//            {
+//                System.out.println(orderItemList.get(i).getBuyQuan());
+//                OrderItem orderItem = new OrderItem(orderItemList.get(i).getProductID(),
+//                        orderItemList.get(i).getProductName(),
+//                        orderItemList.get(i).getBuyQuan() + orderItemList.get(i-1).getBuyQuan(),
+//                        orderItemList.get(i).getProductPrice(),
+//                        orderItemList.get(i).getShippingFee());
+//                orderItemList.remove(i);
+//                orderItemList.remove(i-1);
+//                orderItemList.add(orderItem);
+//            }
+        }
+        
+        cmenuEditOrder.doClick();
+        
     }//GEN-LAST:event_btnAddOrderItemActionPerformed
 
     private void btnDecreaseQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecreaseQuanActionPerformed

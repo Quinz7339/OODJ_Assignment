@@ -73,7 +73,7 @@ public class Fragile extends Product implements Shipping
     }
     public double calcShipping()
     {
-        double shippingFee = baseShipping * productWeight * prodQuantity * 1.05;
+        double shippingFee = baseShipping * productWeight * 1.05 * prodQuantity;
         return shippingFee;
     }
 }

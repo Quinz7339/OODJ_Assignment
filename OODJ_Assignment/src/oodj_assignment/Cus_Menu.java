@@ -1390,8 +1390,6 @@ public class Cus_Menu extends javax.swing.JFrame {
                             fragProd.getProductPrice(),
                             fragProd.calcShipping());
                     orderItemList.add(orderItem);
-                    // REDUNDANCY IN GLOBAL LIST
-                    cmenuEditOrder.doClick();
                 }
             }
             else
@@ -1410,12 +1408,42 @@ public class Cus_Menu extends javax.swing.JFrame {
                             nonFragProd.getProductPrice(),
                             nonFragProd.calcShipping());
                     orderItemList.add(orderItem);
-                    // REDUNDANCY IN GLOBAL LIST
-                    cmenuEditOrder.doClick();
+
                 }
             }
         }
         // REDUNDANCY IN GLOBAL LIST
+        int count = 0;
+        OrderItem dupItem = null;
+        for (int i = 0; i < orderItemList.size(); i++)
+        {
+            if(orderItemList.get(i).getProductID().equals(lblProdID.getText()))
+            {
+                count = count + orderItemList.get(i).getBuyQuan();
+                dupItem = orderItemList.get(i);
+            }           
+        }
+        if (!dupItem.equals(null))
+        {
+            for (int i  = orderItemList.size() - 1; i >=0 ; i -- )
+            {
+                System.out.println(i);
+                if (orderItemList.get(i).getProductID().equals(lblProdID.getText()))
+                {
+                    orderItemList.remove(i);
+                }
+            }
+            OrderItem orderItem = new OrderItem(dupItem.getProductID(),
+                        dupItem.getProductName(),
+                        count,
+                        dupItem.getProductPrice(),
+                        dupItem.getShippingFee());
+            
+            orderItemList.add(orderItem);
+        }
+        
+        cmenuEditOrder.doClick();
+        
     }//GEN-LAST:event_btnAddOrderItemActionPerformed
 
     private void btnDecreaseQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecreaseQuanActionPerformed

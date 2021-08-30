@@ -249,15 +249,7 @@ public class Customer
         
         //retrieve order and get its order item's details with the product list
         
-        //todo: 1. take in every product, 
-        //2. create a list of unique order id that is only specific to the customer
-        //3. for each orderid, if UID matches, create a temp <orderitem> arrlist to store of orderitems (specific to uid and order item)
-        //4. 3 for each orderid, create temp arraylist of orderItems
-        //4 for each product, if uid matches, 
-        //5 create new orderitem, then append to your temp arraylist 
-        //6 end for, create order(orderid, tempArrayList), then append to master list of orders 
-        // 7 end for, 
-        //8 return masterlist
+
 
         // to take in orderID specific to the user
         try 

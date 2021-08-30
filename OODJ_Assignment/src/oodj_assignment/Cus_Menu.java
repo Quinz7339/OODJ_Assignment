@@ -1381,10 +1381,6 @@ public class Cus_Menu extends javax.swing.JFrame {
                             fragProd.getProductPrice(),
                             fragProd.calcShipping());
                     orderItemList.add(orderItem);
-                    //tempoOrderItemList.add(orderItem);
-                    
-                    // REDUNDANCY IN GLOBAL LIST
-                    //cmenuEditOrder.doClick();
                 }
             }
             else
@@ -1403,16 +1399,12 @@ public class Cus_Menu extends javax.swing.JFrame {
                             nonFragProd.getProductPrice(),
                             nonFragProd.calcShipping());
                     orderItemList.add(orderItem);
-                    //tempoOrderItemList.add(orderItem);
-                    
-                    // REDUNDANCY IN GLOBAL LIST
-                    //cmenuEditOrder.doClick();
+
                 }
             }
         }
         // REDUNDANCY IN GLOBAL LIST
         int count = 0;
-        //OrderItem dupItem = new OrderItem(null,null,0,0.0,0.0);
         OrderItem dupItem = null;
         for (int i = 0; i < orderItemList.size(); i++)
         {
@@ -1439,24 +1431,6 @@ public class Cus_Menu extends javax.swing.JFrame {
                         dupItem.getShippingFee());
             
             orderItemList.add(orderItem);
-//            System.out.println(i+"\n");
-//            if(orderItemList.size() <=1 || i < 1)
-//            {
-//                //this if statement is so that the for loop bypaasses the 1st item - as we only need to compare the 2nd and the rest item the arraylist
-//                continue;
-//            }
-//            else if(orderItemList.get(i).getProductID().equals(orderItemList.get(i-1).getProductID()))
-//            {
-//                System.out.println(orderItemList.get(i).getBuyQuan());
-//                OrderItem orderItem = new OrderItem(orderItemList.get(i).getProductID(),
-//                        orderItemList.get(i).getProductName(),
-//                        orderItemList.get(i).getBuyQuan() + orderItemList.get(i-1).getBuyQuan(),
-//                        orderItemList.get(i).getProductPrice(),
-//                        orderItemList.get(i).getShippingFee());
-//                orderItemList.remove(i);
-//                orderItemList.remove(i-1);
-//                orderItemList.add(orderItem);
-//            }
         }
         
         cmenuEditOrder.doClick();

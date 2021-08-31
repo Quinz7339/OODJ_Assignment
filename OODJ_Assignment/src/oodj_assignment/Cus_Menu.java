@@ -8,6 +8,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -88,23 +89,25 @@ public class Cus_Menu extends javax.swing.JFrame {
         lblProdID = new javax.swing.JLabel();
         pnlViewProfile = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        lblProfUsername = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        lblProfUserID = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jButton11 = new javax.swing.JButton();
+        txtProfName = new javax.swing.JTextField();
+        txtProfEmail = new javax.swing.JTextField();
+        txtProfPhoneNo = new javax.swing.JTextField();
+        btnEditProf = new javax.swing.JButton();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtProfAddress = new javax.swing.JTextArea();
+        btnEditProfBack = new javax.swing.JButton();
+        txtProfPassword = new javax.swing.JPasswordField();
+        txtProfCfmPwd = new javax.swing.JPasswordField();
         pnlEditOrder = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblOrderItemList = new javax.swing.JTable();
@@ -504,9 +507,9 @@ public class Cus_Menu extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("*username*");
+        lblProfUsername.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblProfUsername.setForeground(new java.awt.Color(0, 0, 0));
+        lblProfUsername.setText("*username*");
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
@@ -516,9 +519,9 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("User ID:");
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel23.setText("*userid*");
+        lblProfUserID.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblProfUserID.setForeground(new java.awt.Color(0, 0, 0));
+        lblProfUserID.setText("*userid*");
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
@@ -536,14 +539,13 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setText("Address:");
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        btnEditProf.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnEditProf.setText("Edit");
+        btnEditProf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                btnEditProfActionPerformed(evt);
             }
         });
-
-        jButton11.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jButton11.setText("Edit");
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(0, 0, 0));
@@ -553,6 +555,22 @@ public class Cus_Menu extends javax.swing.JFrame {
         jLabel52.setForeground(new java.awt.Color(0, 0, 0));
         jLabel52.setText("Confirm Password:");
 
+        txtProfAddress.setColumns(20);
+        txtProfAddress.setRows(5);
+        jScrollPane1.setViewportView(txtProfAddress);
+
+        btnEditProfBack.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnEditProfBack.setText("Back");
+        btnEditProfBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditProfBackActionPerformed(evt);
+            }
+        });
+
+        txtProfPassword.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        txtProfCfmPwd.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -560,91 +578,101 @@ public class Cus_Menu extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
+                        .addComponent(lblProfUsername)
+                        .addGap(6, 6, 6)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(lblProfUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(txtProfName, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(txtProfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(txtProfPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(89, 89, 89)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                        .addGap(95, 95, 95)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(69, 69, 69)
-                                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                            .addComponent(jTextField8)
-                                            .addComponent(jTextField7)))))
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel51)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(28, 28, 28)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel52)
-                        .addGap(247, 247, 247)))
-                .addContainerGap(263, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton11)
-                .addGap(24, 24, 24))
+                            .addComponent(jLabel51)
+                            .addComponent(jLabel52))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtProfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtProfCfmPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(499, 499, 499)
+                .addComponent(btnEditProfBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(btnEditProf)
+                .addGap(50, 50, 50))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblProfUsername)
+                            .addComponent(jLabel20))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(lblProfUserID))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(txtProfName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel25))
+                            .addComponent(txtProfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel27))
+                            .addComponent(txtProfPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel30))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel51)
+                            .addComponent(txtProfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(61, 61, 61))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel52)
+                        .addComponent(txtProfCfmPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel23))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel30))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel51)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel52))
-                .addGap(97, 97, 97)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(btnEditProf, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditProfBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout pnlViewProfileLayout = new javax.swing.GroupLayout(pnlViewProfile);
@@ -1080,6 +1108,21 @@ public class Cus_Menu extends javax.swing.JFrame {
     private void cmenuViewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuViewProfileActionPerformed
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
         card.show(pnlCusMenu, "pnlViewProfile");
+        btnEditProfBack.setVisible(false);
+        btnEditProf.setText("Edit");
+        txtProfName.setEditable(false);
+        txtProfAddress.setEditable(false);
+        txtProfEmail.setEditable(false);
+        txtProfPhoneNo.setEditable(false);
+        txtProfPassword.setEditable(false);
+        txtProfCfmPwd.setEditable(false);
+        
+        lblProfUserID.setText(customer.getUID());
+        lblProfUsername.setText(customer.getUsername());
+        txtProfName.setText(customer.getName());
+        txtProfAddress.setText(customer.getAddress());
+        txtProfEmail.setText(customer.getEmailAddress());
+        txtProfPhoneNo.setText(customer.getPhoneNumber());
     }//GEN-LAST:event_cmenuViewProfileActionPerformed
 
     private void cmenuViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuViewOrderActionPerformed
@@ -1108,11 +1151,9 @@ public class Cus_Menu extends javax.swing.JFrame {
     private void cmenuSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuSearchOrderActionPerformed
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
         card.show(pnlCusMenu, "pnlSearchOrder"); 
+        
+        
     }//GEN-LAST:event_cmenuSearchOrderActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void lstBrowseProductMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstBrowseProductMouseReleased
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
@@ -1495,6 +1536,80 @@ public class Cus_Menu extends javax.swing.JFrame {
         cmenuEditOrder.doClick();
     }//GEN-LAST:event_btnDeleteOrderActionPerformed
 
+    private void btnEditProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProfActionPerformed
+        if(btnEditProf.getText().equals("Confirm"))
+        {
+            txtProfName.setEditable(false);
+            txtProfAddress.setEditable(false);
+            txtProfEmail.setEditable(false);
+            txtProfPhoneNo.setEditable(false);
+            txtProfAddress.setEditable(false);
+            txtProfPassword.setEditable(false);
+            txtProfCfmPwd.setEditable(false);
+            btnEditProf.setText("Edit");
+            
+            if(Arrays.equals(txtProfCfmPwd.getPassword(),txtProfPassword.getPassword())== false)
+            {
+                JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Different password entered.",JOptionPane.WARNING_MESSAGE);
+            }
+            else
+            {
+                try
+                {
+                    Admin adm = new Admin();
+                    ArrayList<Customer> cusList = new ArrayList<Customer>(adm.viewCustomer());
+                    for(Customer cus : cusList)
+                    {
+                        if (cus.getUID().equals(lblProfUserID.getText()))
+                        {
+                            if((cus.getName().equals(txtProfName.getText()) && cus.getAddress().equals(txtProfAddress.getText())&& 
+                                    cus.getEmailAddress().equals(txtProfEmail.getText()) && cus.getPhoneNumber().equals(txtProfPhoneNo.getText()))||
+                                    (cus.getPassword().equals(String.valueOf(txtProfPassword.getPassword()))))
+                            {
+                                JOptionPane.showMessageDialog(errorMessage, "No changes detected. Please retry.","No fields are changed.",JOptionPane.ERROR_MESSAGE);
+                            }
+                            else
+                            {
+                                cus.setName(txtProfName.getText());
+                                cus.setEmailAddress(txtProfEmail.getText());
+                                cus.setAddress(txtProfAddress.getText());
+                                cus.setPhoneNumber(txtProfPhoneNo.getText());
+                                if(txtProfPassword.getPassword().length > 0 || txtProfCfmPwd.getPassword().length > 0)
+                                {
+                                    cus.setPassword(String.valueOf(txtProfPassword.getPassword()));
+                                } 
+                                adm.editCustomer(cusList);
+                            }
+                        }
+                    }
+                }
+                catch(IOException Ex)
+                {
+                    JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+        else if(btnEditProf.getText().equals("Edit"))
+        {
+            btnEditProf.setVisible(true);
+            btnEditProfBack.setVisible(true);
+            txtProfName.setEditable(true);
+            txtProfEmail.setEditable(true);
+            txtProfAddress.setEditable(true);
+            txtProfPhoneNo.setEditable(true);
+            txtProfPassword.setEditable(true);
+            txtProfCfmPwd.setEditable(true);
+            btnEditProf.setText("Confirm");
+        }
+        
+    }//GEN-LAST:event_btnEditProfActionPerformed
+
+    private void btnEditProfBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProfBackActionPerformed
+        btnEditProfBack.setVisible(false);
+        btnEditProf.setText("Edit");
+        cmenuViewProfile.doClick();
+    }//GEN-LAST:event_btnEditProfBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1540,6 +1655,8 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnDecreaseQuan;
     private javax.swing.JButton btnDeleteOrder;
     private javax.swing.JButton btnDeleteOrderItem;
+    private javax.swing.JButton btnEditProf;
+    private javax.swing.JButton btnEditProfBack;
     private javax.swing.JMenuItem btnLogout;
     private javax.swing.JButton btnSearchOrder;
     private javax.swing.JButton btnSearchProduct;
@@ -1554,14 +1671,12 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JMenu cmenuShop;
     private javax.swing.JMenuItem cmenuViewOrder;
     private javax.swing.JMenuItem cmenuViewProfile;
-    private javax.swing.JButton jButton11;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -1576,7 +1691,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1585,17 +1699,12 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblEditOrderGrandTotal;
     private javax.swing.JLabel lblParam1Header;
     private javax.swing.JLabel lblParam2Header;
@@ -1607,6 +1716,8 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel lblProdParam3;
     private javax.swing.JLabel lblProdPrice;
     private javax.swing.JLabel lblProdType;
+    private javax.swing.JLabel lblProfUserID;
+    private javax.swing.JLabel lblProfUsername;
     private javax.swing.JLabel lblQuan;
     private javax.swing.JLabel lblStockStatus;
     private javax.swing.JLabel lblViewOrderGrandTotal;
@@ -1623,6 +1734,12 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JTable tblOrderItemList;
     private javax.swing.JTable tblOrderOrderItems;
     private javax.swing.JTextField txtOrderItemQuan;
+    private javax.swing.JTextArea txtProfAddress;
+    private javax.swing.JPasswordField txtProfCfmPwd;
+    private javax.swing.JTextField txtProfEmail;
+    private javax.swing.JTextField txtProfName;
+    private javax.swing.JPasswordField txtProfPassword;
+    private javax.swing.JTextField txtProfPhoneNo;
     private javax.swing.JTextField txtSearchOrder;
     private javax.swing.JTextField txtSearchProduct;
     // End of variables declaration//GEN-END:variables

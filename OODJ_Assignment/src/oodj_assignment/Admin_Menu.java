@@ -1742,6 +1742,11 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         btnEditProfBack.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnEditProfBack.setText("Back");
+        btnEditProfBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditProfBackActionPerformed(evt);
+            }
+        });
 
         txtProfAddress.setColumns(20);
         txtProfAddress.setRows(5);
@@ -3237,6 +3242,10 @@ public class Admin_Menu extends javax.swing.JFrame {
                                 cus.setEmailAddress(txtProfEmail.getText());
                                 cus.setAddress(txtProfAddress.getText());
                                 cus.setPhoneNumber(txtProfPhoneNo.getText());
+                                admin.setName(txtProfName.getText());
+                                admin.setEmailAddress(txtProfEmail.getText());
+                                admin.setAddress(txtProfAddress.getText());
+                                admin.setPhoneNumber(txtProfPhoneNo.getText());
                                 if(txtProfPassword.getPassword().length > 0 || txtProfCfmPwd.getPassword().length > 0)
                                 {
                                     cus.setPassword(String.valueOf(txtProfPassword.getPassword()));
@@ -3266,6 +3275,12 @@ public class Admin_Menu extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_btnEditProfActionPerformed
+
+    private void btnEditProfBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProfBackActionPerformed
+        btnEditProfBack.setVisible(false);
+        btnEditProf.setText("Edit");
+        menuEditProfile.doClick();
+    }//GEN-LAST:event_btnEditProfBackActionPerformed
 
     /**
      * @param args the command line arguments

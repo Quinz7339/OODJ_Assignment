@@ -1574,6 +1574,10 @@ public class Cus_Menu extends javax.swing.JFrame {
                                 cus.setEmailAddress(txtProfEmail.getText());
                                 cus.setAddress(txtProfAddress.getText());
                                 cus.setPhoneNumber(txtProfPhoneNo.getText());
+                                customer.setName(txtProfName.getText());
+                                customer.setEmailAddress(txtProfEmail.getText());
+                                customer.setAddress(txtProfAddress.getText());
+                                customer.setPhoneNumber(txtProfPhoneNo.getText());
                                 if(txtProfPassword.getPassword().length > 0 || txtProfCfmPwd.getPassword().length > 0)
                                 {
                                     cus.setPassword(String.valueOf(txtProfPassword.getPassword()));

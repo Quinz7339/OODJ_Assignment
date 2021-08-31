@@ -1,4 +1,4 @@
-CUS1,philip12,admin,pepegachua,philip@mumgay,0123456789,jhabdfgiadbgjidgb
+CUS1,philip12,admin,Philip Chua,philip@gmail.com,0123456789,Asia Pacific Univerisity
 ADM1,ctk12,ctkgood,ctk,ctk@mumgay,71234924,fdhsdfhsedfhAWGasdfasfd
 CUS3,daddyjon,hacker,jon,daddyjon@slapmesilly,12835421312,sdafghasdfuiasdfg
 CUS4,notdaddyjone,nice,jone,jone@gmail,8921734891254,asdfasghawerh

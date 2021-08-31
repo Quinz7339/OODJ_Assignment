@@ -2919,6 +2919,35 @@ public class Admin_Menu extends javax.swing.JFrame {
                 }
             }
          }
+        // Remove redundant order items in arraylist
+        int count = 0;
+        OrderItem dupItem = null;
+        for (int i = 0; i < orderItemList.size(); i++)
+        {
+            if(orderItemList.get(i).getProductID().equals(lblProdID.getText()))
+            {
+                count = count + orderItemList.get(i).getBuyQuan();
+                dupItem = orderItemList.get(i);
+            }           
+        }
+        if (!dupItem.equals(null))
+        {
+            for (int i  = orderItemList.size() - 1; i >=0 ; i -- )
+            {
+                if (orderItemList.get(i).getProductID().equals(lblProdID.getText()))
+                {
+                    orderItemList.remove(i);
+                }
+            }
+            OrderItem orderItem = new OrderItem(dupItem.getProductID(),
+                        dupItem.getProductName(),
+                        count,
+                        dupItem.getProductPrice(),
+                        dupItem.getShippingFee());
+            
+            orderItemList.add(orderItem);
+        }
+        menuEditOrder.doClick();
     }//GEN-LAST:event_btnAddOrderItemActionPerformed
 
     private void btnEditProdAddQuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProdAddQuanActionPerformed

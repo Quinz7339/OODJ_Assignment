@@ -130,11 +130,9 @@ public class Cus_Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         cmenuShop = new javax.swing.JMenu();
         cmenuBrowseProduct = new javax.swing.JMenuItem();
-        cmenuSearchProduct = new javax.swing.JMenuItem();
         cmenuOrder = new javax.swing.JMenu();
         cmenuEditOrder = new javax.swing.JMenuItem();
         cmenuViewOrder = new javax.swing.JMenuItem();
-        cmenuSearchOrder = new javax.swing.JMenuItem();
         cmenuProfile = new javax.swing.JMenu();
         cmenuViewProfile = new javax.swing.JMenuItem();
         cmenuHome = new javax.swing.JMenu();
@@ -948,14 +946,6 @@ public class Cus_Menu extends javax.swing.JFrame {
         });
         cmenuShop.add(cmenuBrowseProduct);
 
-        cmenuSearchProduct.setText("Search Product");
-        cmenuSearchProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmenuSearchProductActionPerformed(evt);
-            }
-        });
-        cmenuShop.add(cmenuSearchProduct);
-
         jMenuBar1.add(cmenuShop);
 
         cmenuOrder.setText("Order");
@@ -976,14 +966,6 @@ public class Cus_Menu extends javax.swing.JFrame {
             }
         });
         cmenuOrder.add(cmenuViewOrder);
-
-        cmenuSearchOrder.setText("Search Order");
-        cmenuSearchOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmenuSearchOrderActionPerformed(evt);
-            }
-        });
-        cmenuOrder.add(cmenuSearchOrder);
 
         jMenuBar1.add(cmenuOrder);
 
@@ -1063,11 +1045,6 @@ public class Cus_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmenuBrowseProductActionPerformed
 
-    private void cmenuSearchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuSearchProductActionPerformed
-        CardLayout card = (CardLayout)pnlCusMenu.getLayout();
-        card.show(pnlCusMenu, "pnlSearchProduct");
-    }//GEN-LAST:event_cmenuSearchProductActionPerformed
-
     private void cmenuReturnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuReturnHomeActionPerformed
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
         card.show(pnlCusMenu, "pnlCusMain");
@@ -1116,7 +1093,8 @@ public class Cus_Menu extends javax.swing.JFrame {
         txtProfPhoneNo.setEditable(false);
         txtProfPassword.setEditable(false);
         txtProfCfmPwd.setEditable(false);
-        
+        txtProfPassword.setText("");
+        txtProfCfmPwd.setText("");
         lblProfUserID.setText(customer.getUID());
         lblProfUsername.setText(customer.getUsername());
         txtProfName.setText(customer.getName());
@@ -1147,13 +1125,6 @@ public class Cus_Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_cmenuViewOrderActionPerformed
-
-    private void cmenuSearchOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmenuSearchOrderActionPerformed
-        CardLayout card = (CardLayout)pnlCusMenu.getLayout();
-        card.show(pnlCusMenu, "pnlSearchOrder"); 
-        
-        
-    }//GEN-LAST:event_cmenuSearchOrderActionPerformed
 
     private void lstBrowseProductMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstBrowseProductMouseReleased
         CardLayout card = (CardLayout)pnlCusMenu.getLayout();
@@ -1562,9 +1533,9 @@ public class Cus_Menu extends javax.swing.JFrame {
                     {
                         if (cus.getUID().equals(lblProfUserID.getText()))
                         {
-                            if((cus.getName().equals(txtProfName.getText()) && cus.getAddress().equals(txtProfAddress.getText())&& 
-                                    cus.getEmailAddress().equals(txtProfEmail.getText()) && cus.getPhoneNumber().equals(txtProfPhoneNo.getText()))||
-                                    (cus.getPassword().equals(String.valueOf(txtProfPassword.getPassword()))))
+                            if(cus.getName().equals(txtProfName.getText()) && cus.getAddress().equals(txtProfAddress.getText())&& 
+                                    cus.getEmailAddress().equals(txtProfEmail.getText()) && cus.getPhoneNumber().equals(txtProfPhoneNo.getText()) &&
+                                    cus.getPassword().equals(String.valueOf(txtProfPassword.getPassword())) || String.valueOf(txtProfPassword.getPassword()).equals(""))
                             {
                                 JOptionPane.showMessageDialog(errorMessage, "No changes detected. Please retry.","No fields are changed.",JOptionPane.ERROR_MESSAGE);
                             }
@@ -1592,6 +1563,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
+            cmenuViewProfile.doClick();
         }
         else if(btnEditProf.getText().equals("Edit"))
         {
@@ -1670,8 +1642,6 @@ public class Cus_Menu extends javax.swing.JFrame {
     private javax.swing.JMenu cmenuOrder;
     private javax.swing.JMenu cmenuProfile;
     private javax.swing.JMenuItem cmenuReturnHome;
-    private javax.swing.JMenuItem cmenuSearchOrder;
-    private javax.swing.JMenuItem cmenuSearchProduct;
     private javax.swing.JMenu cmenuShop;
     private javax.swing.JMenuItem cmenuViewOrder;
     private javax.swing.JMenuItem cmenuViewProfile;

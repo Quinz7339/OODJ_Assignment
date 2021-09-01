@@ -2267,7 +2267,8 @@ public class Admin_Menu extends javax.swing.JFrame {
         txtProfPhoneNo.setEditable(false);
         txtProfPassword.setEditable(false);
         txtProfCfmPwd.setEditable(false);
-        
+        txtProfPassword.setText("");
+        txtProfCfmPwd.setText("");
         lblProfUserID.setText(admin.getUID());
         lblProfUsername.setText(admin.getUsername());
         txtProfName.setText(admin.getName());
@@ -3230,9 +3231,9 @@ public class Admin_Menu extends javax.swing.JFrame {
                     {
                         if (cus.getUID().equals(lblProfUserID.getText()))
                         {
-                            if((cus.getName().equals(txtProfName.getText()) && cus.getAddress().equals(txtProfAddress.getText())&& 
-                                    cus.getEmailAddress().equals(txtProfEmail.getText()) && cus.getPhoneNumber().equals(txtProfPhoneNo.getText()))||
-                                    (cus.getPassword().equals(String.valueOf(txtProfPassword.getPassword()))))
+                            if(cus.getName().equals(txtProfName.getText()) && cus.getAddress().equals(txtProfAddress.getText())&& 
+                                    cus.getEmailAddress().equals(txtProfEmail.getText()) && cus.getPhoneNumber().equals(txtProfPhoneNo.getText()) &&
+                                    cus.getPassword().equals(String.valueOf(txtProfPassword.getPassword())) || String.valueOf(txtProfPassword.getPassword()).equals(""))
                             {
                                 JOptionPane.showMessageDialog(errorMessage, "No changes detected. Please retry.","No fields are changed.",JOptionPane.ERROR_MESSAGE);
                             }
@@ -3260,6 +3261,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(errorMessage, "An Error Occured. Please try again. Possible error:[Invalid tampering of file]","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
+            menuEditProfile.doClick();
         }
         else if(btnEditProf.getText().equals("Edit"))
         {

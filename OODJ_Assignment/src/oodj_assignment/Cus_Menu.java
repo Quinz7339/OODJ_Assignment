@@ -33,6 +33,7 @@ public class Cus_Menu extends javax.swing.JFrame {
     }
     public Cus_Menu() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**

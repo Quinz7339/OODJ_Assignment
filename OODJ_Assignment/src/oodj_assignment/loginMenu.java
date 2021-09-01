@@ -19,6 +19,7 @@ public class loginMenu extends javax.swing.JFrame {
      */
     public loginMenu() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**

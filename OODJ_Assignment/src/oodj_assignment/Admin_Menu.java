@@ -54,6 +54,7 @@ public class Admin_Menu extends javax.swing.JFrame {
         user.add(rbUsrCus);
         prod.add(rbBeans);
         prod.add(rbEquipments);
+        this.setResizable(false);
     }
 
     /**

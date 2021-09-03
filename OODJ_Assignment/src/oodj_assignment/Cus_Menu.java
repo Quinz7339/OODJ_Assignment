@@ -799,7 +799,7 @@ public class Cus_Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnDeleteOrderItem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEditOrderGrandTotal)
@@ -1060,7 +1060,7 @@ public class Cus_Menu extends javax.swing.JFrame {
         // Get grand total for pending order
         Order order = new Order(customer.genOrderID(), orderItemList);
         lblEditOrderGrandTotal.setText(String.format("RM%.2f",order.getGrandTotal()));
-        
+
         // clear order list table
         int rowsToRemove = orderItemListModel.getRowCount();
         //remove rows from the bottom one by one
@@ -1534,9 +1534,10 @@ public class Cus_Menu extends javax.swing.JFrame {
                     {
                         if (cus.getUID().equals(lblProfUserID.getText()))
                         {
-                            if(cus.getName().equals(txtProfName.getText()) && cus.getAddress().equals(txtProfAddress.getText())&& 
-                                    cus.getEmailAddress().equals(txtProfEmail.getText()) && cus.getPhoneNumber().equals(txtProfPhoneNo.getText()) &&
-                                    cus.getPassword().equals(String.valueOf(txtProfPassword.getPassword())) || String.valueOf(txtProfPassword.getPassword()).equals(""))
+                            //Ensure at least one field is changed when compared to database
+                            if((cus.getName().equals(txtProfName.getText()) && cus.getAddress().equals(txtProfAddress.getText())&& 
+                                    cus.getEmailAddress().equals(txtProfEmail.getText()) && cus.getPhoneNumber().equals(txtProfPhoneNo.getText())) &&
+                                    (cus.getPassword().equals(String.valueOf(txtProfPassword.getPassword())) || String.valueOf(txtProfPassword.getPassword()).equals("")))
                             {
                                 JOptionPane.showMessageDialog(errorMessage, "No changes detected. Please retry.","No fields are changed.",JOptionPane.ERROR_MESSAGE);
                             }

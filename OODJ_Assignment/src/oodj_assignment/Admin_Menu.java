@@ -278,23 +278,22 @@ public class Admin_Menu extends javax.swing.JFrame {
         pnlAdminMenuLayout.setHorizontalGroup(
             pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAdminMenuLayout.createSequentialGroup()
-                .addContainerGap(130, Short.MAX_VALUE)
+                .addGap(121, 121, 121)
                 .addGroup(pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAdminMenuLayout.createSequentialGroup()
                         .addComponent(jLabel21)
-                        .addGap(248, 248, 248))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAdminMenuLayout.createSequentialGroup()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(106, 106, 106))))
+                        .addGap(142, 142, 142))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         pnlAdminMenuLayout.setVerticalGroup(
             pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAdminMenuLayout.createSequentialGroup()
-                .addGap(158, 158, 158)
+                .addGap(157, 157, 157)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         mainAdminMain.add(pnlAdminMenu, "pnlAdminMenu");
@@ -444,11 +443,11 @@ public class Admin_Menu extends javax.swing.JFrame {
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAddCusPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAddCusAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addGroup(pnlAddCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddUser)
                     .addComponent(btnClearField))
@@ -1649,7 +1648,7 @@ public class Admin_Menu extends javax.swing.JFrame {
 
         lblViewOrderGrandTotal.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         lblViewOrderGrandTotal.setForeground(new java.awt.Color(0, 153, 51));
-        lblViewOrderGrandTotal.setText("**Price**");
+        lblViewOrderGrandTotal.setText("RM0.00");
 
         javax.swing.GroupLayout pnlViewOrderSummaryLayout = new javax.swing.GroupLayout(pnlViewOrderSummary);
         pnlViewOrderSummary.setLayout(pnlViewOrderSummaryLayout);
@@ -2192,25 +2191,35 @@ public class Admin_Menu extends javax.swing.JFrame {
         }
         else //a user type is selected, a userType is set
         {
-            if (rbUsrAdm.isSelected())
+            if(txtAddCusName.getText().equals("") || txtAddCusUsrname.getText().equals("") || 
+                    txtAddCusEmail.getText().equals("") || txtAddCusPhone.getText().equals("") ||
+                    txtAddCusAddress.getText().equals("") || txtAddCusPwd.getPassword().equals(""))
             {
-                usrType = "ADM";
-            }
-            else if (rbUsrCus.isSelected())
-            {
-                usrType = "CUS";
-            }
-
-            if(cpwd.equals(pwd)) //if passwords entered are same, calls the addUser static method
-            {
-                Admin adm = new Admin();
-                adm.addUser(usr, pwd, name, email, phone, address, usrType);
+                JOptionPane.showMessageDialog(errorMessage, "Required fields are not entered!. Please retry.","All fields should be filled.",JOptionPane.ERROR_MESSAGE);
             }
             else
-            {
-                JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Different password entered.",JOptionPane.WARNING_MESSAGE);
-            } 
+            {   
+                if (rbUsrAdm.isSelected())
+                {
+                    usrType = "ADM";
+                }
+                else if (rbUsrCus.isSelected())
+                {
+                    usrType = "CUS";
+                }
+
+                if(cpwd.equals(pwd)) //if passwords entered are same, calls the addUser static method
+                {
+                    Admin adm = new Admin();
+                    adm.addUser(usr, pwd, name, email, phone, address, usrType);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Different password entered.",JOptionPane.WARNING_MESSAGE);
+                } 
+            }
         }
+        btnClearField.doClick();
     }//GEN-LAST:event_btnAddUserActionPerformed
 
     private void menuViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuViewOrderActionPerformed
@@ -2645,7 +2654,6 @@ public class Admin_Menu extends javax.swing.JFrame {
             txtCusPassword.setEditable(false);
             txtCusPassword2.setEditable(false);
             btnEditProd.setText("Edit");
-            
             //edit product logic here
             try
             {
@@ -2667,6 +2675,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                                     int quan = Integer.parseInt(txtProdQuan.getText().trim());
                                     int subtotal = quan + Integer.parseInt(lblCurrentQuan.getText().trim());
                                     fragProd.setProdQuantity(subtotal);
+                                    lblCurrentQuan.setText(Integer.toString(subtotal));
                                 }
                                 if(fragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()))
                                 {
@@ -2692,6 +2701,7 @@ public class Admin_Menu extends javax.swing.JFrame {
                                     int quan = Integer.parseInt(txtProdQuan.getText().trim());
                                     int subtotal = quan + Integer.parseInt(lblCurrentQuan.getText().trim());
                                     nonFragProd.setProdQuantity(subtotal);
+                                    lblCurrentQuan.setText(Integer.toString(subtotal));
                                 }
                                 if(nonFragProd.getProductWeight() != Double.parseDouble(txtProdWeight.getText().trim()))
                                 {
@@ -3232,9 +3242,10 @@ public class Admin_Menu extends javax.swing.JFrame {
                     {
                         if (cus.getUID().equals(lblProfUserID.getText()))
                         {
-                            if(cus.getName().equals(txtProfName.getText()) && cus.getAddress().equals(txtProfAddress.getText())&& 
-                                    cus.getEmailAddress().equals(txtProfEmail.getText()) && cus.getPhoneNumber().equals(txtProfPhoneNo.getText()) &&
-                                    cus.getPassword().equals(String.valueOf(txtProfPassword.getPassword())) || String.valueOf(txtProfPassword.getPassword()).equals(""))
+                            //Ensure at least one field is changed when compared to database
+                            if((cus.getName().equals(txtProfName.getText()) && cus.getAddress().equals(txtProfAddress.getText())&& 
+                                    cus.getEmailAddress().equals(txtProfEmail.getText()) && cus.getPhoneNumber().equals(txtProfPhoneNo.getText())) &&
+                                    (cus.getPassword().equals(String.valueOf(txtProfPassword.getPassword())) || String.valueOf(txtProfPassword.getPassword()).equals("")))
                             {
                                 JOptionPane.showMessageDialog(errorMessage, "No changes detected. Please retry.","No fields are changed.",JOptionPane.ERROR_MESSAGE);
                             }

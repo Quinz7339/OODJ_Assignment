@@ -234,6 +234,11 @@ public class loginMenu extends javax.swing.JFrame {
 
         btnRegisterReset.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnRegisterReset.setText("Reset");
+        btnRegisterReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterResetActionPerformed(evt);
+            }
+        });
 
         btnRegisterConfirm.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnRegisterConfirm.setText("Confirm");
@@ -383,23 +388,44 @@ public class loginMenu extends javax.swing.JFrame {
         String address =  txtAddCusAddress.getText();
         String usrType = "CUS";
         
-        if(cpwd.equals(pwd)) //if passwords entered are same, calls the addUser static method
+        if(txtAddCusName.getText().equals("") || txtAddCusUsrname.getText().equals("") || 
+        txtAddCusEmail.getText().equals("") || txtAddCusPhone.getText().equals("") ||
+        txtAddCusAddress.getText().equals("") || txtAddCusPwd.getText().equals(""))
         {
-            Admin adm = new Admin();
-            adm.addUser(usr, pwd, name, email, phone, address, usrType);
-            CardLayout card = (CardLayout)mainLoginMain.getLayout();
-            card.show(mainLoginMain, "pnlLogin");
+            JOptionPane.showMessageDialog(errorMessage, "Required fields are not entered!. Please retry.","All fields should be filled.",JOptionPane.ERROR_MESSAGE);
         }
         else
         {
-            JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Different password entered.",JOptionPane.WARNING_MESSAGE);
-        } 
+            if(cpwd.equals(pwd)) //if passwords entered are same, calls the addUser static method
+            {
+                Admin adm = new Admin();
+                adm.addUser(usr, pwd, name, email, phone, address, usrType);
+                CardLayout card = (CardLayout)mainLoginMain.getLayout();
+                card.show(mainLoginMain, "pnlLogin");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(errorMessage, " Password entered is different. Please try again","Different password entered.",JOptionPane.WARNING_MESSAGE);
+            } 
+        }
+        btnRegisterReset.doClick();
     }//GEN-LAST:event_btnRegisterConfirmActionPerformed
 
     private void btnRegisterBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterBackActionPerformed
         CardLayout card = (CardLayout)mainLoginMain.getLayout();
         card.show(mainLoginMain, "pnlLogin");
+        btnRegisterReset.doClick();
     }//GEN-LAST:event_btnRegisterBackActionPerformed
+
+    private void btnRegisterResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterResetActionPerformed
+        txtAddCusName.setText("");
+        txtAddCusUsrname.setText("");
+        txtAddCusPwd.setText("");
+        txtAddCusConfirmPw.setText("");        
+        txtAddCusEmail.setText("");        
+        txtAddCusPhone.setText("");        
+        txtAddCusAddress.setText("");             
+    }//GEN-LAST:event_btnRegisterResetActionPerformed
 
     /**
      * @param args the command line arguments

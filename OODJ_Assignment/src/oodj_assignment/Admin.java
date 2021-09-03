@@ -80,7 +80,7 @@ public class Admin extends Customer
 
                 pw.println(String.format("%s,%s,%s,%s,%s,%s,%s",newUID,username,password,name,email,phoneNo,address));
                 pw.close();
-                JOptionPane.showMessageDialog(errorMessage, " Customer data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(errorMessage, " User data added","Entry Successful!",JOptionPane.INFORMATION_MESSAGE);
             }
 
         }

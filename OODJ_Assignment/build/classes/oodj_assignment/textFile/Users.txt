@@ -1,5 +1,4 @@
-CUS1,philip12,admin,Philip Chua,philip@gmail.com,0123456789,Asia Pacific Univerisity
-ADM1,ctk12,admin,ctk,ctk@yahoo.com,01245742312,Somewhere in the earth.
-CUS3,daddyjon,hacker,jon,daddyjon@slapmesilly,12835421312,sdafghasdfuiasdfg
-CUS4,notdaddyjone,nice,jone,jone@gmail,8921734891254,asdfasghawerh
-CUS5,eugegayneh,123,Eugene,eugene@yougayneh,8781234123,dfsghashndha
+ADM1,ctk12,admin,ctk,ctk@yahoo.com,0180921324,Somewhere in the earth.
+ADM2,philip123,admin,Chua Philip,philip123@gmail.com,0123456789,Taman Malaysia
+CUS1,eugene123,admin,Eugene,eugene@gmail.com,0123414231,Taman Japan
+CUS2,jon123,123,Jone,jon@gmail.com,0293814213,Taman Africa
